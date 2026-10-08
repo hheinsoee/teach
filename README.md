@@ -42,3 +42,7 @@ Every day fits in 120 minutes. Day 9 has pre-work; day 12 depends on class size 
 
 A **full-stack builder** — able to take an idea to production alone.
 Not a junior engineer ready for a team codebase. Keep that claim honest everywhere.
+
+## License
+
+[MIT](LICENSE) © 2026 Hein Soe
