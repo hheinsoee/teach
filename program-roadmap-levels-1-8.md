@@ -5,6 +5,32 @@ Programming ကို အခြေခံကနေ စပြီး real-world app
 
 ---
 
+## Level 0 — Adaptive Production Builder (No Code)
+
+### Goal
+Programming မသိရသေးဘဲ AI tools တွေသုံးပြီး mini-app တစ်ခုကို internet ပေါ်တင်၊ real users ရှိစေပြီး operate လုပ်တတ်ရန်။
+
+### Topics
+- Browser, URL, Deploy
+- v0.dev · Lovable · Supabase · Vercel
+- Prompting (what problem · how to use)
+- Mini-app pattern
+- Database basics (table, row, column) — click-based, no SQL
+- Authentication basics (signup, login, isolation) — click-based
+- Error reading (as a user, not an engineer)
+- Operating (fix, modify, redeploy)
+
+### Project
+Capstone mini-app with 3 real users
+
+### Student Outcome
+Programming မသိရသေးဘဲ AI tools ကိုသုံးပြီး idea → live mini-app → real users ဖြစ်အောင် တည်ဆောက်နိုင်ပြီး ဖြစ်ပေါ်လာတဲ့ ပြဿနာကို operate လုပ်နိုင်ရမည်။
+
+### Course
+`course-0-adaptive-production-builder/` — 3 weeks · 12 contact hours · 24 homework hours
+
+---
+
 ## Level 1 — Programming Fundamentals
 
 ### Goal
