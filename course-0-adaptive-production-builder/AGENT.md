@@ -23,12 +23,14 @@ A class is never called a session. A class never becomes a lecture — every cla
 
 These are the design of the course. Do not "improve" them away.
 
+0. **This is an inspiration course, not a gating course.** The goal is to **spark curiosity** so students want to continue to Course 1 (engineering). Everything infrastructural (deploys, CI/CD, env vars, RLS policies, Supabase schemas) is **pre-built and handed to them** — they click, use, and feel the magic. The "how it actually works under the hood" is Course 1. If a student finishes Course 0 excited to learn more, the course succeeded. If a student finishes exhausted and confused, the course over-engineered itself and failed its own principle.
 1. **No code is taught.** No variables, no loops, no functions, no HTML, no SQL. If the student needs those, they go to Course 1. Course 0 is **tool-first, output-first**.
-2. **Ship every class.** Every class must end with a URL the student can open on their phone. A class that teaches concepts without a live URL has failed the course design.
+2. **Ship every day.** Every day must end with a URL the student can open on their phone. A day that teaches concepts without a live URL has failed the course design.
 3. **Experience → Label → Transfer.** Hands-on first. Only after the student has done it, name what they did. Then show where that pattern appears elsewhere. Theory never comes first.
 4. **Mini-app is the unit of contribution.** Not "a feature", not "a page" — a mini-app that solves one problem and is live on the internet.
 5. **AI writes the code; the student directs it.** The student never opens a code file to type in it. They prompt, verify, and iterate.
-6. **Honesty over marketing.** This course does **not** produce a developer. It produces a builder. Never upgrade that claim anywhere.
+6. **Framework/templates/scripts are the instructor's job, not the student's.** Supabase projects, RLS policies, deploy configs, env var setup — all pre-built in `template/`. Students fork, use, and ship. They learn these layers in Course 1+. This is on purpose.
+7. **Honesty over marketing.** This course does **not** produce a developer. It produces an **inspired beginner** who has shipped something real and wants to go deeper. Never upgrade that claim anywhere.
 
 ## The theBuilderPros framework (reference, not required)
 
