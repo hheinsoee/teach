@@ -1,127 +1,98 @@
 # Day 2 — CSS Styling
 
-**Project**: Habit Tracker (continuing)
-**Marcus stages**: 2 (First App)
-**Modules touched**: H (CSS depth), F (AI for styling)
-**Duration**: 90 min class + 3 hr homework
+**Phase**: Learning (Day 2 of 8)
+**Project**: Habit Tracker
+**Modules touched**: H (CSS), F (AI)
+**Duration**: 90 min + 3 hr HW
 
 ---
 
 ## Learning outcomes
 
-Students can:
-- **Read**: a CSS file and name 5+ properties
-- **Understand**: that CSS is separate from HTML and controls look only
-- **Direct**: AI to generate CSS matching a style description
-- **Verify**: changes appear in the browser after refresh
+- **Read** a CSS file, name 5+ properties
+- **Understand** CSS is separate from HTML, controls look only
+- **Direct** AI to style via descriptions
+- **Verify** changes appear after push + reload
 
 ---
 
-## 90-minute plan
+## 90-min plan
 
-| Block | Minutes | Activity |
+| Block | Min | Activity |
 |---|---|---|
-| Homework review | 15 | 2-3 students show modified pages |
-| Concept: HTML = structure, CSS = look | 10 | Analogy: HTML is the body, CSS is the clothes |
-| Instructor demo | 15 | Prompt AI for styling, create `styles.css`, link to HTML |
-| Student build | 40 | Each student styles their Habit Tracker via AI |
-| Label | 10 | What is CSS? Selector? Property? Value? |
+| HW review | 10 | 2-3 students show modified HTML |
+| Concept: HTML vs CSS vs JS | 10 | Structure / Look / Behavior |
+| Instructor demo | 15 | AI generates CSS, link to HTML, push, see live |
+| Student build | 40 | Students style their Habit Tracker |
+| Label + commit | 15 | CSS terms + push |
 
 ---
 
-## Concept phase (10 min)
-
-Draw on whiteboard:
+## Concept (10 min)
 
 ```
-HTML  →  Structure  (what's on the page)
-CSS   →  Style      (how it looks)
-JS    →  Behavior   (what happens when you click — tomorrow)
+HTML  →  Structure (what's on the page)
+CSS   →  Look (how it appears)
+JS    →  Behavior (what happens when clicked — Day 3+)
 ```
 
 Analogy:
-- HTML က **ကိုယ့်ကိုယ်ခန္ဓာ** လိုမျိုး — ကြွက်သား, အရိုး, အင်္ဂါ
-- CSS က **အဝတ်အစား** လိုမျိုး — ဘယ်အရောင်, ဘယ်ဆိုက်, ဘယ်လိုတပ်ဆင်လဲ
-- JS က **လှုပ်ရှားမှု** (မနက်ဖြန်) — လက်လှုပ်, ပြေး, ပြောင်း
+- HTML = ကိုယ်ခန္ဓာ
+- CSS = အဝတ်
+- JS = လှုပ်ရှားမှု
 
 ---
 
-## Instructor demo (15 min)
+## Demo (15 min)
 
-Open the Habit Tracker HTML from Day 1 in Chrome. Looks plain.
-
-Open ChatGPT/Claude. Prompt:
+Prompt AI:
 
 ```
-I have a Habit Tracker HTML file. Here's the content:
+Here's my HTML:
+[paste index.html body]
 
-[paste the HTML]
-
-Please create a styles.css file that makes it look:
-- Clean and modern
+Create styles.css that:
 - Dark background, light text
 - Big friendly font
-- Checkboxes larger than default
-- Centered on the page
+- Centered on page
+- Bigger checkboxes
 - Mobile-friendly
 
-Give me the CSS code and tell me how to connect it to my HTML.
+Give me the CSS and tell me how to link it.
 ```
 
-AI gives:
-1. `styles.css` content
-2. The `<link rel="stylesheet" href="styles.css">` line to add to HTML
-
-**Instructor reads each CSS rule out loud**:
-
-> *"ဒီ `body { }` က — body tag ကို ပြောင်းမယ်။*
->
-> *`background: #1a1a1a;` က — background ကို အနက်။*
->
-> *`color: #f5f5f5;` က — စာသား အရောင် အဖြူ။*
->
-> *`font-family: system-ui;` က — ဖောင့်မျိုး။*
->
-> *`font-size: 1.2rem;` က — ဖောင့်အရွယ်။*"
-
-Save `styles.css` in same folder. Add `<link>` tag to HTML. **Reload browser. Now it's styled.**
+AI gives CSS. Read each rule aloud. Save to `styles.css`. Add `<link>` to HTML. Push. Reload. Styled.
 
 ---
 
 ## Student build (40 min)
 
 Each student:
+1. Prompt AI with their HTML
+2. Save to `styles.css`
+3. Add `<link rel="stylesheet" href="styles.css">` to `<head>`
+4. Commit + push
+5. Iterate: "make headings pink", "bigger spacing", etc.
 
-1. Open AI, use the demo prompt (modified for their habits)
-2. Create `styles.css` in their `habit-tracker/` folder
-3. Add `<link>` to their HTML
-4. Reload — see styled version
-5. **Then iterate**: ask AI for one change ("make headings pink", "make bigger spacing", "use rounded corners")
-
-**Instructor circulates**. Common issues:
-- Student forgot `<link>` → no styles apply
-- Student saved CSS as `.txt` → not recognized
-- Student put `styles.css` in wrong folder → not found
-- Browser cache → add `?v=2` to link or hard refresh (Cmd+Shift+R)
+**Common issues**: `<link>` typo, CSS not loading (hard refresh), AI gives Tailwind (re-prompt plain CSS).
 
 ---
 
-## Label phase (10 min)
+## Label (10 min)
 
-Write (no AI):
+Write:
+1. What is CSS?
+2. What is a **selector**?
+3. What is a **property**?
+4. What is a **value**?
+5. How does CSS find HTML?
 
-1. What is CSS? (one sentence)
-2. What is a **selector**? (what you'd target: `body`, `h1`, `.habit`)
-3. What is a **property**? (`color`, `background`, `font-size`)
-4. What is a **value**? (`red`, `20px`, `center`)
-5. How does CSS "find" HTML? (via selectors matching tags)
-
-### Pocket answers
-
-- **CSS** — the language that tells the browser how HTML should look
-- **Selector** — the thing you want to style (`h1`, `body`, `.classname`)
-- **Property** — what aspect you're changing (color, size, position)
-- **Value** — the specific setting (`red`, `20px`, `center`)
+**Pocket answers**:
+- CSS = language that styles HTML
+- Selector = what to style (`body`, `h1`, `.habit`)
+- Property = what aspect (color, size, position)
+- Value = the setting (`red`, `20px`, `center`)
+- Via matching selectors to tags
 
 ---
 
@@ -129,19 +100,14 @@ Write (no AI):
 
 | Failure | Fix |
 |---|---|
-| CSS not loading | Check `<link>` path and filename |
-| Changes don't show | Hard refresh (Cmd+Shift+R / Ctrl+Shift+R) |
-| AI gives Tailwind classes | Re-prompt: "plain CSS, no frameworks" |
-| Student spends 30 min on colors | Enforce: "pick one, move on" |
-| Student copies prompt but result is ugly | Iterate: ask AI "make it look like Twitter" |
+| CSS not loading | Check `<link>` path/filename |
+| Changes don't show | Hard refresh |
+| AI gives Tailwind | Re-prompt "plain CSS, no frameworks" |
 
 ---
 
-## What this day is NOT
+## NOT
 
-- Not a CSS reference lesson (specificity, cascade, box model — not taught)
-- Not Flexbox / Grid deep dive
-- Not responsive design beyond "it works on phone"
-- Not design critique
-
-Keep it practical: style exists → open file → change value → reload → see result.
+- CSS specificity, cascade, box model (Course 1)
+- Flexbox/Grid deep dive
+- Design critique

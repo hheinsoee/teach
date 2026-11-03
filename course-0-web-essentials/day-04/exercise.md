@@ -1,120 +1,151 @@
 # Day 4 — In-Class Exercise
 
-**Goal**: Make your Habit Tracker remember checks across reloads. Add streak counter.
+**Goal**: Learn to bundle code into **functions** and make **decisions** with if/else.
 
 ---
 
-## Step 1 — Test what you have
+## Step 1 — Try a function in Console
 
-Open `habit-tracker/index.html`. Check some habits. Reload Chrome.
+Open your live URL. F12 → Console. Type:
 
-**All checks disappear.** That's today's problem.
+```javascript
+function sayHello(name) {
+    console.log("Hello, " + name)
+}
+
+sayHello("Hein")
+sayHello("Pwint")
+```
+
+Notice:
+- You defined `sayHello` once
+- You called it twice with different names
+- That's a function. **Reusable.**
 
 ---
 
-## Step 2 — Prompt AI for localStorage
+## Step 2 — Try if/else in Console
+
+```javascript
+let count = 4
+
+if (count === 4) {
+    console.log("All done!")
+} else {
+    console.log("Keep going")
+}
+```
+
+Change `count` to `2`. Re-run.
+
+**That's if/else — code makes decisions.**
+
+---
+
+## Step 3 — Prompt AI for functions
 
 Paste:
 
 ```
-I have a Habit Tracker. Checkboxes work with JavaScript but reset on reload.
-I want:
+Update my script.js to add these 3 functions:
 
-- When I check a habit, save it to localStorage
-- When the page loads, restore all saved checks
-- Add a "streak" counter — how many days in a row all habits were done
-- Add a "Reset today" button that unchecks all habits for today only
+1. isWeekend() — returns true if today is Saturday or Sunday
+2. greetByTime() — returns:
+   - "Good morning" if hour < 12
+   - "Good afternoon" if hour < 18
+   - "Good evening" otherwise
+3. countCompleted(arr) — takes an array of booleans
+   and returns how many are true
 
-Give me updated JavaScript. Explain the new lines.
+At the end, call each function and console.log the result.
 
-Here is my current HTML:
-
-[PASTE YOUR INDEX.HTML]
+Explain each function in simple English.
 ```
 
 ---
 
-## Step 3 — Replace your JS
+## Step 4 — Save script.js
 
-Find your `<script>` tag in `index.html`. Replace the content inside it with AI's new code.
+Copy JS from AI. Append to `script.js` (don't delete old code — add after).
 
-Save `index.html`.
-
----
-
-## Step 4 — Test persistence
-
-Reload Chrome. Check all 4 habits. Reload again.
-
-**Checks should stay.** Close the tab. Reopen `index.html`. Checks still there.
-
-If they disappear:
-- Open DevTools (F12) → Application tab → Local Storage → check if your data is there
-- If missing, re-prompt AI
-- If there but not restored, ask AI: "The data is in localStorage but doesn't restore. Help."
+Save.
 
 ---
 
-## Step 5 — Test streak counter
+## Step 5 — Push and test
 
-Check all 4 habits today. Streak should become 1.
+GitHub Desktop → commit `Day 4 — add functions` → push.
 
-Simulate tomorrow:
-- Uncheck all
-- Imagine it's a new day
+Wait 30 sec. Reload live URL. F12 → Console.
 
-Prompt AI if confused: *"How can I simulate 'new day' to test my streak counter?"*
-
-AI might suggest: temporarily change the system date, or add a "test mode" button.
+**See the function outputs**. Check they make sense.
 
 ---
 
-## Step 6 — Read the localStorage data
+## Step 6 — Read your code
 
-Open DevTools (F12). Click **Application** tab (or **Storage** on Firefox).
+For each function, answer:
+- What are the parameters?
+- What does it return?
+- What's inside the if/else?
 
-In the left sidebar, click **Local Storage** → your file.
-
-You'll see a key like `habits` and some weird-looking text (JSON).
-
-**That's your saved data.** Click on it to see.
+Ask AI: "Explain the countCompleted function line by line"
 
 ---
 
-## Step 7 — Label (no AI!)
+## Step 7 — Modify
+
+Change `greetByTime` to return "Good night" if hour >= 22.
+
+Push. Test.
+
+---
+
+## Step 8 — Label (no AI!)
 
 Write:
-
-1. What is **localStorage**?
-2. Where does localStorage data physically live? (your laptop, Google's server, somewhere else?)
-3. What is **state**?
-4. If you clear your browser cache, what happens to localStorage?
-5. Why can't localStorage save a JavaScript object directly? What do we convert it to?
+1. What is a **function**?
+2. What is a **parameter**?
+3. What does `return` do?
+4. What's **DRY**?
+5. Difference between `=` and `===`?
 
 ---
 
 ## Done when
 
-- [ ] Checks persist across page reload
-- [ ] Checks persist across closing and reopening the tab
-- [ ] Streak counter works
-- [ ] Reset button clears today's checks
-- [ ] You viewed localStorage in DevTools
+- [ ] You typed a function in Console
+- [ ] You typed an if/else in Console
+- [ ] script.js has 3 functions
+- [ ] Live URL + Console shows function outputs
+- [ ] Modified greetByTime
 - [ ] Label answers written
-
----
-
-## If you finish early
-
-Try:
-- **Add a timestamp**: "Last checked at 7:30 AM"
-- **Add a weekly view**: show how many days per week you hit all habits
-- **Add a new habit via a form** (text input + "Add" button)
 
 ---
 
 ## Rules
 
-1. **Reload after every change** to test persistence
-2. **DevTools → Application → Local Storage** is where your data lives
-3. **If something's weird**, inspect localStorage first before re-prompting
+1. **Call the function** or nothing happens (`greet("Hein")` not just `greet`)
+2. **`===` for compare, `=` for assign**
+3. **Read every function** before pushing. Understand it.
+
+---
+
+## If you finish early
+
+Try nested conditions:
+
+```javascript
+let count = 3
+let total = 4
+
+if (count === total) {
+    console.log("Perfect!")
+} else if (count > total / 2) {
+    console.log("Almost there")
+} else {
+    console.log("Just started")
+}
+```
+
+**`else if`** lets you check multiple cases.

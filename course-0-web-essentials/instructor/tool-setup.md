@@ -1,63 +1,44 @@
 # Tool Setup — For Students, Before Day 1
 
-Send this list to students at least **1 week before Day 1**. Setup problems kill Day 1 if deferred.
+Send this list to students **1 week before Day 1**. Setup problems kill Day 1 if deferred.
 
 ---
 
 ## What every student needs
 
-| # | Tool | Why | Where |
-|---|---|---|---|
-| 1 | **Chrome** (or Edge/Firefox) | View their web pages, DevTools | Pre-installed on most laptops |
-| 2 | **Gmail account** | Sign in to GitHub, ChatGPT, Claude | gmail.com |
-| 3 | **GitHub account** | Day 5 deploy | github.com — "Sign in with Google" |
-| 4 | **ChatGPT** OR **Claude** account | Days 2-8 — generates code | chatgpt.com or claude.ai (free tier OK) |
-| 5 | **Text editor** | Edit HTML/CSS/JS files | VS Code (recommended), Notepad, TextEdit |
-| 6 | **Git** (CLI) | Day 5 — push to GitHub | git-scm.com |
-
-**Alternative for Day 5**: GitHub Desktop (desktop.github.com) — easier than Git CLI for first-timers.
+| # | Tool | Why |
+|---|---|---|
+| 1 | **Chrome** (or Edge/Firefox) | View pages + DevTools |
+| 2 | **Gmail account** | Sign in to GitHub, ChatGPT, Claude |
+| 3 | **GitHub account** | Day 1+ for clone + push |
+| 4 | **GitHub Desktop** | Easiest Git without CLI |
+| 5 | **ChatGPT** OR **Claude** | Code generation (every day) |
+| 6 | **VS Code** (or any text editor) | Edit HTML/CSS/JS |
 
 ---
 
-## Pre-Day-1 message to send students
+## Pre-Day-1 message
 
-Copy-paste and send 1 week before Day 1:
-
-> Hi — before Day 1 of **Course 0 (Web Essentials)**, please set up these accounts and tools. Takes about 20-30 minutes.
+> Hi — before Course 0 — Web Essentials Day 1, please set up these accounts (20-30 min):
 >
-> **Accounts (sign in with Gmail everywhere)**:
-> 1. **ChatGPT** or **Claude** — chatgpt.com or claude.ai (either works)
-> 2. **GitHub** — github.com — "Sign in with Google"
+> 1. **GitHub** — github.com — Sign in with Google
+> 2. **GitHub Desktop** — desktop.github.com — install, sign in
+> 3. **ChatGPT** OR **Claude** — chatgpt.com or claude.ai
+> 4. **VS Code** — code.visualstudio.com (free editor)
 >
-> **Software to install**:
-> 3. **Chrome** browser — if you don't have it
-> 4. **VS Code** — code.visualstudio.com (free text editor)
-> 5. **Git** — git-scm.com (click Download, next-next-finish)
->
-> If step 5 (Git) seems hard, don't worry — we'll help in class. Install it if you can; if not, come to Day 1 and we'll set up GitHub Desktop instead.
->
-> **What to bring to Day 1**:
-> - Your laptop + charger
-> - Your phone (we'll view your work on it)
-> - A notebook or notes app
+> **To bring Day 1**: laptop + charger + phone.
 
 ---
 
-## Instructor verification (first 10 min of Day 1)
+## Instructor Day-1 verification (first 10 min)
 
-Walk the room. Each student opens:
-- Chrome → chatgpt.com or claude.ai (logged in?)
-- Chrome → github.com (logged in?)
-- A text editor (anything works)
+Walk the room:
+- Chrome open?
+- GitHub signed in?
+- GitHub Desktop signed in?
+- ChatGPT/Claude open?
 
-**Anyone missing accounts**: create them now. Budget 15 min for this.
-
-**Anyone without Git installed**: 
-- Mac — Terminal → `git --version` should show something; if not, install Xcode Command Line Tools
-- Windows — install Git from git-scm.com (or defer to Day 5 and use GitHub Desktop)
-- Linux — `apt install git` or equivalent
-
-**Day 5 fallback**: have GitHub Desktop URLs ready (desktop.github.com) for students who struggle with Git CLI.
+Fix stragglers before continuing.
 
 ---
 
@@ -65,36 +46,28 @@ Walk the room. Each student opens:
 
 | Problem | Fix |
 |---|---|
-| GitHub asks for 2FA setup | Skip to Day 5 for most; GitHub still works without it |
-| ChatGPT limits free users | Suggest Claude as alternative, or wait 24 hrs for reset |
-| Git ask for Personal Access Token on push | Create PAT in GitHub Settings → Developer settings → Personal Access Tokens → classic → repo scope |
-| Terminal unfamiliar | Fall back to GitHub Desktop |
-| Student uses mobile instead of laptop | Laptop required — editing files on phone impractical |
+| GitHub asks for 2FA | Skip for now, Pages still works |
+| ChatGPT limits | Switch to Claude |
+| GitHub Desktop sign-in fails | Create Personal Access Token in GitHub settings |
+| No laptop | Course requires laptop |
 
 ---
 
 ## What NOT to install
 
-Course 0 students should **not** need:
-
+Course 0 doesn't need:
 - Node.js
-- npm / yarn / bun
+- Git CLI (GitHub Desktop handles everything)
 - Any package manager
+- Any framework
 - Docker
-- Databases
-- Frameworks (React, Vue, Flutter)
 
-If a student insists on installing these (e.g., they're already a developer), fine — but Course 0 doesn't use them. Course 1+ does.
+**Course 1+ territory.**
 
 ---
 
 ## Account hygiene
 
-Students will:
-- Create 2 GitHub repositories (habit-tracker, news-app)
-- Push ~10-20 commits total
-- Use ChatGPT/Claude ~30-50 times across 4 weeks
-
-All within free tier limits.
-
-**End of course**: no cleanup needed. Repos are their portfolio.
+- 2 GitHub repos created (habit-tracker + news-app)
+- ~30 commits total across 6 weeks
+- Free tier limits are generous

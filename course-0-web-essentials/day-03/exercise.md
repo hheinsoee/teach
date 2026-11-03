@@ -1,134 +1,160 @@
 # Day 3 — In-Class Exercise
 
-**Goal**: Make your checkboxes DO something. When you click, the habit gets struck through.
+**Goal**: Learn how code "remembers" things using variables. See data in your browser's Console.
 
 ---
 
-## Step 1 — Open your project
+## Step 1 — Open DevTools Console
 
-Open `habit-tracker/index.html` in Chrome. Click a checkbox.
+Open your live URL in Chrome. Press **F12** (or right-click → **Inspect**).
 
-Notice: nothing happens except the check appears. Reload — check is gone.
-
-Today we fix that.
+Click the **Console** tab. You can type JavaScript here directly.
 
 ---
 
-## Step 2 — Prompt AI for JavaScript
+## Step 2 — Try variables yourself (3 min)
 
-Go to ChatGPT or Claude. Paste:
+Type in Console (each line, press Enter):
 
+```javascript
+let myName = "YOUR NAME"
 ```
-I have a Habit Tracker with HTML and CSS. I want JavaScript that:
-
-- When I check a checkbox, the habit text gets a line through it (strikethrough)
-- When I uncheck it, strikethrough goes away
-- When ALL habits are checked, show a happy message "🎉 All done!"
-
-Give me the JavaScript code. Tell me where to put it in my HTML.
-
-Here is my HTML:
-
-[PASTE YOUR INDEX.HTML HERE]
+Then:
+```javascript
+console.log(myName)
 ```
 
+What appears?
+
+Try with a number:
+```javascript
+let myAge = 25
+console.log(myAge)
+```
+
+Try an array:
+```javascript
+let myHabits = ["Pray", "Study", "Water"]
+console.log(myHabits)
+```
+
+**Notice**: `console.log` shows you what's inside a variable.
+
 ---
 
-## Step 3 — Add the script to HTML
+## Step 3 — Prompt AI for script.js
 
-AI gives you code. It might look like:
+Paste in ChatGPT/Claude:
+
+```
+Add JavaScript to my Habit Tracker. Create a file script.js that:
+- Declares a const array called `habits` with 4 habit names
+- Logs the number of habits using habits.length
+- Logs the first habit using habits[0]
+- Logs today's date using new Date()
+- Logs whether all habits are "done" (hardcode as false for now)
+
+Explain each line in simple English.
+```
+
+---
+
+## Step 4 — Save script.js
+
+Copy JS from AI. Open `script.js` in editor. Paste. Save.
+
+---
+
+## Step 5 — Check it's linked
+
+In `index.html`, find before `</body>`:
 
 ```html
-<script>
-  // ... some code here
-</script>
+<script src="script.js"></script>
 ```
 
-Open `index.html`. **Right before** `</body>`, add this script block.
+(Starter should have this.)
 
-Save `index.html`.
-
----
-
-## Step 4 — Test it
-
-Reload Chrome. Click a checkbox. Does the text get struck through?
-
-**Click all checkboxes.** Does the message appear?
-
-**Uncheck one.** Does the message disappear?
+If not, add it. Save.
 
 ---
 
-## Step 5 — Read the code
+## Step 6 — Commit + push
 
-Open your `index.html`. Look at the `<script>` section. Try to answer:
-
-- Which line finds the checkboxes?
-- Which line listens for a click?
-- Which line adds the strikethrough?
-
-**Don't understand a line? Ask AI:**
-
-```
-Explain this line in simple words: [paste the line]
-```
+GitHub Desktop → Summary: `Day 3 — add JS variables` → Commit → Push.
 
 ---
 
-## Step 6 — Add one more feature
+## Step 7 — See the logs
 
-Ask AI for ONE of these:
+Wait 30 sec. Reload live URL. Open DevTools (F12) → Console.
 
-- **A**: When all habits done, change the background color to green
-- **B**: Add a "Reset all" button that unchecks everything
-- **C**: Keep a running count: "2 of 4 done"
-
-Add the new code. Test.
+**You see 4 log lines**. That's your JS running inside the browser.
 
 ---
 
-## Step 7 — Label (no AI!)
+## Step 8 — Read your code
 
-Close AI. Write:
+Open `script.js`. Try to answer:
+- Which line is a variable?
+- Which line is a string?
+- Which line is a number?
+- Which line is an array?
 
-1. What is a **variable**? (one sentence)
-2. What is a **function**? (one sentence)
-3. What is an **event**? (one sentence)
-4. What does `addEventListener` do?
-5. What can JS do that HTML and CSS can't?
+If stuck, ask AI: "Explain line X of this code: [paste]"
+
+---
+
+## Step 9 — Label (no AI!)
+
+Write:
+
+1. What is a **variable**?
+2. `let` vs `const` difference?
+3. The 4 types we learned (string, number, boolean, array) — what's each?
+4. What does `console.log()` do?
+5. Why do variables exist?
 
 ---
 
 ## Done when
 
-- [ ] Clicking a checkbox strikes through the habit
-- [ ] Unchecking removes strikethrough
-- [ ] Message appears when all done
-- [ ] You added one extra feature (A, B, or C)
-- [ ] You can point at a JS line and say "that's a variable" / "that's a function" / "that's an event"
+- [ ] You typed 3 variables in Console directly
+- [ ] `script.js` has your habits array
+- [ ] Live URL + Console shows 4+ log lines
+- [ ] You can point at a line and say "that's a variable" / "that's a string"
 - [ ] Label answers written
 
 ---
 
 ## If you finish early
 
-Open DevTools (press **F12**). Click the **Console** tab.
-
-In your JS, add this line temporarily:
+Try in Console:
 
 ```javascript
-console.log("checkbox clicked!");
+let habits = ["Pray", "Study"]
+habits.push("Exercise")
+console.log(habits)
 ```
 
-Where should you add it? Inside the `addEventListener` function. Click a checkbox. See the message appear in Console.
+What changes? What does `.push()` do?
 
-**That's debugging.** You can watch what's happening inside your code.
+Or try:
+
+```javascript
+let x = 5
+let y = 3
+console.log(x + y)
+console.log(x - y)
+console.log(x * y)
+```
+
+Numbers can do math. We'll see this in Day 4.
 
 ---
 
 ## Rules
 
-1. **Save, then reload.** Browser doesn't update until you reload.
-2. **If something breaks**, press F12 → Console tab. Red text = error. Paste it to AI.
-3. **Read before you accept.** Don't paste code without looking at it.
+1. **Variables have no spaces** in names. `my habit` ❌ → `myHabit` ✅
+2. **Strings need quotes** (`"Pray"`). Numbers don't (`4`).
+3. **If something breaks**, Console shows red error. Read it, ask AI.

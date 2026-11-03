@@ -1,111 +1,92 @@
 **Google Classroom assignment**
 **Points**: 10
 **Due**: Evening before Day 2
-**Submit**: Screenshot + 3-sentence reflection + modified HTML file link/paste
+**Submit**: Live URL + research notes + reflection
 
 ---
 
-# Day 1 Homework — Research HTML + Modify Your Page
+# Day 1 Homework — Modify Your HTML + Research
 
 **Total time**: ~3 hours
-**Structure**: Research (1 hr) + Build (1-1.5 hr) + Reflect (0.5 hr)
 
 ---
 
 ## Part 1 — Research (1 hour)
 
-Watch and read:
+Learn about HTML. Watch and read:
 
-1. **Video 1**: Search YouTube for *"HTML in 5 minutes beginner"* or *"HTML မြန်မာ"* — watch any 2 beginner-friendly videos
-2. **Read**: Open https://developer.mozilla.org/en-US/docs/Web/HTML — just the intro section
-3. **Ask AI**: Open ChatGPT/Claude and ask: *"Explain to a complete beginner — what is HTML, in Burmese"*
+- Search YouTube: "HTML in 10 minutes beginner" — watch any 2
+- Read: https://developer.mozilla.org/en-US/docs/Web/HTML — intro section
 
-**Write 3-5 sentences in your own words** (Burmese or English): "What is HTML, and why does it exist?"
-
-Save this in a note. You'll submit it.
+Write **3-5 sentences** in your own words (Burmese or English): "What is HTML?"
 
 ---
 
 ## Part 2 — Build (1-1.5 hours)
 
-Open the `index.html` file you made in class. Try these experiments:
+### A. Add more content
 
-### A. Add more habits
+Open `index.html` on your laptop. Add:
+- 3 more habits
+- A `<h2>` subheading somewhere
+- Your name in a `<p>` paragraph
 
-Add 3 more habits to your list. Reload the browser. Do they show up?
+Save. In GitHub Desktop: commit + push.
 
-### B. Change the heading
+### B. Try new tags via AI
 
-Change `<h1>My Daily Habits</h1>` to something personal — your name, your date, whatever.
+Ask ChatGPT/Claude:
+- "How do I add an image?"
+- "How do I add a link to google.com?"
 
-### C. Try new tags via AI
+Add both to your HTML. Push.
 
-Ask AI: *"How do I add an image to my HTML?"* and try adding your profile picture.
+### C. Break and fix
 
-Ask AI: *"How do I add a link to my HTML?"* and try adding a link to your favorite website.
+Delete `</ul>` on purpose. Push. Reload live URL.
 
-### D. Break it and fix it
-
-**On purpose**, delete one tag — like `<h1>` or `</ul>`. Reload. What happens?
-
-Then restore. This teaches you what each piece does by removing it.
+What happens? Read the result. Then restore `</ul>`. Push again.
 
 ---
 
 ## Part 3 — Reflect (0.5 hour)
 
-Write 3-5 sentences (Burmese or English) answering:
+Write 3-5 sentences:
 
-1. What is the most interesting thing you learned today?
+1. What's one thing you learned today?
 2. What confused you?
-3. What's one question you still have?
-
-Save this.
+3. One question you still have?
 
 ---
 
 ## Submit via Google Classroom
 
-Submit:
-
-1. **Screenshot** of your modified webpage (showing new habits, image, link, etc.)
+1. **Your live URL**
 2. **Research write-up** (3-5 sentences on "what is HTML")
-3. **Reflection** (3-5 sentences on today)
-
-Optional: paste your modified HTML in the submission text.
+3. **Reflection** (3-5 sentences)
+4. Optional: screenshot of your updated page
 
 ---
 
 ## Done when
 
-- [ ] You watched 2 videos about HTML
-- [ ] You wrote your own "what is HTML" explanation (3-5 sentences)
-- [ ] You added at least 2 new things to your HTML (habits, image, link, heading)
-- [ ] You tried breaking and fixing something
-- [ ] You wrote your reflection
-- [ ] Total time: ~3 hours (if more, say so in reflection)
+- [ ] 2 YouTube videos watched
+- [ ] Research write-up submitted
+- [ ] Modified HTML pushed (image, link, more habits)
+- [ ] Live URL shows modifications
+- [ ] You broke `</ul>` and fixed it
+- [ ] Reflection written
 
 ---
 
 ## Rules
 
-1. **AI is allowed for building, not for writing your reflection.** The reflection is for you.
-2. **Don't skip the "break and fix" step.** That's where real learning happens.
-3. **If something breaks and you can't fix it, write that down.** Honest confusion is valuable data for the teacher.
-
----
-
-## What the teacher will check
-
-- Screenshot shows real modifications (not the same as class)
-- Research write-up sounds like you (not generic AI output)
-- Reflection names something specific that confused or interested you
-- Honest about time spent
+1. **AI for building, not reflection.** Reflection is yours.
+2. **Push after every change** so live URL stays current.
+3. **Honest confusion** in reflection is valuable.
 
 ---
 
 ## Looking ahead
 
-Tomorrow (Day 2): CSS. Your page will go from plain to **styled** — colors, fonts, spacing.
-
-Keep your `index.html` file. We'll build on top of it tomorrow.
+Tomorrow (Day 2): CSS. Your plain page becomes **styled** — colors, fonts, spacing.

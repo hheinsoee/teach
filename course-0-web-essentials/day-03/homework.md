@@ -1,106 +1,84 @@
-**Google Classroom assignment**
-**Points**: 10
-**Due**: Evening before Day 4
-**Submit**: Live demo video (30 sec) or screenshots + research notes + reflection
+**Google Classroom** · **10 pts** · **Due: before Day 4**
 
 ---
 
-# Day 3 Homework — JavaScript Research + Add Features
+# Day 3 Homework — Variables & Types Deep Dive
 
-**Total time**: ~3 hours
-**Structure**: Research (1 hr) + Build (1-1.5 hr) + Reflect (0.5 hr)
+**Total**: ~3 hours
 
 ---
 
 ## Part 1 — Research (1 hour)
 
-Learn 3 JavaScript concepts in depth (reading, not writing):
+Research these 4 concepts. For each: watch 1 video + write 2 sentences.
 
-Pick 3 from:
-- **Variable** (`const`, `let`)
-- **Function** (`function name() {}` and `() => {}`)
-- **Event** (`click`, `change`, `submit`)
-- **Array** (`[1, 2, 3]`)
-- **Loop** (`forEach`, `for`)
-- **Condition** (`if`, `else`)
-- **DOM** (document.querySelector)
-
-For each:
-- Watch a short video or read MDN
-- Write 2 sentences in your own words
+1. **Variable** (`let` vs `const`)
+2. **String** (what, how to concatenate with `+`)
+3. **Number** (operations: `+`, `-`, `*`, `/`)
+4. **Array** (how to access index — `arr[0]`, `arr[1]`)
 
 ---
 
 ## Part 2 — Build (1-1.5 hours)
 
-### A. Add a "Clear all habits" button
+### A. Expand your logs
 
-Ask AI: *"Add a button labeled 'Clear all' that unchecks all habits when clicked."*
+Ask AI to add to `script.js`:
+- Log how many habits you have
+- Log a greeting: `"Hello, [your name]!"`
+- Log today's day of week
 
-Add the button + JS. Test.
+Push. See logs in Console.
 
-### B. Count habits done
+### B. Try operations in Console
 
-Ask AI: *"Show a counter at the top: 'X of 4 habits done today'"*
+Open DevTools Console. Try:
+```javascript
+let x = 10
+let y = 3
+console.log(x + y)   // addition
+console.log(x - y)   // subtraction
+console.log(x * y)   // multiplication
+console.log(x / y)   // division
+```
 
-Test. The number should update when you check/uncheck.
+Try with strings:
+```javascript
+let first = "Hein"
+let last = "Soe"
+console.log(first + " " + last)
+```
 
-### C. Change text color when done
+### C. Break and fix
 
-Ask AI: *"When a habit is checked, change its text color to grey as well as strikethrough."*
+In `script.js`, change `const habits` to `const Habits` (capital H). Push. Open Console.
 
-### D. Break on purpose
-
-In your JS, change one line to cause a bug:
-- Delete a semicolon
-- Change `addEventListener('change', ...)` to `addEventListener('click', ...)`
-- Delete a closing brace `}`
-
-Reload. Open DevTools Console (F12). **Read the error.** Can you understand what it means?
-
-Then restore your code. **This teaches you how to read errors.**
+What happens? Why? Fix it.
 
 ---
 
 ## Part 3 — Reflect (0.5 hour)
 
-Write 3-5 sentences:
-
-1. What was easier than you expected?
-2. What was harder than you expected?
-3. When you broke the code, what did the error message tell you?
-4. One question you still have
+3-5 sentences:
+1. What surprised you about variables?
+2. Difference between adding numbers and adding strings?
+3. What did the error teach you?
 
 ---
 
-## Submit via Google Classroom
+## Submit
 
-1. **Live demo**: short video (30 sec) OR 3 screenshots showing: initial state, some checked, counter working
-2. **Research notes** (3 JS concepts, 2 sentences each)
-3. **Reflection** (3-5 sentences)
-4. **Screenshot of DevTools Console** showing the error from your "break on purpose" test
+1. Live URL
+2. Research notes (4 concepts)
+3. Screenshot of Console with your logs
+4. Reflection
 
 ---
 
 ## Done when
 
-- [ ] You added "Clear all" button
-- [ ] You added habits-done counter
-- [ ] You added text color change when checked
-- [ ] You broke your code and read the error
-- [ ] You wrote research notes (3 concepts)
-- [ ] You wrote reflection
-
----
-
-## Rules
-
-1. **Ask AI, read, modify.** Don't just copy-paste blindly.
-2. **If AI's code doesn't work**, paste the error back to AI
-3. **DevTools is your friend** — F12 is the keyboard shortcut
-
----
-
-## Looking ahead
-
-Tomorrow (Day 4): localStorage. Right now when you reload, everything resets. Tomorrow we fix that — your data **persists** across reloads.
+- [ ] 4 concepts researched
+- [ ] script.js has 3+ logs
+- [ ] Tried operations in Console
+- [ ] Broke code, read error, fixed
+- [ ] Reflection submitted

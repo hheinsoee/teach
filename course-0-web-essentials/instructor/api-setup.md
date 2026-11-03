@@ -1,104 +1,83 @@
 # News API Setup — Hein's Responsibility
 
-The Course 0 News App (Days 6-8) depends on a pre-built API that Hein hosts. Students only consume it.
+Capstone 2 (News App, Days 9-12) depends on a pre-built API Hein hosts.
 
-**This document is for Hein (the instructor) to set up the API before Day 6.**
-
----
-
-## Why Hein builds this
-
-Students don't build backends in Course 0 (that's Course 1+). But they need to see "fetch from a server" work. So Hein hosts a tiny read-only API they consume.
-
-Think of it as a teaching prop — not production infrastructure.
+**Must be live before Day 9.**
 
 ---
 
-## Minimum API spec
+## Why
 
-- **Endpoint**: `https://api.heinsoe.com/news.json` (or any URL Hein picks)
+Students don't build backends in Course 0 (Course 1+ territory). They **consume** an API Hein provides.
+
+---
+
+## Minimum spec
+
+- **Endpoint**: `https://api.heinsoe.com/news.json` (or chosen URL)
 - **Method**: GET only
-- **Returns**: JSON array of 10-20 news articles
-- **CORS**: must allow all origins (`Access-Control-Allow-Origin: *`)
+- **Returns**: JSON array of 10-20 articles
+- **CORS**: `Access-Control-Allow-Origin: *`
 - **No auth**: public, read-only
-- **Uptime**: must be live Day 6, 7, 8 and homework windows (so Days 5-8 + 1 week after)
+- **Uptime**: live Days 9-12 + 1 week post-course
 
 ---
 
-## JSON schema
-
-Each article:
+## JSON schema per article
 
 ```json
 {
   "id": 1,
   "title": "Myanmar tech scene grows with new coworking space",
-  "image": "https://picsum.photos/400/250",
-  "body": "Full article text goes here. Can be multiple sentences. Students will show this when they click to expand.",
-  "date": "2026-11-03",
+  "image": "https://picsum.photos/seed/news1/400/250",
+  "body": "Full article text. 2-5 sentences for click-to-expand feature.",
+  "date": "2026-11-04",
   "category": "tech"
 }
 ```
 
 Full response:
-
 ```json
 [
-  { "id": 1, "title": "...", ... },
-  { "id": 2, "title": "...", ... },
+  { "id": 1, ... },
+  { "id": 2, ... },
   ...
 ]
 ```
 
-### Field notes
-
-- `id` — unique integer, 1 to N
+### Fields
+- `id` — unique int
 - `title` — 5-15 words
-- `image` — real URL that loads; placeholders OK (e.g., picsum.photos)
-- `body` — 2-5 sentences, enough to show "expand" feature
-- `date` — ISO format `YYYY-MM-DD`
-- `category` — one of: `tech`, `sports`, `local`, `business`, `arts` (4-5 categories, 2-5 articles per category)
+- `image` — real URL (picsum.photos OK for placeholder)
+- `body` — 2-5 sentences
+- `date` — `YYYY-MM-DD`
+- `category` — one of: `tech`, `sports`, `local`, `business`, `arts`
 
-### Content guidance
-
-- Mix of Burmese and English titles OK (whatever's realistic for cohort)
-- Fictional articles fine — students won't fact-check
-- Avoid sensitive topics (politics, religion-controversial)
-- Keep it light and relatable (tech news, local events, sports, arts)
+### Content
+- 10-20 articles total
+- 4-5 categories, 2-5 articles per category
+- Burmese/English titles OK
+- Avoid controversy (politics, religious debates)
 
 ---
 
-## Hosting options (ranked)
+## Hosting (easiest)
 
-### Option 1 — Static JSON on GitHub Pages (easiest, recommended)
+### Option 1 — GitHub Pages static JSON
 
-1. Create a repo: `hheinsoee/course-0-news-api`
+1. Create repo `course-0-news-api`
 2. Add `news.json` at root
-3. Enable GitHub Pages → `main` branch, `/` root
-4. URL will be: `https://hheinsoee.github.io/course-0-news-api/news.json`
-5. **CORS is automatic** on GitHub Pages ✅
-6. To update: edit `news.json`, commit, push — live in 30 seconds
+3. Enable Pages (main branch, root)
+4. URL: `https://hheinsoee.github.io/course-0-news-api/news.json`
+5. CORS enabled automatically on GitHub Pages
 
-**Pros**: free, zero config, Hein controls content
-**Cons**: static (no dynamic data) — fine for Course 0
+### Option 2 — Custom domain
 
-### Option 2 — Custom domain (api.heinsoe.com)
-
-Point `api.heinsoe.com` to a Vercel / Netlify / GitHub Pages static deploy. Follow their custom domain setup.
-
-**Pros**: nicer URL (`api.heinsoe.com/news.json`)
-**Cons**: DNS setup required
-
-### Option 3 — Serverless function (if dynamic data wanted)
-
-Vercel / Netlify serverless function returning JSON.
-
-**Pros**: can add dynamic features (new articles daily, randomization)
-**Cons**: overkill for Course 0
+Point `api.heinsoe.com` → Vercel static deploy.
 
 ---
 
-## Sample `news.json` (starter — 10 articles)
+## Sample `news.json` (10 articles starter)
 
 ```json
 [
@@ -106,7 +85,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 1,
     "title": "Yangon's first coworking space for beginners opens",
     "image": "https://picsum.photos/seed/news1/400/250",
-    "body": "A new coworking space in Yangon opened its doors this week, specifically targeting beginner coders and non-technical founders. The space offers free workshops and mentorship.",
+    "body": "A new coworking space in Yangon opened this week for beginner coders.",
     "date": "2026-11-03",
     "category": "tech"
   },
@@ -114,7 +93,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 2,
     "title": "Local football team wins regional championship",
     "image": "https://picsum.photos/seed/news2/400/250",
-    "body": "The Mandalay football team secured their first regional championship in a thrilling final match. Fans celebrated across the city.",
+    "body": "The Mandalay football team secured their first regional championship.",
     "date": "2026-11-02",
     "category": "sports"
   },
@@ -122,7 +101,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 3,
     "title": "Traditional art festival returns to Bagan",
     "image": "https://picsum.photos/seed/news3/400/250",
-    "body": "Artists from across Myanmar gathered in Bagan this weekend for the annual traditional arts festival. The event showcased lacquerware, puppetry, and classical music.",
+    "body": "Artists gathered in Bagan for the annual traditional arts festival.",
     "date": "2026-11-01",
     "category": "arts"
   },
@@ -130,7 +109,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 4,
     "title": "Mobile banking adoption hits record high",
     "image": "https://picsum.photos/seed/news4/400/250",
-    "body": "Mobile banking usage in Myanmar increased 40% this year, with new users joining weekly. Experts say the trend will accelerate through 2027.",
+    "body": "Mobile banking usage in Myanmar increased 40% this year.",
     "date": "2026-10-30",
     "category": "business"
   },
@@ -138,7 +117,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 5,
     "title": "New AI tool helps Burmese writers",
     "image": "https://picsum.photos/seed/news5/400/250",
-    "body": "A local startup released an AI tool specifically trained on Burmese language, helping writers draft and edit content faster.",
+    "body": "A local startup released an AI tool trained on Burmese language.",
     "date": "2026-10-29",
     "category": "tech"
   },
@@ -146,7 +125,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 6,
     "title": "Community garden project reaches 100 participants",
     "image": "https://picsum.photos/seed/news6/400/250",
-    "body": "A grassroots community garden initiative in Yangon reached 100 participants this month. Organizers plan to expand to 5 more neighborhoods.",
+    "body": "A grassroots community garden initiative in Yangon reached 100 participants.",
     "date": "2026-10-28",
     "category": "local"
   },
@@ -154,7 +133,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 7,
     "title": "Marathon runners complete 42km charity race",
     "image": "https://picsum.photos/seed/news7/400/250",
-    "body": "Over 2,000 runners completed a charity marathon on Sunday, raising funds for rural education.",
+    "body": "Over 2,000 runners completed a charity marathon for rural education.",
     "date": "2026-10-27",
     "category": "sports"
   },
@@ -162,7 +141,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 8,
     "title": "Night market expands to weekdays",
     "image": "https://picsum.photos/seed/news8/400/250",
-    "body": "The popular night market in downtown Yangon will now operate 7 days a week due to overwhelming demand.",
+    "body": "The popular night market in downtown Yangon will operate 7 days a week.",
     "date": "2026-10-26",
     "category": "local"
   },
@@ -170,7 +149,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 9,
     "title": "Small business loans program expanded",
     "image": "https://picsum.photos/seed/news9/400/250",
-    "body": "A government program for small business loans was expanded to include first-time entrepreneurs with no collateral.",
+    "body": "A government program expanded to include first-time entrepreneurs.",
     "date": "2026-10-25",
     "category": "business"
   },
@@ -178,7 +157,7 @@ Vercel / Netlify serverless function returning JSON.
     "id": 10,
     "title": "Street photography exhibition opens Friday",
     "image": "https://picsum.photos/seed/news10/400/250",
-    "body": "An exhibition of street photography from across Southeast Asia opens Friday at the central gallery.",
+    "body": "An exhibition of street photography from across Southeast Asia opens Friday.",
     "date": "2026-10-24",
     "category": "arts"
   }
@@ -187,36 +166,25 @@ Vercel / Netlify serverless function returning JSON.
 
 ---
 
-## Fallback plan (if API breaks)
+## Testing before Day 9
 
-Keep a local `news.json` file as a backup. Give to students:
-> *"If the API is down today, download this file and change your fetch URL to point at the local file."*
+- [ ] Open URL in browser → JSON loads
+- [ ] Fetch from test HTML file → no CORS error
+- [ ] All images load (click 3-4)
+- [ ] At least 10 articles, 4+ categories
+
+---
+
+## Fallback plan
+
+Keep `news.json` as local file for students to use if API breaks mid-class:
+
+> *"API is down today. Download this file, change your fetch URL to `./news.json`"*
 
 Teaches resilience — real apps have fallbacks.
 
 ---
 
-## Testing before Day 6
-
-Day 5 evening (before Day 6 class):
-
-- [ ] Open `https://api.heinsoe.com/news.json` in browser — JSON loads
-- [ ] Fetch from a test HTML file — no CORS errors
-- [ ] Image URLs all load (click 3-4 to verify)
-- [ ] At least 10 articles, 4+ categories
-- [ ] Dates are formatted correctly (`YYYY-MM-DD`)
-- [ ] No sensitive content
-
-If any of these fail, fix before class.
-
----
-
-## Updating during the week
-
-If a student finds a bug or you want to add more articles mid-week, edit `news.json`, push. Deploy takes ~30 seconds. No downtime.
-
----
-
 ## Course 1 integration
 
-In Course 1, students may build their OWN version of this API — with Express.js, SQLite, auth, etc. Course 0's API is the simple read-only example they'll later recreate with more depth.
+In Course 1, students build their OWN version of this API with Express + SQLite. Course 0's API is the simple read-only example they'll later recreate with depth.

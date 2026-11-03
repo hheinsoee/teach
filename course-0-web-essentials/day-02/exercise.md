@@ -1,126 +1,101 @@
 # Day 2 — In-Class Exercise
 
-**Goal**: Make your Habit Tracker look nice using CSS.
+**Goal**: Make your Habit Tracker look good with CSS.
 
 ---
 
-## Step 1 — Open your Day 1 files
+## Step 1 — Open your project
 
-Open your `habit-tracker/` folder. You should have `index.html` there. Open it in Chrome.
+Open `habit-tracker/` folder. You should have `index.html`, `styles.css` (empty), `script.js` (empty).
 
-Right now it looks plain. Today we'll change that.
+Open your live URL. Still plain.
 
 ---
 
 ## Step 2 — Prompt AI for CSS
 
-Go to ChatGPT or Claude. Paste this prompt (change the style words to what you want):
+Go to ChatGPT/Claude. Paste:
 
 ```
-I have a Habit Tracker HTML file. Here is the content:
+Here's my HTML:
 
-[PASTE YOUR HTML HERE — copy from index.html]
+[PASTE YOUR INDEX.HTML CONTENT]
 
-Please create a styles.css file that makes it look:
-- Dark background with light text
-- Big, friendly, readable font
-- Checkboxes larger than default
-- Centered on the page
+Create styles.css that makes it look:
+- Dark background, light text
+- Big friendly font
+- Centered on page
+- Bigger checkboxes
 - Mobile-friendly
 
-Give me the CSS code and tell me how to link it to my HTML.
+Give me the CSS code.
 ```
-
-Press Enter.
 
 ---
 
 ## Step 3 — Save styles.css
 
-AI gives you CSS code. Copy it. Create a new file in your `habit-tracker/` folder called **`styles.css`**. Paste the CSS. Save.
+Copy CSS from AI. Open `styles.css` in your editor. Paste. Save.
 
 ---
 
 ## Step 4 — Link CSS to HTML
 
-In your `index.html`, inside the `<head>` section, add this line:
+In `index.html`, inside `<head>`, add:
 
 ```html
 <link rel="stylesheet" href="styles.css">
 ```
 
-Save `index.html`.
+(Starter already includes this — check it's there.)
+
+Save.
 
 ---
 
-## Step 5 — Reload browser
+## Step 5 — Commit + push
 
-Go back to Chrome. Press **Cmd+R** (Mac) or **F5** (Windows). Your page should now look styled.
+GitHub Desktop → Summary: `Day 2 — add CSS` → Commit → Push.
 
-**If it still looks plain**:
-- Check your `<link>` line is spelled correctly
-- Check `styles.css` is in the same folder as `index.html`
-- Hard refresh: **Cmd+Shift+R** / **Ctrl+Shift+R**
+Wait 30 sec. Reload live URL. **Styled.**
 
 ---
 
-## Step 6 — Iterate
+## Step 6 — Iterate (3 changes)
 
-Ask AI for ONE change at a time. Example:
+Ask AI for ONE change, test, push:
 
-```
-Make the headings pink
-```
+Example prompts:
+- "Make the headings pink"
+- "Make spacing bigger between habits"
+- "Add a hover effect on habits"
 
-or
-
-```
-Make the spacing between habits bigger
-```
-
-AI gives updated CSS. Copy, paste into your `styles.css`, save, reload.
-
-**Try 3 different changes.** Each one teaches you a new CSS property.
+Do 3 iterations.
 
 ---
 
 ## Step 7 — Label (no AI!)
 
-Close AI. Write in notes:
-
-1. What is CSS? (one sentence)
-2. What is a selector? (`body`, `h1`, `.habit`)
-3. What is a property? (give one example)
-4. What is a value? (give one example)
-5. How does CSS "find" the HTML to style?
+Write:
+1. What is CSS?
+2. What is a selector?
+3. What is a property? (example)
+4. What is a value? (example)
+5. How does CSS "find" HTML?
 
 ---
 
 ## Done when
 
-- [ ] You have `styles.css` in your `habit-tracker/` folder
-- [ ] Your HTML has the `<link>` tag connecting it to CSS
-- [ ] Your webpage looks styled (not plain) when you reload
-- [ ] You asked AI for at least 3 style changes
-- [ ] You wrote the 5 Label answers
-- [ ] You can point at a CSS rule and name selector / property / value
-
----
-
-## If you finish early
-
-Try asking AI for:
-- A hover effect on habits
-- Icons for each habit (emoji or icon font)
-- A gradient background
-- A card-style design where each habit is in a box
-
-**Reload after each change.** Have fun. Don't worry if it looks weird.
+- [ ] Live URL looks styled
+- [ ] You iterated 3 times via AI
+- [ ] All changes committed and pushed
+- [ ] Label answers written
 
 ---
 
 ## Rules
 
-1. **One change at a time.** If you ask for 5 changes at once, you can't learn what did what.
-2. **Save and reload.** CSS doesn't update automatically.
-3. **If AI gives something confusing, ask**: *"Explain the CSS I just pasted"*.
+1. **Push after each change**. Live URL only updates after push.
+2. **One change at a time**. If you ask AI for 5 things, you can't learn what did what.
+3. **Hard refresh** (Cmd+Shift+R) if changes don't show.

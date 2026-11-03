@@ -1,115 +1,84 @@
-**Google Classroom assignment**
-**Points**: 10
-**Due**: Evening before Day 8
-**Submit**: Live News App URL + code review doc + reflection
+**Google Classroom** · **10 pts** · **Due: before Day 8**
 
 ---
 
-# Day 7 Homework — Deploy News App + Code Review Document
+# Day 7 Homework — Finish Habit Tracker + Research Browser APIs
 
-**Total time**: ~3 hours
-**Structure**: Research (1 hr) + Build + Deploy (1-1.5 hr) + Reflect (0.5 hr)
+**Total**: ~3 hours
+
+**Important**: End of this homework = Habit Tracker is DONE. From Day 8 we move to News App.
 
 ---
 
 ## Part 1 — Research (1 hour)
 
-### A. Common AI coding mistakes
+### A. localStorage limits
+- How much data can localStorage hold?
+- Is it private? What can hack it?
+- When would you NOT use localStorage?
 
-Research "common mistakes AI makes when writing code" (search YouTube, blogs, Reddit).
+3 sentences.
 
-Write 3 examples with 2 sentences each:
-- What AI did wrong
-- How a human caught it
+### B. Browser APIs
+Research 2 of these:
+- Notifications API
+- Date / Time API
+- Clipboard API
+- Geolocation API
 
-### B. What does "code review" mean in a real company?
-
-Research: how do professional teams review each other's code?
-
-Keywords: "pull request", "GitHub code review", "approving code"
-
-Write 3-4 sentences.
+For each: what it does, example use.
 
 ---
 
-## Part 2 — Build + Deploy (1-1.5 hours)
+## Part 2 — Build (1-1.5 hours)
 
-### A. Deploy your News App
-
-Create a new GitHub repo: `news-app`
-
-Push your News App code. Enable GitHub Pages. Get a live URL.
-
-(Same process as Day 5 with Habit Tracker — now you've done it twice.)
-
-### B. Add ONE final feature
+### A. Add ONE polish feature
 
 Pick ONE:
+- Edit habit name (click habit → change text)
+- Delete habit (small X button)
+- Add new habit via form (text input + Add button)
+- Weekly stats (how many perfect days this week)
 
-**A**: **Dark mode toggle** — switch between themes
-**B**: **Bookmark favorites** — save favorites to localStorage, show in a separate section
-**C**: **Share article** — copy URL to clipboard
-**D**: **Pagination** — show 5 articles per page, with "Next" / "Previous" buttons
+### B. Break and fix
 
-### C. Write a Code Review document
+Change `localStorage.setItem` to `localstorage.setItem` (lowercase s). Push.
 
-Open your News App code. For each major section, write what it does + one thing you'd improve.
+What happens? Read error. Restore.
 
-Example:
+### C. Final cleanup
 
-```
-Section: fetch()
-What it does: Asks Hein's API for news data.
-What I'd improve: Add error handling for timeouts (currently just catches errors generically).
-
-Section: forEach loop
-What it does: For each article, builds HTML and adds it to the page.
-What I'd improve: AI uses innerHTML which could be a security issue in real apps.
-```
-
-Cover at least **4 sections**.
+Make sure:
+- Push all changes
+- Live URL works perfectly
+- Streak persists
+- All features documented in README.md of your repo
 
 ---
 
 ## Part 3 — Reflect (0.5 hour)
 
-Write 5 sentences:
-
-1. Which section of your code is you most confident about?
-2. Which section still feels confusing?
-3. Did AI get something wrong this week? What?
-4. How do you feel compared to Day 1?
+5 sentences:
+1. Which day of Course 0 was hardest?
+2. Which day was most fun?
+3. What did Habit Tracker teach you?
+4. Are you ready for News App (Day 8)?
+5. One question still open?
 
 ---
 
-## Submit via Google Classroom
+## Submit
 
-1. **Live URL** of your deployed News App
-2. **Code review document** (at least 4 sections, markdown or just plain text)
-3. **Reflection** (5 sentences)
+1. Final Habit Tracker URL
+2. Research notes
+3. Reflection
 
 ---
 
 ## Done when
 
-- [ ] News App has a live URL (`username.github.io/news-app/`)
-- [ ] One extra feature works
-- [ ] Code review document covers 4+ sections
-- [ ] Reflection written
-- [ ] All submitted
-
----
-
-## Rules
-
-1. **Code review document is yours, not AI's.** Write in your own words.
-2. **It's OK to say "I don't fully understand this."** That's honest and valuable.
-3. **Deploy is non-negotiable.** The News App must be live by Day 8.
-
----
-
-## Looking ahead
-
-Tomorrow (Day 8): **Capstone**. You present BOTH your apps (Habit Tracker + News App) to the class. 3 minutes each. Then the teacher shows you "the next steps" — frameworks, backends, advanced AI tools. 
-
-This is the final day. Bring your energy.
+- [ ] 2 topics researched
+- [ ] 1 polish feature added
+- [ ] Broke + fixed localStorage
+- [ ] Habit Tracker is polished + pushed
+- [ ] Reflection submitted

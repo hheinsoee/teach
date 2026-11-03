@@ -1,108 +1,75 @@
-**Google Classroom assignment**
-**Points**: 10
-**Due**: Evening before Day 5
-**Submit**: Screenshots + feature list + research notes + reflection
+**Google Classroom** · **10 pts** · **Due: before Day 5**
 
 ---
 
-# Day 4 Homework — Add ONE Feature + Research Browser APIs
+# Day 4 Homework — Functions & Conditions Practice
 
-**Total time**: ~3 hours
-**Structure**: Research (1 hr) + Build (1-1.5 hr) + Reflect (0.5 hr)
+**Total**: ~3 hours
 
 ---
 
 ## Part 1 — Research (1 hour)
 
-### A. localStorage limits
+Watch and research:
+- "JavaScript function" — 1 video
+- "JavaScript if else" — 1 video
+- "JavaScript operators" — 1 video (focus `===`, `>`, `<`, `&&`, `||`)
 
-Research: 
-- How much data can localStorage hold?
-- Is it private?
-- When would localStorage NOT be a good fit?
-
-Write 3 sentences.
-
-### B. Browser APIs
-
-The browser has many "APIs" (built-in capabilities). Research 2 of these:
-
-- **Notifications API** (desktop notifications)
-- **Geolocation API** (where you are)
-- **Date / Time** (current date, time zones)
-- **Clipboard API** (copy to clipboard)
-
-For each, write what it does + an example of when you'd use it.
+Write 4-5 sentences in own words.
 
 ---
 
 ## Part 2 — Build (1-1.5 hours)
 
-### Add ONE substantial feature to your Habit Tracker
+### A. Add 2 more functions via AI
 
-Pick ONE:
+Prompt AI to add:
+- `isCompleted(count, total)` — returns true if count equals total
+- `getProgress(count, total)` — returns a string like "3 of 4 habits done"
 
-**A. Edit habit name** — click on a habit, change its text, save
+Call both. Log results.
 
-**B. Delete habit** — small X next to each habit, click to remove
+### B. Combine with operators
 
-**C. Add new habit via form** — text input + "Add" button → new habit appears
+Ask AI for a function:
+- `getMood(count, total)` — returns:
+  - "excellent" if count === total
+  - "good" if count > total / 2 && count < total
+  - "ok" if count === total / 2
+  - "needs work" otherwise
 
-**D. Weekly stats** — show how many days per week each habit was done
+Call with different inputs. Log results.
 
-**E. Notification reminder** — at 9 AM, browser shows notification "Have you done your habits?"
+### C. Break and fix
 
-Prompt AI for your chosen feature. Add it. Test it.
+Change `===` to `=` in one condition. Push. What error appears?
 
-### Break and fix
-
-In your localStorage code, change `localStorage.setItem` to `localstorage.setItem` (lowercase s).
-
-Reload. Check. What happens? Open Console. Read the error.
-
-Fix the typo. Confirm it works again.
+Read error. Restore. Push again.
 
 ---
 
 ## Part 3 — Reflect (0.5 hour)
 
-Write 3-5 sentences:
-
-1. Which feature did you build? Why that one?
-2. What was the trickiest part?
-3. What did the error teach you?
+3-5 sentences:
+1. Hardest part of functions?
+2. Why DRY matters?
+3. What error did you see with `=` instead of `===`?
 
 ---
 
-## Submit via Google Classroom
+## Submit
 
-1. **Screenshots** of your new feature in action (3 shots: before, action, after)
-2. **Research notes** (localStorage limits + 2 browser APIs)
-3. **Reflection** (3-5 sentences)
-4. **Screenshot of the error** you saw during "break and fix"
+1. Live URL
+2. Research notes
+3. Console screenshot showing function outputs
+4. Reflection
 
 ---
 
 ## Done when
 
-- [ ] You added one substantial feature
-- [ ] Feature works and persists across reload
-- [ ] You researched localStorage + 2 browser APIs
-- [ ] You broke and fixed something
-- [ ] Reflection written
-
----
-
-## Rules
-
-1. **Pick ONE feature, do it well** — not three mediocre ones
-2. **Test persistence** — reload after every build step
-3. **If stuck, say so**: honest confusion submitted is better than fake success
-
----
-
-## Looking ahead
-
-Tomorrow (Day 5): Deploy. Your Habit Tracker goes **live on the internet**. You get a URL. You can share with friends and family. They can use it on their phones.
-
-This is the biggest "wow" moment of the course. Get ready.
+- [ ] 3 concepts researched
+- [ ] 3+ new functions added
+- [ ] All call + log works
+- [ ] Broke `=` and read error
+- [ ] Reflection submitted

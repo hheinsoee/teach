@@ -1,166 +1,142 @@
-# Day 6 — News App: Fetch from API
+# Day 6 — DOM & Events
 
-**Project**: News App (new, Days 6-8)
-**Marcus stages**: 7 (connecting to the world)
-**Modules touched**: G (HTTP, request/response), F (AI for API work), A (async concepts reading-level)
-**Duration**: 90 min class + 3 hr homework
+**Phase**: Learning (Day 6 of 8)
+**Project**: Habit Tracker
+**Modules touched**: A, H, F
+**Duration**: 90 min + 3 hr HW
 
 ---
 
 ## Learning outcomes
 
-Students can:
-- **Read**: a `fetch()` call and know what it does
-- **Understand**: that data lives on a server, their code requests it, server responds with JSON
-- **Direct**: AI to build a page that fetches and displays data
-- **Verify**: data appears from the API
+- **Read**: `querySelector`, `addEventListener` lines
+- **Understand**: JS can read and change HTML live via DOM
+- **Direct**: AI to make checkboxes interactive
+- **Verify**: clicking updates visible state
 
 ---
 
-## 90-minute plan
+## 90-min plan
 
-| Block | Minutes | Activity |
+| Block | Min | Activity |
 |---|---|---|
-| Homework review | 15 | Celebrate live Habit Trackers + user quotes |
-| Concept: "Where does Facebook get its posts?" | 15 | Server, API, JSON — analogies first |
-| Demo | 15 | Open API URL in browser, see JSON. AI generates fetch code. |
-| Student build | 35 | Build News App skeleton, fetch, display titles |
-| Label | 10 | API? Fetch? JSON? Server? |
+| HW review | 10 | Students show loop outputs |
+| Concept: DOM + events | 15 | JS as a tree walker + listener |
+| Instructor demo | 15 | AI makes checkbox click do strikethrough |
+| Student build | 35 | Each student makes checkboxes interactive |
+| Label + commit | 15 | DOM, querySelector, event |
 
 ---
 
-## Pre-class setup (instructor)
+## Concept (15 min)
 
-**CRITICAL — the News API must be live before class**:
+### DOM — Document Object Model
 
-- Hein's API URL: `https://api.heinsoe.com/news.json` (or wherever Hein hosts it)
-- API returns JSON array of 10-20 news articles
-- Each article has: `id`, `title`, `image`, `body`, `date`, `category`
-- API should be CORS-enabled so browsers can fetch it
-- Backup: a local `news.json` file students can use if API breaks
+**ဘာလဲ**: Browser က HTML ကို "tree" အဖြစ် မြင်။ JS က အဲ့ tree ကို walk, read, change လုပ်နိုင်။
 
-See [`instructor/api-setup.md`](../instructor/api-setup.md) for API spec.
+```
+<body>
+  ├── <h1>Habits</h1>
+  ├── <ul>
+  │     ├── <li>Pray</li>
+  │     ├── <li>Study</li>
+  │     └── <li>Exercise</li>
+  └── <button>Reset</button>
+```
+
+**Find element**:
+```javascript
+let heading = document.querySelector("h1")
+let allLis = document.querySelectorAll("li")
+let button = document.querySelector("button")
+```
+
+**Change element**:
+```javascript
+heading.textContent = "My Habits Today"
+heading.style.color = "red"
+```
+
+### Events
+
+**ဘာလဲ**: Browser က user action တွေကို "event" အဖြစ် ပြော။ Click, type, submit, scroll...
+
+**Listen**:
+```javascript
+button.addEventListener("click", function() {
+    console.log("Button clicked!")
+})
+```
+
+**Analogy**: Button မှာ "ကြားနေ" တယ့် ear တစ်ခု တပ်ထား။ Click တိုင်း — function run။
 
 ---
 
-## Concept phase (15 min)
+## Demo (15 min)
 
-Ask the class:
-> *"Facebook က feed ထဲမှာ post ၂၀ ပြတယ်။ ဒီ post တွေ ဘယ်ကလာလဲ?"*
-
-Discussion flows:
-- From Facebook's server, not from your laptop
-- Your browser **requests**, server **responds**
-
-Draw:
+Prompt AI:
 
 ```
-Your browser                              Server
-   fetch("news.json") →               →   receives request
-                     ← responds with JSON ←
-   displays on page
+In my Habit Tracker, I want:
+- When a checkbox is clicked, strike through the habit text
+- When unchecked, remove strikethrough
+- Add a counter at top showing "X of Y habits done"
+- Update counter whenever a checkbox changes
+
+Give me the JS. Explain each line.
+
+My HTML has:
+- h1 at top
+- ul with li items; each li has text + input type=checkbox
+
+Add an id="counter" div before the ul.
 ```
 
-**Key words**:
-- **API** — Application Programming Interface, how two programs talk
-- **HTTP** — the language of the web (request / response)
-- **JSON** — a format for data (looks like text, structured)
-- **Server** — a computer always on, waiting to answer requests
+Read AI's output:
+- `querySelectorAll("input[type=checkbox]")` — find all checkboxes
+- `forEach` loop over them — set up listeners
+- `addEventListener("change", ...)` — "when state changes"
+- `event.target` — which checkbox was clicked
+- `style.textDecoration` — change CSS from JS
 
-Analogy:
-- API က **restaurant menu**
-- Browser က **customer**
-- Server က **kitchen**
-- JSON က **order ticket / plate**
-
----
-
-## Instructor demo (15 min)
-
-Open the API URL in a browser: `https://api.heinsoe.com/news.json`
-
-Browser shows raw JSON. Point at it:
-
-> *"ဒါ server က ပြန်ပေးတဲ့ data။ ဒီ `[`, `{`, `"title":` တွေက **JSON** format။ ဖတ်ရတာ ခက်ပေမဲ့ structured ဖြစ်။"*
-
-Open ChatGPT. Prompt:
-
-```
-I want to build a simple News App. It should:
-
-- Fetch news from this URL: https://api.heinsoe.com/news.json
-- Display each article's title, image, and date
-- Show them in a list, newest first
-
-Give me a complete HTML + CSS + JS file. Explain the fetch part.
-
-The API returns a JSON array like:
-[
-  {
-    "id": 1,
-    "title": "...",
-    "image": "https://...",
-    "body": "...",
-    "date": "2026-11-01",
-    "category": "tech"
-  }
-]
-```
-
-AI gives complete code. **Instructor reads the fetch part slowly**:
-
-> *"ဒီ `fetch('https://api.heinsoe.com/news.json')` က — server ကို request ပို့။*
->
-> *ဒီ `.then(response => response.json())` က — server ပြန်ပေးတဲ့ response ကို JSON အဖြစ် ဖတ်။*
->
-> *ဒီ `.then(articles => { ... })` က — articles တွေ လက်ထဲ ရောက်ပြီ, display မှာ ထည့်။*
->
-> *ဒီ `articles.forEach(a => { ... })` က — article တစ်ခုချင်းစီ, HTML အဖြစ် ပြင်ဆင်။"*
-
-Save as `news-app/index.html`. Open. **Data appears live.**
-
-> *"ကြည့်။ ကိုယ့် page က server က data ဆွဲထုတ်။ ဒါ **real app** လို အလုပ်လုပ်။"*
+Save, push, test.
 
 ---
 
 ## Student build (35 min)
 
 Each student:
-1. Create new folder `news-app/` on desktop
-2. Prompt AI (use demo prompt)
-3. Save as `news-app/index.html` (single file is fine, or split HTML/CSS/JS)
-4. Open — data loads
+1. Prompt AI (as demo above, modified for their HTML)
+2. Save `script.js`
+3. Push
+4. Test on live URL — clicking checkboxes should strike through text
 
-**Then iterate**:
-- Make image bigger
-- Date in human-readable format
-- Category shown as a badge
+Then iterate:
+- Change strikethrough color
+- When all done, change body background green
 
-**Instructor circulates**. Common issues:
-- CORS error: API not configured for browser access → confirm `api-setup.md` CORS settings
-- 404 / wrong URL → check for typos
-- "fetch is undefined" → old browser, highly unlikely
-- Student spends 20 min on styling → remind: fetch is today's lesson
+**Instructor circulates**:
+- Checkbox state not changing → check listener is on `change` not `click`
+- Can't find element → `querySelector` typo
+- Counter not updating → listener needs to re-count after each change
 
 ---
 
-## Label phase (10 min)
+## Label (10 min)
 
-Write (no AI):
+Write:
+1. What is the **DOM**?
+2. What does `querySelector` do?
+3. What is an **event**?
+4. What does `addEventListener` do?
+5. What's the difference between HTML and DOM?
 
-1. What is an **API**?
-2. What is **JSON**?
-3. What does `fetch()` do?
-4. What is a **server**?
-5. What's the difference between the Habit Tracker and the News App?
-
-### Pocket answers
-
-- **API** — a way for programs to talk to each other (e.g., your page asks Hein's API for news)
-- **JSON** — a text format for data (lists, objects, numbers)
-- **`fetch()`** — JavaScript's way to ask a server for data
-- **Server** — a computer online that answers requests
-- **Difference** — Habit Tracker stores data locally; News App fetches data from somewhere else
+**Pocket answers**:
+- DOM = browser's live tree of your page
+- `querySelector` = find one element matching a selector
+- Event = something that happened (click, change, submit)
+- `addEventListener` = tell element to run code when event fires
+- HTML = text; DOM = the live object browser builds from HTML
 
 ---
 
@@ -168,20 +144,17 @@ Write (no AI):
 
 | Failure | Fix |
 |---|---|
-| CORS error | API host must set `Access-Control-Allow-Origin: *` header |
-| 404 Not Found | URL typo; check against api-setup.md |
-| Nothing displays | Open DevTools → Network tab → check if fetch succeeded |
-| JSON parse error | API returned HTML (likely an error page); check URL |
-| Images don't load | `<img src>` wrong; AI used placeholder; use real image URLs from API |
+| JS can't find element | `<script>` runs before HTML loaded — move script to end of body, or use `defer` |
+| Click doesn't do anything | Wrong event name (`click` vs `change` for checkbox) |
+| Counter wrong | Need to recount AFTER each state change, not just once |
 
 ---
 
-## What this day is NOT
+## NOT
 
-- Not writing a backend
-- Not authentication (public API, open to all)
-- Not database
-- Not async/await deep-dive (reading `fetch().then()` is enough)
-- Not WebSockets, SSE, long polling
+- Event bubbling / delegation (Course 1)
+- Virtual DOM / React (Day 12 taste)
+- Shadow DOM
+- Mutation observers
 
-Keep tight: URL → fetch → JSON → display. One-way flow, read-only.
+Keep tight: find element, listen for event, do thing.

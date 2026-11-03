@@ -1,179 +1,144 @@
-# Day 8 — Capstone: Showcase + Real Users + What's Next
+# Day 8 — Fetch: Data From the Internet
 
-**Project**: Both apps presented
-**Marcus stages**: 7 (Real Users + Growth)
-**Modules touched**: F (final AI skills), E (user feedback), K (taste only)
-**Duration**: 90 min class + 1 week post-course homework
+**Phase**: Learning (Day 8 of 8) — Last learning day before Capstone 2
+**Project**: Habit Tracker — add a motivational quote via fetch
+**Modules touched**: G (HTTP), A, H, F
+**Duration**: 90 min + 3 hr HW
 
 ---
 
 ## Learning outcomes
 
-Students can:
-- **Present** both their apps in 3 minutes each
-- **Reflect** on what they learned across 4 weeks
-- **Preview** what Course 1+ holds
-- **Know** where to go next
+- **Read**: a `fetch()` call and know what it does
+- **Understand**: data can come from the internet, not just localStorage
+- **Direct**: AI to add fetch to Habit Tracker
+- **Verify**: a different quote appears on each reload
 
 ---
 
-## 90-minute plan
+## 90-min plan
 
-| Block | Minutes | Activity |
+| Block | Min | Activity |
 |---|---|---|
-| Homework review | 15 | Celebrate deployed News Apps |
-| Student showcase | 30 | Each student presents BOTH apps (3 min each in short cohort; adjust by size) |
-| "Taste of what's next" | 20 | Instructor shows frameworks (React), AI agents (Cursor), backends briefly |
-| What's next & Course 1 preview | 15 | Resources, learning channels, Course 1 syllabus overview |
-| Close + certificate | 10 | Group photo, URLs sheet, Burmese resources list |
+| HW review | 10 | Habit Tracker final showcase |
+| Concept: "Where does data come from?" | 15 | Server + API + JSON |
+| Instructor demo | 15 | Add quote API fetch to Habit Tracker |
+| Student build | 35 | Each student adds fetch |
+| Label + commit | 15 | fetch, HTTP, API, JSON, async |
 
 ---
 
-## Student showcase (30 min)
+## Concept (15 min)
 
-Each student:
-- Shows their Habit Tracker live URL (1 min)
-- Shows their News App live URL (1 min)
-- Says one thing they're proud of + one thing they'd change (1 min)
+### Where does data come from?
 
-**Instructor keeps time strictly.** 3 min per student × cohort size.
+So far:
+- HTML — written by you (via AI)
+- JS variables — in memory
+- localStorage — in browser
 
-**Audience** = other students. No pass/fail judging; this is celebration.
+Now:
+- **From a server, over the internet** — via `fetch`
 
-**Group chat capture**: all URLs posted in one message. Students take screenshots.
-
-### Scaling note
-
-- 5 students → 15 min, fits easily
-- 10 students → 30 min, fills the slot
-- 15+ students → runs over; split into 2 groups, do showcase in parallel breakouts, then regroup
-
----
-
-## "Taste of what's next" (20 min)
-
-Instructor demos (shows, doesn't teach):
-
-### 1. React / Framework taste (5 min)
-
-Open a React playground or codesandbox with a simple component:
-
-```jsx
-function HabitTracker({ habits }) {
-  return (
-    <ul>
-      {habits.map(h => <li key={h}>{h}</li>)}
-    </ul>
-  );
-}
-```
-
-Explain:
-> *"ဒါ React — JavaScript framework။ Component ဆိုတဲ့ reusable piece တွေ ဆောက်။*
->
-> *ဘာလို့ သုံးလဲ? App ကြီးလာလာ ဆိုရင် — plain HTML/CSS/JS က မြင်းနိုင်တော့ဘူး။ React လိုမျိုး framework က scale လုပ်ပေး။"*
-
-### 2. Agentic AI tools (10 min)
-
-Open **Cursor** (or v0.dev or Lovable). Prompt:
+### Analogy
 
 ```
-Build me a complete expense tracker web app with database, auth, and deploy
+Your browser (customer)              Internet server (kitchen)
+   fetch('url') →               →   receives request
+                     ← responds with JSON ←
+   displays
 ```
 
-Watch AI generate everything. Discuss:
-- Pros: fast, impressive
-- Cons: code is generated for you — you need Course 1 skills to understand/fix
+Browser က **ဖောက်သည်**, server က **ဆိုင်**, JSON က **ဈေးစာရင်း/menu**။
 
-> *"ဒါ **agentic AI** — AI က developer အစား ကုဒ်ရေး, decide လုပ်, deploy လုပ်။ ဒါပေမဲ့ — ဒီ app break ဖြစ်ရင် ဘယ်သူ fix လုပ်မလဲ? **ကိုယ်**။ Course 1 မှ ဒါ သင်မယ်။"*
-
-### 3. Backend taste (5 min)
-
-Open a simple Express.js server code:
+### `fetch` basics
 
 ```javascript
-app.get('/habits', (req, res) => {
-  res.json({ habits: ['pray', 'exercise'] });
-});
+fetch('https://api.quotable.io/random')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.content)   // the quote
+    })
 ```
 
-Explain:
-> *"ဒါ **backend** — server-side code။ API တွေ ကိုယ့်ဖာသာ ဆောက်။ ကိုယ့် database နဲ့ ဆက်။ Multi-user app ဆောက်။"*
->
-> *"Hein's News API က ဒီအတိုင်း ဆောက်ထား။ Course 1 မှ ဒါကို ကိုယ့်ဖာသာ ဆောက်တတ်မယ်။"*
+Parts:
+- `fetch(url)` — ask server
+- `.then(response => response.json())` — turn response into JS object
+- `.then(data => ...)` — now we have the data, use it
+
+**`async`**: data takes time to arrive. `.then` means "when it arrives, do this."
+
+### Why `fetch` matters
+
+- News apps fetch articles
+- Weather apps fetch weather
+- Social apps fetch posts
+- **Every real app** uses fetch (or similar)
 
 ---
 
-## What's next (15 min)
+## Demo (15 min)
 
-### Course 1 Preview
+Prompt AI:
 
-Hand out or show the Course 1 syllabus overview:
-- 12 days
-- Reading code → directing AI → verifying
-- Build a full-stack app
-- Node.js + Express + SQLite + Auth
-- 4 completion markers
+```
+In my Habit Tracker, add:
+- When the page loads, fetch a random motivational quote from:
+  https://api.quotable.io/random
+- Display the quote at the top of the page in a styled box
+- Also show the author's name
 
-### Burmese learning resources
+If fetch fails, show "Welcome back!" instead.
 
-List to share with students:
+Give me updated HTML + CSS + JS. Explain the fetch section line by line.
+```
 
-- YouTube channels (Burmese dev content, if any)
-- MDN Web Docs (English, but authoritative)
-- freeCodeCamp (free, English)
-- The Odin Project (free, English)
-- Discord/Telegram community (if any)
+Read AI's output:
+- `fetch()` call
+- `.then()` chain
+- Where data is used
+- Error handling (`.catch`)
 
-### Keep building
+Save. Push. Reload URL. **Quote appears.**
 
-> *"ဒီ course ပြီးရင် — Course 1 မလာခင် ဘာလုပ်မလဲ?*
->
-> *၁။ ကိုယ့် Habit Tracker + News App ကို ထပ်မြင့်မား။ Features ထည့်။*
->
-> *၂။ သုံးစွဲသူ ပိုရှာ။ Feedback ယူ။*
->
-> *၃။ MDN ကို ကိုယ့်ဖာသာ ဖတ်။ YouTube videos များများ ကြည့်။*
->
-> *၄။ မေ့မသွားအောင် — တစ်ပတ်မှာ app တစ်ခု ဆောက်။ Habit tracker, timer, calculator — ဘာမဆို။*"*
+Reload again. **Different quote.** (Same quote only ~5% of time by random chance.)
 
 ---
 
-## Close + certificate (10 min)
+## Student build (35 min)
 
-### Group photo
+Each student:
+1. Prompt AI (adapted)
+2. Add fetch to Habit Tracker
+3. Push
+4. Test: quote changes on reload
 
-Everyone + their URLs on a shared screen.
+Then try:
+- `fetch('https://api.quotable.io/quotes?tags=motivational&limit=5')` — fetch 5 quotes
+- Loop over them, show random one
 
-### Shared URLs sheet
-
-A Google Doc / Classroom post with:
-- Every student's name
-- Every student's Habit Tracker URL
-- Every student's News App URL
-
-Each student will have this list to share with pride.
-
-### Certificate (optional)
-
-If theBuilderPros provides certificates:
-> *"[Student Name] has completed Course 0 — Web Essentials, demonstrating the ability to read code, direct AI to generate it, and deploy two web applications to the internet."*
-
-Honest language. Don't inflate.
+**Instructor circulates**:
+- CORS error → quotable.io is CORS-safe; probably typo
+- `.then` syntax confusion → OK to show `async/await` alternative
+- Data appears blank → check `data.content` vs AI's suggested path
 
 ---
 
-## Post-course homework (1 week)
+## Label (10 min)
 
-See [`homework.md`](homework.md).
+Write:
+1. What is **fetch**?
+2. What is **HTTP**?
+3. What is an **API**?
+4. What is **JSON**?
+5. What does **async** mean?
 
-Students have 1 week after Day 8 to:
-- Share both apps with 5+ real people
-- Collect feedback
-- Pick one app and iterate
-- Submit final write-up
-
-**This is the real test of inspiration.** Did it stick? Do they keep going when the course ends?
+**Pocket answers**:
+- `fetch` = JS way to ask a server for data
+- HTTP = the language browsers and servers use
+- API = a URL + rules for talking to a server
+- JSON = text format for structured data
+- Async = "takes time, continue when done"
 
 ---
 
@@ -181,18 +146,29 @@ Students have 1 week after Day 8 to:
 
 | Failure | Fix |
 |---|---|
-| Student didn't deploy News App | Help them during the 15-min homework review window |
-| Students run over 3 min in showcase | Keep time strictly; use a timer |
-| Student presentation nervous / shy | Encourage: "it doesn't need to be perfect — just show it" |
-| Instructor tempted to explain React in depth | Resist. "Taste" only. Course 1 is for depth. |
+| CORS error | Rare for quotable.io; check URL typo |
+| Quote doesn't appear | Check Console for errors |
+| `data.content` undefined | AI's path may differ; check actual response in Network tab |
+| Fetch runs twice | OK, happens on reload |
 
 ---
 
-## What this day is NOT
+## NOT
 
-- Not a React tutorial
-- Not a framework comparison
-- Not a backend lesson
-- Not an AI agent masterclass
+- POST / PUT / DELETE (Course 1 — just read)
+- Authentication (Course 1+)
+- WebSockets (Course 2+)
+- GraphQL (Course 2+)
 
-Keep tight: showcase → taste → what's next → goodbye.
+Keep tight: fetch URL → get JSON → display.
+
+---
+
+## Transition to Capstone 2
+
+End of Day 8 marks:
+- ✅ Learning phase complete (HTML, CSS, JS, DOM, localStorage, fetch)
+- ✅ Habit Tracker done
+- 🎯 Capstone 2 begins Day 9 — News App from scratch using all these skills
+
+Students should feel: "I know enough tools to build something real now."

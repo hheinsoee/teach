@@ -1,126 +1,137 @@
-# Day 7 — News App: Features & Code Review
+# Day 7 — localStorage: Data That Persists
 
-**Project**: News App (continuing)
-**Marcus stages**: 7
-**Modules touched**: E (software engineering — reviewing AI code), F (prompting craft), H (DOM depth)
-**Duration**: 90 min class + 3 hr homework
+**Phase**: Learning (Day 7 of 8) — Habit Tracker practice COMPLETE after today
+**Project**: Habit Tracker (final build day)
+**Modules touched**: A, H, F
+**Duration**: 90 min + 3 hr HW
 
 ---
 
 ## Learning outcomes
 
-Students can:
-- **Read**: AI-generated code and spot something suspicious
-- **Understand**: that AI makes mistakes (hallucinations, outdated APIs)
-- **Direct**: AI with more precise prompts after reviewing output
-- **Verify**: their news app works for all features
+- **Read**: `localStorage.setItem` / `getItem` + `JSON.stringify` / `parse`
+- **Understand**: browser can remember data across page reloads
+- **Direct**: AI to save/restore habit state
+- **Verify**: refresh page — state persists
 
 ---
 
-## 90-minute plan
+## 90-min plan
 
-| Block | Minutes | Activity |
+| Block | Min | Activity |
 |---|---|---|
-| Homework review | 15 | Show redesigned News Apps |
-| Concept: "AI gets things wrong" | 20 | Code review intro — how to spot problems |
-| Live code review demo | 15 | Instructor shows AI News App with 2 planted bugs, students find them |
-| Student build | 30 | Add final features: filter, expand, loading state |
-| Label | 10 | Code review? Bug? Prompt craft? |
+| HW review | 10 | Students show buttons working |
+| Concept: Where does data live? | 15 | Memory vs localStorage |
+| Instructor demo | 15 | AI adds localStorage, refresh preserves state |
+| Student build | 35 | Each student adds persistence to Habit Tracker |
+| Label + commit | 15 | localStorage, state, JSON |
 
 ---
 
-## Concept phase (20 min)
+## Concept (15 min)
 
-**"AI is confident, not correct."**
+### Where does data live?
 
-Draw/discuss:
-- AI generates code that LOOKS right
-- But it might: use outdated functions, hallucinate APIs that don't exist, miss edge cases
-- Your job as the human: **read, verify, test**
+Ask: *"Habit Tracker ကို reload လုပ်ရင် ဘာဖြစ်လဲ?"*
 
-**3 common AI mistakes**:
+→ Check boxes အကုန် ပျောက်။ Why? **Memory ပဲ**။
 
-1. **Hallucinated API** — AI calls a function that doesn't exist. Example: `document.getLatestNews()` (no such thing)
-2. **Outdated syntax** — AI uses old ways (jQuery `$()` when you asked for modern JS)
-3. **Wrong assumption** — AI assumes your API returns data differently than it does
+Draw:
 
-**How to spot**:
-- Does the code **actually run** when you load the page?
-- Does it do what you asked?
-- Does Console show errors?
-- Does it break when you try "weird" input?
+```
+JS Variables (memory)
+       ↑ fast, temporary
+       | lost on reload
 
----
-
-## Live demo (15 min)
-
-Instructor shows a pre-prepared News App with planted bugs. Example buggy code:
-
-```javascript
-fetch('https://api.heinsoe.com/news.json')
-  .then(r => r.json())
-  .then(articles => {
-    const container = document.getElementById('news-container');
-    articles.forEach(a => {
-      // BUG 1: typo — should be innerHTML
-      container.innerHtml += `<h2>${a.title}</h2>`;
-    });
-  });
-  // BUG 2: no error handling if fetch fails
+localStorage
+       ↑ stays after reload
+       | per browser, per domain
 ```
 
-Ask class: **"What's wrong?"**
+### How to use
 
-Discussion flows:
-- First look → "it looks fine"
-- Instructor shows: open in browser → nothing appears → check Console
-- Console says `undefined is not a function` → student spots the typo
-- Fix typo → works
-- Then: "what if API is down?" → nothing happens, no feedback → add `.catch()`
+```javascript
+// Save
+localStorage.setItem("done", JSON.stringify([true, false, true, false]))
 
-> *"ဒါ **code review** လို့ ခေါ်တယ်။ AI ပေးတဲ့ code ကို ဖတ်, စမ်း, စစ် — ပြီးမှ accept။"*
+// Load
+let raw = localStorage.getItem("done")
+let done = JSON.parse(raw) || [false, false, false, false]
+```
+
+### Why JSON?
+
+localStorage က **string ပဲ သိမ်းနိုင်**။ Array, object သိမ်းချင်ရင် — `JSON.stringify` နဲ့ string ပြောင်း → ပြန်ဖတ်တဲ့အခါ `JSON.parse` နဲ့ ပြန် object ပြောင်း။
+
+**Analogy**:
+- Memory = ဦးနှောက် (short-term)
+- localStorage = စာအုပ် (writes it down)
+- JSON = အရာကို စာအဖြစ်ပြောင်းနည်း
 
 ---
 
-## Student build (30 min)
+## Demo (15 min)
 
-Each student adds 3 features to their News App via AI:
+Prompt AI:
 
-1. **Click to expand**: click article → show full body text (modal or expand in place)
-2. **Loading state**: before data arrives, show "Loading news..."
-3. **Error state**: if fetch fails, show "Something went wrong. Try again."
+```
+In my Habit Tracker:
+- Save which habits are checked to localStorage after any change
+- Load from localStorage when page loads
+- If no saved state, default to all unchecked
 
-**For each feature**:
-- Prompt AI
-- Read the code BEFORE pasting
-- Ask yourself: "does this look right?"
-- Paste, test
-- If broken: Console → error → re-prompt AI with error
+Give me the JS. Explain where save/load happen.
+```
+
+Read AI's output:
+- Where it saves: inside the change listener
+- Where it loads: at page start
+- `JSON.stringify` call: converts array to string
+- `JSON.parse` call: converts back
+- Default fallback: `|| [false, false, false, false]`
+
+Save, push.
+
+Reload URL. Check boxes. Reload again. **State preserved.**
+
+Close tab. Reopen URL. **Still preserved.**
+
+Open DevTools → Application → Local Storage → see the stored data.
+
+---
+
+## Student build (35 min)
+
+Each student:
+1. Prompt AI (adapted)
+2. Add localStorage save/load to their `script.js`
+3. Push
+4. Test: check → reload → still checked
+5. Add streak counter via AI: "If all done, streak +1. New day resets."
+6. View localStorage in DevTools
 
 **Instructor circulates**:
-- Student copies without reading → stop them: "read first"
-- Student can't find error → walk through: Chrome F12 → Console → read red text
-- Student frustrated with repeated AI mistakes → model patience: "AI is a draft, you are the editor"
+- Reload loses data → localStorage code not reached (wrong listener event)
+- `JSON.parse` crashes → raw is null; need fallback
+- Streak counter resets wrong → day comparison tricky
 
 ---
 
-## Label phase (10 min)
+## Label (10 min)
 
-Write (no AI):
+Write:
+1. What is **localStorage**?
+2. Difference between memory and localStorage?
+3. Why do we need `JSON.stringify`?
+4. What does **state** mean?
+5. Where does localStorage live physically?
 
-1. What is **code review**?
-2. What is a **bug**?
-3. What is a **hallucination** (AI context)?
-4. Why should you read AI code before using it?
-5. What's one way AI's output could look correct but actually be wrong?
-
-### Pocket answers
-
-- **Code review** — reading code to understand it + spot problems before using it
-- **Bug** — code behavior that's not what you wanted
-- **Hallucination** — when AI makes up something that doesn't exist (fake function, fake API)
-- **Why read first** — AI is confident even when wrong; blind trust leads to broken apps
-- **Looks right, is wrong** — typo in function name, wrong assumption about data, missing error case
+**Pocket answers**:
+- localStorage = browser's notebook, survives reload
+- Memory = fast but gone on reload; localStorage = slower but saved
+- Because localStorage only holds strings; JSON converts objects to strings
+- State = the current situation of your app
+- On your laptop, per browser, per domain
 
 ---
 
@@ -128,18 +139,27 @@ Write (no AI):
 
 | Failure | Fix |
 |---|---|
-| Student accepts AI code without reading | Stop them. Read it line by line together. |
-| Error messages too cryptic | Teach: "paste the error back to AI with 'what does this mean?'" |
-| Student spends 30 min on one bug | Help them: pair with another student, or instructor sits down |
-| Student assumes AI is always right | Show them an obvious AI failure (ask AI something you know it'll get wrong) |
+| State doesn't persist | localStorage call missing or wrong key name |
+| `JSON.parse` throws error | Raw is null first time; add `\|\| default` |
+| State persists but wrong data | Save after state update, not before |
+| Student panics at raw JSON in DevTools | "That's normal — strings for storage" |
 
 ---
 
-## What this day is NOT
+## NOT
 
-- Not static analysis / linting tools
-- Not formal testing framework
-- Not peer review workflow
-- Not defensive programming deep-dive
+- sessionStorage, IndexedDB, cookies (Course 1+)
+- Security limits, XSS considerations (Course 1+)
+- Sync across devices (Course 2+)
 
-Keep tight: read AI output → spot issues → verify behavior → iterate.
+---
+
+## End of Day 7 — Habit Tracker is DONE
+
+Students should have:
+- Styled Habit Tracker
+- Interactive checkboxes
+- Persistent state
+- Counter + streak
+
+**Habit Tracker practice project COMPLETE.** From Day 8 we start Fetch, then Days 9-12 Capstone 2 (News App).

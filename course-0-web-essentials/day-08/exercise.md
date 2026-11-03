@@ -1,109 +1,142 @@
 # Day 8 — In-Class Exercise
 
-**Goal**: Celebrate what you built. Present both apps. See what's next.
+**Goal**: Add data from the internet to your Habit Tracker. Learn `fetch`.
 
 ---
 
-## Step 1 — Final check
+## Step 1 — See a fetch work
 
-Open both your live URLs in the browser:
-- `username.github.io/habit-tracker/`
-- `username.github.io/news-app/`
+Open live URL. F12 → Console. Type:
 
-Both should load. Both should work.
+```javascript
+fetch('https://api.quotable.io/random')
+    .then(r => r.json())
+    .then(data => console.log(data))
+```
 
-If something's broken, fix it fast (teacher helps). Everyone presents, no exceptions.
+Wait 1 sec. See a quote object in Console.
 
----
-
-## Step 2 — Prepare your 3-minute showcase
-
-For each app, think about:
-
-- **What does it do?** (one sentence)
-- **What were you most proud of building?** (one specific feature)
-- **What would you add next?** (one future idea)
-
-Write it on paper. Keep it short.
+Try again. Different quote.
 
 ---
 
-## Step 3 — Present
+## Step 2 — Understand the response
 
-When teacher calls you up:
+In Console, type again:
 
-1. Show your Habit Tracker URL
-2. Click a checkbox, show it works
-3. Say: *"ဒါ ကိုယ့် Habit Tracker။ အကြိုက်ဆုံး feature က ___။ နောက်ထည့်ချင်တာ ___။"*
-4. Show your News App URL
-5. Scroll articles, show filter/expand
-6. Say: *"ဒါ ကိုယ့် News App။ API က ___ ကနေ data ဆွဲ။"*
-7. Thank the class.
+```javascript
+fetch('https://api.quotable.io/random')
+    .then(r => r.json())
+    .then(data => {
+        console.log("Quote:", data.content)
+        console.log("Author:", data.author)
+    })
+```
 
-**3 minutes total.** Keep it tight.
-
----
-
-## Step 4 — Watch "What's next"
-
-Teacher shows:
-- **React** (framework) — how real apps are built when they get big
-- **Cursor / v0 / Lovable** — AI agents that write entire apps
-- **Backend** — how servers work (behind Hein's API)
-
-**Don't try to learn these today.** Just see them exist. They're Course 1 and beyond.
+**That's how you use fetched data.**
 
 ---
 
-## Step 5 — Final reflection (in class)
+## Step 3 — Prompt AI
 
-Open your notes. Write 3 sentences:
+Paste:
 
-1. The biggest thing you learned in Course 0
-2. The hardest moment
-3. What you'll do next week to keep learning
+```
+In my Habit Tracker, add a motivational quote at the top:
 
-Share with partner.
+- On page load, fetch a random quote from https://api.quotable.io/random
+- Display it in a nice box above the habits
+- Show quote text and author
+
+If fetch fails, show "Welcome back!" as fallback.
+
+Give me HTML, CSS, and JS updates. Explain the fetch part line by line.
+```
 
 ---
 
-## Step 6 — Group photo + URLs sheet
+## Step 4 — Apply changes
 
-Everyone poses for a photo. Teacher captures all URLs in a shared doc. Take a screenshot of the URLs list — this is proof of what you built.
+Follow AI's HTML changes (add quote container). Follow CSS (styled box). Follow JS (fetch on load).
+
+Save. Push.
+
+---
+
+## Step 5 — Test
+
+Reload URL. **Quote should appear within a second.**
+
+Reload again. **Different quote.**
+
+---
+
+## Step 6 — Read your fetch code
+
+Open `script.js`. Find the fetch section.
+
+Try to answer:
+- Which line asks the server?
+- Which line waits for response?
+- Which line uses the data?
+
+Ask AI to explain any line unclear.
+
+---
+
+## Step 7 — Test error handling
+
+Change URL to broken: `https://api.quotable.io/randooooom`
+
+Push. Reload.
+
+**Fallback should show** "Welcome back!".
+
+Restore URL. Push.
+
+---
+
+## Step 8 — Label (no AI!)
+
+Write:
+1. What is **fetch**?
+2. What is **HTTP**?
+3. What is an **API**?
+4. What is **JSON**?
+5. What does **async** mean?
 
 ---
 
 ## Done when
 
-- [ ] Both your URLs work live
-- [ ] You presented both apps for 3 minutes
-- [ ] You saw the "what's next" demo
-- [ ] You wrote the 3-sentence final reflection
-- [ ] You have the shared URLs sheet
-
----
-
-## Post-course (next week)
-
-See [`homework.md`](homework.md). You have 1 week to:
-- Share your apps with 5+ real people
-- Keep building, keep learning
-- Submit final write-up
+- [ ] Ran `fetch` in Console successfully
+- [ ] Quote appears on Habit Tracker reload
+- [ ] Different quote each reload
+- [ ] Error fallback works
+- [ ] Label answers written
 
 ---
 
 ## Rules
 
-1. **Everyone presents.** No exceptions. Even if nervous. Even if your app is simple.
-2. **3 min max.** Teacher will cut you off kindly.
-3. **Celebrate others.** Clap for every classmate. You all did something hard.
+1. **fetch is async** — results don't come instantly
+2. **`.then` chain** — process response → use data
+3. **Check Console** for errors
 
 ---
 
-## You did it
+## If you finish early
 
-4 weeks ago you didn't know what HTML was. Today you have 2 live web apps that real people can use.
+Try fetching 5 quotes and showing a different one each day:
 
-**That's a lot.** You're not a programmer yet — but you're on the path. The next step is Course 1 (if you want it). Or just keep building on your own. Both are honored paths.
+```javascript
+fetch('https://api.quotable.io/quotes?tags=motivational&limit=5')
+    .then(r => r.json())
+    .then(data => {
+        let today = new Date().getDay()  // 0-6
+        let quote = data.results[today % data.results.length]
+        // display quote.content and quote.author
+    })
+```
 
-Congratulations.
+Ask AI to integrate this with your Habit Tracker.

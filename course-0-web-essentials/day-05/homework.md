@@ -1,121 +1,73 @@
-**Google Classroom assignment**
-**Points**: 10
-**Due**: Evening before Day 6
-**Submit**: Live URL + 3 commits screenshot + 2 user quotes + reflection
+**Google Classroom** · **10 pts** · **Due: before Day 6**
 
 ---
 
-# Day 5 Homework — Get 3 Real Users on Your Habit Tracker
+# Day 5 Homework — Loops Deep Dive
 
-**Total time**: ~3 hours
-**Structure**: Research (1 hr) + Build/Share (1-1.5 hr) + Reflect (0.5 hr)
+**Total**: ~3 hours
 
 ---
 
 ## Part 1 — Research (1 hour)
 
-### A. How Git works
+- "for loop JavaScript" — 1 video
+- "forEach JavaScript" — 1 video  
+- "array methods JavaScript" — 1 video (map, filter, reduce — just introduction)
 
-Watch 1 YouTube video on Git basics (10-15 min).
-
-Write 3 sentences on:
-- What's the difference between `git add` and `git commit`?
-- What is a "branch"?
-- Why does commit history matter?
-
-### B. GitHub Pages & CI/CD
-
-Research: 
-- What other things can CI/CD do besides deploying? (hint: tests, linting, security scans)
-- Why do companies use CI/CD?
-
-Write 2-3 sentences.
+4-5 sentences in own words.
 
 ---
 
-## Part 2 — Build + Share (1-1.5 hours)
+## Part 2 — Build (1-1.5 hours)
 
-### A. Polish your live Habit Tracker
+### A. Loop variations
 
-Based on what you've learned:
-- Fix any bugs
-- Make sure it works on phone
-- Make sure data persists
-- Make sure it looks good
+Prompt AI to:
+- Rewrite your habit log using `forEach` instead of `for`
+- Add a loop that logs habits in reverse order
 
-### B. Make 3 meaningful commits
+### B. Filter loop
 
-Each commit should fix or add ONE thing. Example:
-- Commit 1: "fix streak counter resetting on wrong day"
-- Commit 2: "add weekly summary feature"
-- Commit 3: "improve mobile layout"
+Prompt AI:
+```
+Add a function `getDoneHabits(habits, doneArray)` that uses a loop
+to return a new array of habits that are "done" (where doneArray[i] is true).
 
-### C. Get 3 real users
+Call with example data. Log result.
+```
 
-Send your URL to **3 real people** — family, friends, classmates from outside this course.
+### C. Break and fix
 
-Ask them:
-- To open on their phone
-- To add their own habits
-- To use it for the day (or at least try it 2-3 times)
+In your loop, change `i++` to `i--`. Push. What happens?
 
-### D. Collect 2 user quotes
+(Infinite loop — `i` goes negative but `i < length` is still true? Or counter never grows?)
 
-Message or ask 2 of your testers:
-- "What did you think of my app?"
-- "What was confusing?"
-- "Would you use it again?"
-
-Record their actual words (screenshot or copy-paste).
+Fix. Push.
 
 ---
 
 ## Part 3 — Reflect (0.5 hour)
 
-Write 5-7 sentences:
-
-1. How many commits did you make this week?
-2. Did your 3 testers actually use the app, or just sign up?
-3. What was the most surprising feedback?
-4. What's one bug you fixed on your own?
-5. What's one thing you'd change about Course 0's Days 1-5 looking back?
+3-5 sentences:
+1. `for` vs `forEach` — which do you prefer?
+2. What's "off-by-one" and did it bite you?
+3. Something you still don't understand about loops?
 
 ---
 
-## Submit via Google Classroom
+## Submit
 
-1. **Your live URL** (must work when teacher opens it)
-2. **Screenshot of your commit history** (from GitHub repo → Insights → or just the commits list)
-3. **2 user quotes** (copy-paste from their actual messages)
-4. **Reflection** (5-7 sentences)
+1. Live URL
+2. Research notes
+3. Console screenshot showing loop output
+4. Reflection
 
 ---
 
 ## Done when
 
-- [ ] Live URL works on teacher's phone
-- [ ] At least 3 commits visible on GitHub
-- [ ] At least 3 real people (not classmates in this course) have opened your URL
-- [ ] 2 user quotes collected
-- [ ] Reflection written
-- [ ] All submitted to Classroom
-
----
-
-## Rules
-
-1. **Real users only.** Not fake, not classmates in this cohort.
-2. **Quote what they actually said**, not what you think they meant.
-3. **If no one wants to try your app**, write that in reflection honestly. That's also data.
-
----
-
-## Looking ahead
-
-Next week (Days 6-8): a NEW project — the **News App**.
-
-- Day 6: Fetch news from an API (I'll pre-build the API, you consume it)
-- Day 7: Features + code review
-- Day 8: Capstone — both apps presented + taste of what's next
-
-Keep your Habit Tracker URL. You'll demo both apps on Day 8.
+- [ ] 3 topics researched
+- [ ] At least 2 loop styles in script.js (`for` + `forEach`)
+- [ ] `getDoneHabits` function works
+- [ ] Experienced an infinite loop
+- [ ] Reflection submitted

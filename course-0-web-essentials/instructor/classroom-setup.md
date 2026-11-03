@@ -1,151 +1,123 @@
 # Google Classroom Setup
 
-Course 0 uses Google Classroom for homework distribution + submission tracking.
+Course 0 uses Classroom for homework tracking + submission.
 
 ---
 
-## Setup checklist (before Day 1)
+## Setup (before Day 1)
 
-1. **Create a new Google Classroom class**
-   - Class name: `Course 0 — Web Essentials — [Cohort name/date]`
-   - Section: label for the cohort (e.g., "theBuilderPros · Nov 2026")
-   - Subject: `Web Development`
+1. Create new class: `Course 0 — Web Essentials — [Cohort]`
+2. Invite students (Gmail addresses)
+3. Create 12 topics (one per day):
+   - Day 1 — HTML & GitHub
+   - Day 2 — CSS
+   - Day 3 — JS Variables
+   - Day 4 — Functions & Conditions
+   - Day 5 — Loops
+   - Day 6 — DOM & Events
+   - Day 7 — localStorage
+   - Day 8 — Fetch
+   - Day 9 — Capstone 2 Begins
+   - Day 10 — Features
+   - Day 11 — Code Review
+   - Day 12 — Showcase
 
-2. **Invite students**
-   - Use Gmail addresses (same ones they'll use for GitHub, ChatGPT)
-   - Verify each student joins before Day 1
-
-3. **Create 8 topics** (one per day):
-   - `Day 1 — First HTML`
-   - `Day 2 — CSS Styling`
-   - `Day 3 — JavaScript Basics`
-   - `Day 4 — localStorage & Features`
-   - `Day 5 — Git & Deploy`
-   - `Day 6 — News App & Fetch`
-   - `Day 7 — Features & Code Review`
-   - `Day 8 — Capstone & Post-Course`
-
-4. **Create 8 assignments** — copy-paste each day's `homework.md` content
+4. Create 12 assignments (copy from each day's `homework.md`)
 
 ---
 
-## Assignment template
+## Assignment settings
 
-Each day's `homework.md` is written to be **copy-pasted directly into Classroom** with no edits.
-
-The header:
-
-```
-**Google Classroom assignment**
-**Points**: 10
-**Due**: evening before Day N+1
-**Submit**: <artifacts>
-```
-
-Set:
-- **Points: 10**
-- **Due date**: 8pm (local time) evening before next class
-- **Submission type**: "Students can comment" + accept text submissions and links
+- **Points**: 10
+- **Due**: 8pm evening before next class
+- **Submission type**: text + links + optional images
 
 ---
 
-## Submission format rules
+## Submission rules
 
-**Submit URLs + text + images**, never files.
+**URLs + text + images** only. No zip files.
 
-**Valid**:
-- Live URLs (open in browser)
-- Text in submission box: reflections, research notes
-- Screenshots as uploads
+Valid:
+- Live URLs
+- Text submissions (reflections, research notes)
+- Screenshots
 
-**Not valid**:
-- Project .zip files
-- Code files (we read code via GitHub, not uploaded files)
-- "I'll show you in class" (homework must be submitted before class)
+Not valid:
+- Project files
+- Code uploads
 
 ---
 
 ## What Classroom can grade
 
-Only Markers 1 and 2 can be checked by Classroom:
+Only Markers 1-2 (URLs). Markers 3-4 are in-person.
 
-| # | Marker | Classroom's role |
-|---|---|---|
-| 1 | Habit Tracker live | Teacher opens URL, marks ✓ |
-| 2 | News App live | Teacher opens URL, marks ✓ |
-| 3 | 3+ real users | Teacher reads quotes in homework, counts |
-| 4 | Can explain code | **In-person Day 8 only**. Teacher records result as comment. |
-
-**Never try to auto-grade reflections or research notes.** They're for the student's benefit; Classroom records they were submitted.
+| Marker | Role |
+|---|---|
+| 1 — News App live | Teacher opens URL |
+| 2 — Fetches API | Teacher checks Network tab |
+| 3 — 3+ users | Teacher reads submission quotes |
+| 4 — Explains code | Day 12 in-person |
 
 ---
 
 ## Weekly flow
 
-| Day | Instructor Classroom actions |
+| Day | Action |
 |---|---|
-| 1 | Post Day 1 homework at end of class |
-| 2 | Day 1 homework due 8pm the night before. Review in first 15 min of class. Post Day 2 homework at end. |
-| 3-7 | Same pattern |
-| 8 | Post Day 8 homework (1 week deadline for post-course) |
+| 1 | Post Day 1 HW |
+| 2 | Day 1 HW due 8pm night before. Review 10 min of class. Post Day 2 HW. |
+| 3-11 | Same pattern |
+| 12 | Post post-course HW (1 week deadline) |
 
 ---
 
-## Grading in Classroom
+## Grading
 
-For Markers 1-3: give full marks (10/10) if URL / user count / submission is present.
-
-For Marker 4 (Day 8): record result as a comment after live assessment.
+Markers 1-3: 10/10 if present.
+Marker 4: comment after Day 12 showcase.
 
 Example comment:
-> *"Day 8 presentation: confident, named localStorage + fetch correctly, pointed at expand feature as pride. Marker 4 met."*
-
-> *"Day 8 presentation: nervous but shipped both apps. Needs more time explaining code — recommended 1-on-1 after class before I mark Marker 4."*
+> *"Day 12 presentation: confident, named fetch + category filter correctly."*
 
 ---
 
 ## Attendance
 
-Classroom doesn't track attendance. Keep a separate log.
+Classroom doesn't track. Keep separate log.
 
-**Course 0 attendance guidance**:
-- Missing 1 day → okay with self-study + instructor check-in
-- Missing 2 days → need makeup discussion
-- Missing Day 1 → high risk; try to attend next cohort's Day 1
+Guidance:
+- Missing 1 day → self-study + instructor check-in
+- Missing 2+ → makeup needed
+- Missing Day 12 → cannot pass without reschedule
 
 ---
 
 ## Privacy
 
-- Student URLs may be shared within class (peer feedback, Day 8 showcase)
-- Do not post student URLs externally without consent
-- Screenshots may contain personal data — handle gently
+- URLs sharable within class
+- Not external without consent
+- Screenshots may have personal data
 
 ---
 
-## Homework quality signals
+## Quality signals
 
-**Good signal** (student actually did it):
-- Specific details (names of friends, specific features, exact prompts used)
-- Honest reflection ("I didn't understand X")
-- Real user quotes that sound like real humans
+**Good** (real engagement):
+- Specific details
+- Honest confusion
+- Real user quotes
 
-**Bad signal** (likely AI-written reflection):
-- Generic phrases ("I learned about the importance of...")
-- Marketing language ("empowering users to...")
+**Bad** (AI-written):
+- Generic phrases
+- Perfect grammar from a struggling student
 - No specific features mentioned
-- Perfect grammar in a student who typed broken English in class
 
-**Response to bad signal**: ask the student 1-on-1 about their submission. If they can explain details, OK. If they can't, ask them to redo it in Burmese or voice-record their reflection.
+**Response**: 1-on-1 about submission. If they explain, OK.
 
 ---
 
-## End-of-course summary
+## End of cohort
 
-After Day 8 post-course homework is submitted, Classroom should show:
-
-- All 8 homework submissions per student
-- Day 8 showcase comment (Marker 4 result)
-- Final cohort-wide stats
-
-Export the gradebook and keep for next cohort's reference.
+Export gradebook. Keep for next cohort.

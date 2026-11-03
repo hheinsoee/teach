@@ -1,155 +1,150 @@
 # Day 5 — In-Class Exercise
 
-**Goal**: Your Habit Tracker goes LIVE on the internet. Get a URL you can share.
+**Goal**: Learn to **repeat** code with loops. Process every habit in an array.
 
 ---
 
-## Step 1 — Create a GitHub repo
+## Step 1 — Try a loop in Console
 
-1. Open **github.com**, sign in
-2. Click **+** (top right) → **New repository**
-3. Repository name: **`habit-tracker`**
-4. Public
-5. Check "Add a README file"
-6. Click **Create repository**
+Open live URL. F12 → Console. Type:
+
+```javascript
+let items = ["apple", "banana", "cherry"]
+
+for (let i = 0; i < items.length; i++) {
+    console.log(i, items[i])
+}
+```
+
+Press Enter. See 3 lines logged.
+
+**What happened**: loop ran 3 times. Each time `i` was different (0, 1, 2).
 
 ---
 
-## Step 2 — Push your code to GitHub
+## Step 2 — Try forEach
 
-### Option A — Using Terminal (teacher will walk you through)
-
-Open Terminal (Mac) or Git Bash (Windows). Navigate to your folder:
-
-```bash
-cd ~/Desktop/habit-tracker
+```javascript
+items.forEach(item => {
+    console.log(item)
+})
 ```
 
-Then run these commands one by one:
-
-```bash
-git init
-git add .
-git commit -m "my first habit tracker"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/habit-tracker.git
-git push -u origin main
-```
-
-Replace `YOUR_USERNAME` with your actual GitHub username.
-
-If asked for a password: GitHub wants a **Personal Access Token** (teacher will help set this up).
-
-### Option B — Using GitHub Desktop (easier)
-
-1. Download GitHub Desktop from desktop.github.com
-2. Sign in with your GitHub account
-3. File → **Add Local Repository** → pick your `habit-tracker` folder
-4. Click **Publish Repository** → public → **Publish**
+Simpler. Same result (minus the index).
 
 ---
 
-## Step 3 — Enable GitHub Pages
+## Step 3 — Prompt AI for your Habit Tracker
 
-1. On your GitHub repo page, click **Settings** (top right)
-2. Scroll down, click **Pages** in the left sidebar
-3. Under "Source", select **Deploy from a branch**
-4. Branch: **main**, Folder: **/ (root)**
-5. Click **Save**
-
-Wait 30-60 seconds. Refresh the page. You'll see a URL like:
+Paste:
 
 ```
-https://YOUR_USERNAME.github.io/habit-tracker/
+Update script.js: use a for loop to go through my habits array
+and log each one with a number, like:
+   "1. Pray"
+   "2. Study"
+   ...
+
+Then add a function `countTodo(habits, doneArray)` that uses a loop
+to count how many habits in `doneArray` are false (not done).
+
+Call countTodo with example data. Log the result.
 ```
 
 ---
 
-## Step 4 — Visit your URL
+## Step 4 — Save, push, test
 
-Copy the URL. Open it in a new tab.
+Save `script.js`. GitHub Desktop → commit `Day 5 — loops` → push.
 
-**Your Habit Tracker is live.** On the internet. Anyone can access it.
+Wait 30 sec. Reload live URL + Console.
 
----
-
-## Step 5 — Open on your phone
-
-Send the URL to yourself (WhatsApp, Telegram, email). Open on your phone.
-
-**Add a habit. Check some boxes.** Is localStorage per device or shared?
-
-(Answer: per device. Your phone's checks are separate from your laptop's checks. We'll discuss.)
+**See numbered habits + todo count.**
 
 ---
 
-## Step 6 — Share with classmates
+## Step 5 — Modify
 
-Post your URL in the class group chat.
+Change the log format in your loop:
+- From `"1. Pray"` to `"Habit #1 is Pray"`
 
-Open 2-3 classmates' URLs. Try their Habit Trackers. See how different everyone's design is.
+Push. Test.
 
 ---
 
-## Step 7 — Make a change, push again
+## Step 6 — Dangerous experiment: infinite loop
 
-Back on your laptop:
-- Add a new habit to `index.html`
-- Save
+In Console, type:
 
-Then push the change:
-
-```bash
-git add .
-git commit -m "added a new habit"
-git push
+```javascript
+for (let i = 0; i < 10;) {
+    console.log(i)
+}
 ```
 
-(Or in GitHub Desktop: write commit summary → Commit → Push origin)
+Notice **no `i++`**. Press Enter.
 
-Wait 30 seconds. Refresh your live URL. **The new habit appears.**
+**Browser freezes.** Close the tab (don't panic). Reopen.
 
-That's **CI/CD** — Continuous Deployment. You pushed code; GitHub deployed it automatically.
+**Lesson**: without `i++`, loop never ends. Infinite loop crashes.
+
+---
+
+## Step 7 — Read your code
+
+Look at your `for` loop. Answer:
+- What's the starting value of `i`?
+- What's the condition to keep going?
+- What makes `i` grow?
+- What runs each iteration?
+
+Ask AI if unsure.
 
 ---
 
 ## Step 8 — Label (no AI!)
 
 Write:
-
-1. What is **git**?
-2. What is a **commit**?
-3. What is **GitHub**?
-4. What does **GitHub Pages** do?
-5. What is **CI/CD**?
+1. What is a **loop**?
+2. What is an **iteration**?
+3. What is the **index** (`i`)?
+4. `for` vs `forEach`?
+5. What happens if you forget `i++`?
 
 ---
 
 ## Done when
 
-- [ ] Your Habit Tracker has a live URL
-- [ ] URL ends in `.github.io`
-- [ ] It opens on your phone
-- [ ] You made at least 2 commits (not just 1)
-- [ ] Your URL is in the class group chat
-- [ ] You opened 2 classmates' URLs
+- [ ] You ran a `for` loop in Console
+- [ ] You ran a `forEach` in Console
+- [ ] `script.js` has at least 1 loop
+- [ ] Numbered habits appear in Console
+- [ ] You experienced infinite loop (and recovered)
 - [ ] Label answers written
-
----
-
-## If you finish early
-
-Share your URL with:
-- A family member (parent, sibling)
-- A friend outside this class
-
-Ask them to try it. Watch what they do.
 
 ---
 
 ## Rules
 
-1. **Public repository**. Do not make it private (GitHub Pages free tier requires public).
-2. **Commit messages matter**. Write what you changed, not "update".
-3. **Push after every change** so your live URL stays in sync.
-4. **If something breaks, don't delete the repo**. Ask the teacher. Most problems are 2-minute fixes.
+1. **Arrays start at 0**. First item is `arr[0]`.
+2. **`i < arr.length` not `<=`**. Avoid off-by-one.
+3. **Don't forget `i++`**. Or use `forEach` to not worry about it.
+
+---
+
+## If you finish early
+
+Try nested:
+
+```javascript
+let days = ["Mon", "Tue"]
+let habits = ["Pray", "Study"]
+
+days.forEach(day => {
+    habits.forEach(habit => {
+        console.log(day + ": " + habit)
+    })
+})
+```
+
+**4 logs**. Day × habit combinations. Nested loops.

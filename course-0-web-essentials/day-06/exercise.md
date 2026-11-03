@@ -1,144 +1,143 @@
 # Day 6 — In-Class Exercise
 
-**Goal**: Build a News App that fetches real news from an API. See data from the internet appear on your page.
+**Goal**: Make your Habit Tracker **interactive**. Click a checkbox → text strikes through.
 
 ---
 
-## Step 1 — See the API in action
+## Step 1 — Try DOM in Console
 
-Open this URL in a new browser tab:
+Open live URL. F12 → Console.
 
-**`https://api.heinsoe.com/news.json`**
-
-You'll see raw text that looks structured — this is **JSON**. It's a list of news articles.
-
-**Look at the data**:
-- Each article has a `title`, `image`, `date`, `body`, `category`
-- The whole thing is wrapped in `[` and `]` — that's a JavaScript **array**
-
-Don't worry if JSON looks ugly. Browsers display it as text; apps parse it into useful data.
-
----
-
-## Step 2 — Create a new project folder
-
-On your desktop, create a new folder: **`news-app`** (separate from `habit-tracker`).
-
----
-
-## Step 3 — Prompt AI for the News App
-
-Go to ChatGPT or Claude. Paste:
-
+```javascript
+let heading = document.querySelector("h1")
+console.log(heading)
 ```
-I want to build a simple News App. It should:
 
-- Fetch news from this URL: https://api.heinsoe.com/news.json
-- Display each article's title, image, and date
-- Show them in a list, newest first
-- Clean, modern design
+See the `<h1>` element.
 
-Give me a complete HTML + CSS + JavaScript file.
-Explain the fetch part line by line.
+```javascript
+heading.textContent = "Changed from Console!"
+```
 
-The API returns a JSON array like:
-[
-  {
-    "id": 1,
-    "title": "Article title",
-    "image": "https://...",
-    "body": "Full article text",
-    "date": "2026-11-01",
-    "category": "tech"
-  }
-]
+**Heading on your page changes.** JS controls HTML.
+
+Try:
+```javascript
+heading.style.color = "red"
+heading.style.fontSize = "60px"
 ```
 
 ---
 
-## Step 4 — Save the file
+## Step 2 — Try events in Console
 
-AI gives you code. Save it as `news-app/index.html`.
+```javascript
+let btn = document.querySelector("button")
+btn.addEventListener("click", () => {
+    console.log("Clicked!")
+})
+```
 
-If AI gave 3 separate files (`index.html`, `styles.css`, `script.js`), save all three.
+Click your Reset button (if you have one). "Clicked!" appears.
 
----
-
-## Step 5 — Open in Chrome
-
-Double-click `index.html`. Chrome opens.
-
-**Articles should appear.** Images, titles, dates — all from Hein's server.
-
-**If nothing appears**:
-- Open DevTools (F12) → Console tab
-- Read the error (usually red)
-- Paste error to AI with: "I got this error — what does it mean?"
+**That's an event listener.**
 
 ---
 
-## Step 6 — Read the fetch code
+## Step 3 — Prompt AI for interactive checkboxes
 
-Open `index.html` (or `script.js`). Find the `fetch(` line.
-
-Try to answer:
-- Which line asks the server for data?
-- Which line turns the response into JavaScript?
-- Which line loops through articles and shows each one?
-
-**Ask AI to explain any line you don't understand**:
+Paste:
 
 ```
-Explain this line in simple words: [paste line]
+In my Habit Tracker, I want:
+- When a checkbox is clicked, strike through the habit text
+- When unchecked, remove strikethrough
+- Add a counter above the list: "X of Y habits done"
+- Update counter whenever a checkbox changes
+
+Give me the complete JavaScript. Explain each line.
 ```
 
 ---
 
-## Step 7 — Customize it
+## Step 4 — Save, push, test
 
-Ask AI for ONE of these improvements:
+Save `script.js`. Push.
 
-- **A**: Show the date in human-readable format ("November 3, 2026" instead of "2026-11-03")
-- **B**: Add a category badge next to each title
-- **C**: Make images clickable to open the full-size image
-- **D**: Add a "Loading..." message that shows while data is fetching
+Wait 30 sec. Reload URL.
 
-Apply the change. Test.
+**Click checkboxes.** Text should strike through.
+**Counter should update.**
 
 ---
 
-## Step 8 — Label (no AI!)
+## Step 5 — Read your code
+
+For each major piece:
+- `querySelectorAll` — what does it return?
+- `forEach` — why loop here?
+- `addEventListener` — what event? What does it do?
+- `event.target.checked` — what's this?
+
+Ask AI to explain if unclear.
+
+---
+
+## Step 6 — Modify
+
+Try these one at a time:
+
+A. Change strikethrough to red color:
+   - Instead of `textDecoration = 'line-through'`
+   - Use `color = 'red'`
+
+B. When all done, show alert:
+   - "🎉 All habits done today!"
+
+Push after each change.
+
+---
+
+## Step 7 — Label (no AI!)
 
 Write:
-
-1. What is an **API**?
-2. What is **JSON**?
-3. What does `fetch()` do?
-4. What is a **server**?
-5. What's the big difference between your News App and your Habit Tracker?
+1. What is the **DOM**?
+2. What does `querySelector` do?
+3. What is an **event**?
+4. What does `addEventListener` do?
+5. HTML vs DOM — what's different?
 
 ---
 
 ## Done when
 
-- [ ] You have `news-app/index.html` on your desktop
-- [ ] Opening it shows news articles with titles, images, dates
-- [ ] You added one improvement (A, B, C, or D)
-- [ ] You can point at the `fetch` line and say what it does
+- [ ] You changed heading text from Console
+- [ ] Clicking checkboxes strikes through text (via your JS)
+- [ ] Counter updates automatically
+- [ ] You modified at least 1 thing (A or B)
 - [ ] Label answers written
-
----
-
-## If you finish early
-
-- Add a **search bar**: filter articles by title text
-- Add **category filter**: dropdown that shows only articles in one category
-- Try the API URL in a tool called **"REST client"** or **Postman** (optional, advanced)
 
 ---
 
 ## Rules
 
-1. **Don't modify the API**. The API is Hein's — you only consume it.
-2. **Check the Network tab** (DevTools) if data doesn't load. You'll see the request status.
-3. **If the API is down** (rare), ask the teacher for a backup `news.json` file.
+1. **`change` event for checkboxes** (not `click`)
+2. **Can't find element?** Check `<script>` is at end of `<body>` or has `defer`
+3. **Read error in Console** if nothing works
+
+---
+
+## If you finish early
+
+Make the counter clickable — when counter is clicked, uncheck all habits:
+
+```javascript
+document.querySelector("#counter").addEventListener("click", () => {
+    document.querySelectorAll("input[type=checkbox]").forEach(cb => {
+        cb.checked = false
+    })
+    // ... update strikethrough + count
+})
+```
+
+Ask AI to help you fill this in.

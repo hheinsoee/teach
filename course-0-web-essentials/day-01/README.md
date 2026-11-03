@@ -1,20 +1,19 @@
-# Day 1 — Problem, Idea & First HTML
+# Day 1 — Problem, Idea, HTML & GitHub Starter
 
-**Project**: Habit Tracker (Days 1-5)
-**Marcus stages**: 1-2 (Problem → First App)
-**Modules touched**: C (VS Code intro), G (how the web works), H (HTML structure)
+**Phase**: Learning (Day 1 of 8)
+**Project**: Habit Tracker — practice vehicle
+**Marcus stages**: 1-2
+**Modules touched**: C (VS Code, GitHub Desktop), G (how web works), H (HTML), I/J (clone + Pages, integrated)
 **Duration**: 90 min class + 3 hr homework
 
 ---
 
 ## Learning outcomes
 
-By end of Day 1, students can:
-
 - **Read**: an HTML file and name 3-5 tags
 - **Understand**: that a browser renders HTML as a visible page
 - **Direct**: ChatGPT/Claude to generate basic HTML
-- **Verify**: the generated HTML works by opening it in a browser
+- **Verify**: generated HTML works in a browser AND is live on the internet
 
 ---
 
@@ -22,168 +21,191 @@ By end of Day 1, students can:
 
 | Block | Minutes | Activity |
 |---|---|---|
-| Welcome + expectations | 15 | Who this course is for; what we'll ship by Day 8 |
-| Concept: "Why do we build?" | 10 | Problem → App framing (Marcus story) |
-| Instructor demo | 15 | Live: open ChatGPT, prompt "build me HTML for a habit tracker", read every line |
-| Student build | 35 | Each student prompts AI for their Habit Tracker HTML, opens in browser |
-| Label | 15 | What is HTML? What is a tag? What does `<h1>` mean? (own words, no AI) |
+| Welcome + expectations | 10 | Who this course is for; what we ship by Day 12 |
+| Concept: "Why do we build?" | 10 | Problem → App; Marcus story brief |
+| Setup: Clone starter + GitHub Desktop | 15 | Each student clones Hein's starter, sees Pages URL |
+| Instructor demo | 15 | AI generates HTML for Habit Tracker, read line by line |
+| Student build | 25 | Students prompt AI, replace index.html, see change on live URL |
+| Label + commit + close | 15 | Label HTML terms; `git push`; next class preview |
 
 ---
 
 ## Pre-class setup (instructor)
 
-- Chrome open with ChatGPT/Claude tab logged in
-- Projector working
-- VS Code open (optional, can use any text editor)
-- A folder for each student (`habit-tracker/`) ready as a template to copy
-- Previous student app URL ready as a "look what you'll build" demo
+**IMPORTANT**: Hein must prepare the starter repo BEFORE Day 1.
+
+See [`instructor/starter-repo-setup.md`](../instructor/starter-repo-setup.md).
+
+Starter repo contents:
+- `index.html` with placeholder content
+- `styles.css` (empty, ready to fill)
+- `script.js` (empty, ready to fill)
+- `.github/workflows/pages.yml` (auto-deploy on push)
+- `README.md` with student instructions
+
+Students clone this to begin. Pages auto-enabled.
 
 ---
 
-## Welcome script (15 min)
+## Welcome script (10 min)
 
-Open with:
-
-> *"ဒီ ၂၄ နာရီ ပြီးရင် သင့်မှာ Habit Tracker နဲ့ News App ၂ ခု — internet ပေါ်မှာ, ဖုန်းနဲ့ ဖွင့်လို့ရ, မိတ်ဆွေကို share လို့ရ။"*
-
-Then:
-
-> *"ဒါပေမဲ့ ဒီ course က **programmer ဖြစ်ဖို့ မဟုတ်**။ ဒီ course က — **AI နဲ့ လက်တွဲပြီး ဘယ်လို app ဆောက်မလဲ, code ဘယ်လိုဖတ်မလဲ, AI ပြောတာ မှန်မမှန် ဘယ်လိုစစ်မလဲ** သိဖို့။"*
+> *"ဒီ ၆ ပတ် ပြီးရင် သင့်မှာ News App တစ်ခု — internet ပေါ်မှာ, 3+ real users ရှိ, သင့်ဖာသာ code အကုန်ဖတ်တတ်မယ်။"*
 >
-> *"Programmer ဖြစ်ချင်ရင် Course 1 မှ။ ဒီနေ့က ကိုယ့်ဖာသာ ဘာမှ မသိရသေးဘူး ဆိုတဲ့ ကျောင်းသားကို — code ဖတ်တတ်ဖို့, AI နဲ့ လက်တွဲတတ်ဖို့ — ၄ ပတ်ထဲ။"*
+> *"ဒီ course က **programmer ဖြစ်ဖို့ မဟုတ်**။ ဒီ course က — AI နဲ့ လက်တွဲပြီး code ဖတ်တတ်, logic နားလည်, bug ဖမ်းတတ်ဖို့။"*
+>
+> *"ဒီနေ့ — ပထမဆုံး HTML file တစ်ခုကို သင့် browser မှာ ဖွင့်ပြီး, တကယ့် internet ပေါ်မှာ URL တစ်ခု ထွက်လာအောင် လုပ်မယ်။"*
 
 ---
 
 ## Concept phase (10 min)
 
-**"Why do we build?"**
-
-Draw on whiteboard / show on screen:
+Whiteboard:
 
 ```
-Problem  →  Idea  →  App  →  Users  →  Feedback  →  Improved App
+Problem  →  Idea  →  App  →  Users
 ```
 
-Explain with Marcus's story:
-- Marcus က **ရေသောက်ဖို့ မေ့တယ်** → problem
-- "App တစ်ခု ရှိရင် reminder ပေးမယ်" → idea
-- Sip app ဆောက် → first app
-- Share with family → users
-- Family said "button ကြီးချင်" → feedback
-- Improved Sip
+Marcus က **ရေသောက်ဖို့ မေ့** → *"App တစ်ခု ဆောက်မယ်"* → Sip app → family uses.
 
-**Then ask**: *"သင့်မှာ ဘယ်လို habit တွေ မမေ့ချင်လဲ?"*
+**Ask students**: "သင့်မှာ ဘယ်လို habit တွေ မမေ့ချင်လဲ?" — Collect 3-4 (ဘုရားရှိခိုး, စာကျက်, exercise, water).
 
-Students answer (ဘုရားရှိခိုး, စာကျက်, exercise, စသည်). Write 3-4 habits on board.
+These become the Habit Tracker list.
 
-**That becomes their Habit Tracker list.**
+---
+
+## Setup phase (15 min)
+
+### Step 1: Install GitHub Desktop (if not done)
+
+Give URL: desktop.github.com. 1-click install.
+
+### Step 2: Clone starter repo
+
+- Open GitHub Desktop
+- File → Clone Repository → URL
+- URL: `https://github.com/hheinsoee/web-essentials-starter.git` (Hein's starter)
+- Local path: Desktop
+
+### Step 3: Fork to student's account
+
+Instructor shows: on github.com, student clicks "Use this template" → creates **their own** repo named `habit-tracker` or similar.
+
+**Then re-clone the forked repo locally** (via GitHub Desktop).
+
+### Step 4: Enable Pages
+
+Settings → Pages → Source: `main`, root `/`. Save.
+
+### Step 5: Open live URL
+
+Wait 1 min. Open: `https://USERNAME.github.io/habit-tracker/`.
+
+**It loads.** Placeholder HTML visible.
+
+> *"ကြည့်။ သင့် first live URL ဖြစ်ပြီ။ Internet ပေါ်မှာ ရှိနေပြီ။"*
 
 ---
 
 ## Instructor demo (15 min)
 
-Open ChatGPT (or Claude). Type this prompt in front of class:
+Open ChatGPT/Claude. Prompt:
 
 ```
-I want to build a simple Habit Tracker web app.
+I'm building a Habit Tracker. Give me HTML with:
+- Heading "My Daily Habits"
+- Unordered list of 4 habits: Pray, Study, Exercise, Water
+- Checkbox next to each habit
+- Today's date at the bottom
 
-Build me a single HTML file with:
-- A heading "My Daily Habits"
-- A list of 4 habits (replace with: Pray, Study, Exercise, Water)
-- Next to each habit, a checkbox
-- A small text at the bottom showing today's date
-
-Keep it simple. No CSS or JavaScript yet. Just HTML.
+Keep it simple. No CSS. Just HTML.
 ```
 
-ChatGPT produces HTML. **Instructor reads every line out loud**:
+Read every tag out loud:
 
-> *"ဒီ `<!DOCTYPE html>` က — browser ကို 'ဒါ HTML ပဲ' လို့ ပြောတယ်။*
->
-> *ဒီ `<html>` tag က — စာမျက်နှာအစ။*
->
-> *ဒီ `<body>` ထဲမှာ — ကိုယ်မြင်ရမယ့် အကုန်။*
->
-> *ဒီ `<h1>` က — heading, အကြီးဆုံး စာသား။*
->
-> *ဒီ `<ul>` က — unordered list, ဘုလ်းနဲ့ စာရင်း။*
->
-> *ဒီ `<li>` က — list item, စာရင်းထဲက တစ်ခု။*
->
-> *ဒီ `<input type="checkbox">` က — ချက်ဘောက်။*"
+> *"`<!DOCTYPE html>` — browser ကို 'ဒါ HTML' လို့ ပြော*
+> *`<html>` — စာမျက်နှာ စ*
+> *`<body>` — မြင်ရမယ့်အရာအကုန်*
+> *`<h1>` — အကြီးဆုံး heading*
+> *`<ul>` — bulleted list*
+> *`<li>` — list item တစ်ခု*
+> *`<input type="checkbox">` — ချက်ဘောက်"*
 
-Save the file as `index.html`. Double-click to open in Chrome. **It shows.**
+Copy generated HTML. Paste into `index.html` on laptop. **Save.**
 
-> *"ကြည့်။ Code က text ပဲ ဆိုပေမဲ့ — browser မှာ page ဖြစ်သွားတယ်။ ဒါ HTML။"*
+In GitHub Desktop:
+- See changed file
+- Summary: "add habits HTML"
+- Commit to main
+- Push origin
+
+Wait 30 sec. Reload live URL. **Habits appear.**
+
+> *"ဒါပဲ — သင့် laptop မှာ ပြင်, GitHub ကို တင်, URL က အလိုအလျောက် update ဖြစ်။"*
 
 ---
 
-## Student build (35 min)
+## Student build (25 min)
 
 Each student:
+1. Open AI, prompt (modify for their habits)
+2. Replace `index.html` content
+3. Save
+4. GitHub Desktop: commit → push
+5. Reload live URL
 
-1. Open ChatGPT or Claude in browser
-2. Use the **same prompt** (or a modified one with their own habits)
-3. Copy the generated HTML
-4. Create a new folder on desktop: `habit-tracker/`
-5. Save as `index.html`
-6. Double-click to open in Chrome
-
-**Instructor circulates**. Common issues:
-- Student copies prompt but AI gives slightly different output — fine, works too
-- Student forgets `.html` extension — rename
-- Student puts code inside wrong folder — help find it
-- Chrome shows plain text instead of page — missing `.html` extension
-
-**By minute 35, every student has an HTML file open in their browser.**
+**Instructor circulates**:
+- Student can't find `index.html` → GitHub Desktop → "Show in Finder"
+- Changes not showing live → wait 30 sec, hard refresh (Cmd+Shift+R)
+- GitHub Desktop login missing → sign in with Google
 
 ---
 
-## Label phase (15 min)
+## Label phase (10 min)
 
-Everyone closes AI and VS Code. On paper or in notes app, write:
+Write (no AI):
 
-1. What is HTML? (one sentence)
-2. What is a tag? (one sentence)
-3. What does `<h1>` mean?
-4. What does `<ul>` mean?
-5. What does `<input type="checkbox">` do?
+1. What is HTML?
+2. What is a **tag**?
+3. What does `<h1>` do?
+4. What does `<input type="checkbox">` do?
+5. What did `git push` do?
 
-**Then share**: 2-3 students read their definitions out loud. Class validates.
+### Pocket answers
 
-### Instructor pocket answers (for guidance, not lecture)
-
-- **HTML** — the language that tells the browser what to show on a page
-- **Tag** — a word in `<brackets>` that marks a piece of content
-- **`<h1>`** — the biggest heading on the page
-- **`<ul>`** — a list with bullet points
-- **`<input type="checkbox">`** — a box you can click to check
+- **HTML** — the language that tells browser what to show
+- **Tag** — a word in `<brackets>` marking content
+- **`<h1>`** — biggest heading
+- **`<input type="checkbox">`** — clickable box
+- **`git push`** — upload changes to GitHub (where Pages auto-publishes)
 
 ---
 
-## Common failures (what actually goes wrong in the room)
+## Commit + close (5 min)
 
-| Failure | What happens | Fix |
-|---|---|---|
-| Student has no ChatGPT account | Can't prompt | Day 0 pre-work check; create account now (2 min) |
-| ChatGPT gives advanced HTML with lots of divs | Confusing for beginner | Re-prompt: "simpler please, only basic tags" |
-| Student opens `.txt` file instead of `.html` | Browser shows code as text | Rename extension to `.html` |
-| Student copies prompt but doesn't understand output | Reads but doesn't see what to do | Instructor sits with student, reads line by line |
-| Student skips Label phase ("I already know HTML") | Vibe-coder risk | Make them teach a classmate — if they can't, they don't know |
+Everyone: GitHub Desktop → commit "Day 1 — HTML done" → push.
+
+Preview Day 2: *"မနက်ဖြန် — ဒီ plain page က colorful ဖြစ်မယ်။ CSS ထည့်မယ်။"*
+
+---
+
+## Common failures
+
+| Failure | Fix |
+|---|---|
+| Student didn't do pre-work (GitHub account) | Create on the spot — 2 min |
+| GitHub Desktop confusing | Walk through click-by-click, each student 1-on-1 |
+| Fork vs clone confusion | Fork = make your copy on github.com; clone = copy to laptop |
+| Pages URL 404 | Settings → Pages: check branch is main, folder is `/` |
+| Live URL shows old content | Hard refresh (Cmd+Shift+R); or wait 60 sec |
+| AI gives complex HTML with divs | Re-prompt: "simpler, basic tags only" |
 
 ---
 
 ## What this day is NOT
 
-- Not a lecture on web history
-- Not a deep-dive on every HTML tag
-- Not CSS (that's tomorrow)
-- Not JavaScript (that's Day 3)
+- Not Git concept lesson (that's Day 12 retrospective)
+- Not web history
+- Not CSS or JS
+- Not deep-dive on tags
 
-Keep it tight: AI prompts → HTML file → browser shows it → students name what they see.
-
----
-
-## Homework assignment
-
-Direct students to [`homework.md`](homework.md). Due before Day 2.
+Keep tight: clone → prompt → save → push → live URL updates.

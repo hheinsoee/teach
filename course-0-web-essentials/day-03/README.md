@@ -1,132 +1,146 @@
-# Day 3 — JavaScript Basics (Reading-Level)
+# Day 3 — JS Basics: Variables & Data Types
 
-**Project**: Habit Tracker (continuing)
-**Marcus stages**: 2-3 (First App → Browser Model)
-**Modules touched**: A (variables, functions, events — reading), H (JS in browser)
-**Duration**: 90 min class + 3 hr homework
+**Phase**: Learning (Day 3 of 8)
+**Project**: Habit Tracker
+**Modules touched**: A (programming fundamentals), H (JS), F (AI)
+**Duration**: 90 min + 3 hr HW
 
 ---
 
 ## Learning outcomes
 
-Students can:
-- **Read**: a JS file and identify variables, functions, event handlers
-- **Understand**: that JS makes things happen when the user interacts
-- **Direct**: AI to add interactive behavior
-- **Verify**: clicking a checkbox marks it done (visual change)
+- **Read**: a JS line and identify variable, type, assignment
+- **Understand**: variables remember things; types are what kind of thing
+- **Direct**: AI to log data about habits using variables
+- **Verify**: console.log output in DevTools
 
 ---
 
-## 90-minute plan
+## 90-min plan
 
-| Block | Minutes | Activity |
+| Block | Min | Activity |
 |---|---|---|
-| Homework review | 15 | 2-3 students show styled pages, discuss emoji icons |
-| Concept: HTML + CSS + JS | 15 | Static vs interactive. "Behavior" layer. |
-| Instructor demo | 15 | Prompt AI for "click to mark done" JS, read line by line |
-| Student build | 35 | Each student adds JS to make checkboxes work |
-| Label | 10 | Variable? Function? Event? Click? |
+| HW review | 10 | 2 students show styled pages |
+| Concept: "Code remembers things" | 15 | Variables + 4 data types |
+| Instructor demo | 15 | AI generates JS with variables, read console output |
+| Student build | 35 | Students prompt, log data, inspect console |
+| Label + commit | 15 | Variable, type, console.log |
 
 ---
 
-## Concept phase (15 min)
+## Concept (15 min) — the first programming concept
 
-Draw:
+Whiteboard:
 
 ```
-HTML  →  Structure
-CSS   →  Look
-JS    →  Behavior   ← today
+Code က အရာတွေကို "မှတ်" ထားတယ်။
+"မှတ်" တာ ဟာကို — "variable" လို့ ခေါ်။
+
+Example:
+   let habitName = "Pray"
+       ↑        ↑  ↑
+     ဒါ var   =  value
+
+Types (ဘယ်လိုအရာ ဖြစ်လဲ):
+- "Pray"       →  string (စာလုံး)
+- 4            →  number (ဂဏန်း)
+- true         →  boolean (ဟုတ်/မဟုတ်)
+- [1, 2, 3]    →  array (စာရင်း)
 ```
 
-Analogy continued:
-- HTML က **ကိုယ်ခန္ဓာ**
-- CSS က **အဝတ်**
-- JS က **လှုပ်ရှားမှု** — "ဒီ button နှိပ်ရင် ဒါဖြစ်မယ်"
+**Key points**:
+- `let` = "assign and can change later"
+- `const` = "assign, never changes"
+- Types matter — can't add "Pray" + 4
+- `console.log(x)` = "show me what x is"
 
-**Static vs interactive**:
-- ကာ (ကိုယ့် Habit Tracker in Day 1-2) → static → checkbox နှိပ်ပေမဲ့ ဘာမှ မမှတ်ထား
-- JS ထည့်မယ် → interactive → နှိပ်ရင် "done" မှတ်, color ပြောင်း
+**Analogy**: Variables = **ဘူးထဲမှာ ထည့်ထား**။ Name က ဘူးရဲ့ label, value က ဘူးထဲက အရာ။
 
 ---
 
-## Instructor demo (15 min)
+## Demo (15 min)
 
-Open Habit Tracker in Chrome. Click a checkbox. **Reload page.** Click is gone — nothing saved. "Static."
+Open DevTools (F12 → Console). Type live:
 
-Open ChatGPT. Prompt:
-
-```
-I have a Habit Tracker with HTML and CSS. The checkboxes work visually
-but nothing happens when I click them. I want:
-
-- When I check a checkbox, the habit text should get a line through it (strikethrough)
-- When I uncheck, the strikethrough goes away
-
-Give me the JavaScript code to add. Tell me where to put it in my HTML.
-
-Here is my HTML:
-[paste HTML]
+```javascript
+let myName = "Hein"
+console.log(myName)
 ```
 
-AI gives JS code. **Instructor reads every line out loud**:
+Output: `"Hein"`.
 
-> *"ဒီ `const checkboxes = document.querySelectorAll('input[type=checkbox]');` က —*
->
-> *`const` ဆိုတာ **variable** လိုပေါ့ — အရာတစ်ခုကို နာမည်ပေးထား။*
->
-> *`document.querySelectorAll` က — browser ကို 'ဒီ page ထဲက checkbox အကုန် ရှာပေး' လို့ ပြော။*
->
-> *ဒီ `checkboxes.forEach(cb => { ... })` က — checkbox တစ်ခုချင်းစီအတွက် ... ကိစ္စလုပ်။*
->
-> *ဒီ `cb.addEventListener('change', ...)` က — 'ဒီ checkbox state ပြောင်းရင် ...' ဆိုတဲ့ **event listener**။*
->
-> *ဒီ `cb.parentElement.style.textDecoration = 'line-through';` က — label ကို strike-through လိုင်းခြေ။"*"
+```javascript
+let habitCount = 4
+console.log(habitCount)
+```
 
-Add `<script>` tag before `</body>`. Reload. Click checkbox. **Text strikes through.** Reload. Click again. Toggles.
+Output: `4`.
 
-> *"ကြည့်။ JS က page ကို **အသက်ဝင်** စေတယ်။"*
+```javascript
+let habits = ["Pray", "Study", "Exercise", "Water"]
+console.log(habits)
+```
+
+Output: array.
+
+```javascript
+let allDone = false
+console.log(allDone)
+```
+
+Output: `false`.
+
+Then prompt AI:
+
+```
+Add JavaScript to my Habit Tracker that:
+- Declares an array of habits
+- Logs the number of habits
+- Logs the first habit's name
+- Logs whether today is a weekday
+
+Explain each line in Burmese or simple English.
+```
+
+Read AI's JS line by line. Save to `script.js`. Add `<script src="script.js"></script>` before `</body>`.
+
+Open live URL, F12 → Console. See the logs.
 
 ---
 
 ## Student build (35 min)
 
 Each student:
-
-1. Prompt AI (modify the demo prompt for their habits)
-2. Copy JS code
-3. Add `<script>` tag + code to their HTML before `</body>`
-4. Save, reload
-5. Click checkboxes — see strikethrough
-
-**Then iterate**:
-- Ask AI: *"When all 4 habits are done, show a message '🎉 All done today!'"*
-- Try it. Read the new code.
+1. Open DevTools Console
+2. Type a few variables manually (log name, favorite number)
+3. Prompt AI for script.js (habits array + logs)
+4. Save to `script.js`
+5. Push
+6. Open live URL + console, see logs
 
 **Instructor circulates**:
-- `<script>` outside `<body>` → doesn't work; move inside
-- JS syntax error → read error in Console (F12)
-- Student doesn't understand `forEach` → explain: "do this for each one"
+- Student doesn't know how to open DevTools → F12 or right-click → Inspect
+- Variable name has space → "no spaces in variable names"
+- Student uses `=` instead of `===` for compare → Day 4 topic, not today
 
 ---
 
-## Label phase (10 min)
+## Label (10 min)
 
 Write (no AI):
 
-1. What is a **variable**? (one sentence)
-2. What is a **function**? (one sentence)
-3. What is an **event**? (one sentence)
-4. What does `addEventListener` do?
-5. What does JS do that HTML and CSS can't?
+1. What is a **variable**?
+2. Difference between `let` and `const`?
+3. Name the 4 data types we learned
+4. What does `console.log()` do?
+5. Why do variables exist?
 
-### Pocket answers
-
-- **Variable** — a name for something we want to remember (a number, a text, a checkbox)
-- **Function** — a set of instructions grouped together, run when called
-- **Event** — something that happens (click, type, submit, load)
-- **`addEventListener`** — tells browser "when THIS event happens, do THIS"
-- **JS does** — makes things respond to user action; HTML/CSS can't change on their own
+**Pocket answers**:
+- Variable = a named box that holds a value
+- `let` = can change value later; `const` = can't change
+- string, number, boolean, array
+- Logs a value to the browser Console for debugging
+- To remember and re-use things in code
 
 ---
 
@@ -134,19 +148,18 @@ Write (no AI):
 
 | Failure | Fix |
 |---|---|
-| JS doesn't run | `<script>` placed wrong; must be before `</body>` or in `<head>` with `defer` |
-| Console shows red error | Open DevTools (F12 → Console), read error, paste to AI |
-| Checkbox checks but no strikethrough | `parentElement` selector targets wrong element; re-prompt with HTML |
-| Student panics at `=>` arrow syntax | Explain: "shorthand for function"; move on |
-| Student wants to type own JS | Fine, but also run AI version first |
+| F12 doesn't open DevTools | Try right-click → Inspect |
+| Console shows red error | Read error, paste to AI with "what does this mean?" |
+| JS doesn't run | `<script>` tag placement wrong — before `</body>` |
+| AI uses complex syntax | Re-prompt: "simpler, basic variables only" |
 
 ---
 
-## What this day is NOT
+## NOT
 
-- Not a JavaScript tutorial covering all operators / types
-- Not promise / async (that's Day 6)
-- Not ES6 features deep-dive
-- Not DOM manipulation reference
+- Operators (`+`, `-`, `*`) → Day 4
+- Conditions / if/else → Day 4
+- Loops → Day 5
+- Writing JS from scratch (reading via AI only)
 
-Keep tight: static page → add script → click = response. That's the only story today.
+Keep tight: variable, type, console.log. 3 concepts.

@@ -1,132 +1,123 @@
 # Day 7 — In-Class Exercise
 
-**Goal**: Make your News App production-ready. Add filter, expand, loading state. Learn to spot AI's mistakes.
+**Goal**: Make your Habit Tracker remember your checks across reloads.
 
 ---
 
-## Step 1 — Code review warm-up
+## Step 1 — See the problem
 
-The teacher will show you a News App with 2 bugs. **Try to spot them before the teacher reveals.**
+Open your live URL. Check boxes. Reload page.
 
-Hints:
-- Open browser Console (F12)
-- Look at Network tab
-- Try to use the app — what doesn't work?
+**Checks disappear.** That's the problem.
 
 ---
 
-## Step 2 — Add "Click to expand"
+## Step 2 — Try localStorage in Console
 
-Ask AI:
-
-```
-Add this feature: when I click on an article in the News App, 
-show the full article body in a modal (popup overlay).
-Clicking outside the modal closes it.
-Keep the existing features working.
+```javascript
+localStorage.setItem("test", "Hello from me!")
 ```
 
-**Before pasting the code, READ IT.**
+Reload page. Open Console again:
 
-Look for:
-- Does it change HTML structure?
-- Does it modify your existing JS?
-- Does the modal CSS look sensible?
+```javascript
+localStorage.getItem("test")
+```
 
-Then paste. Test.
+**"Hello from me!"** survives reload. That's localStorage.
+
+To clear: `localStorage.removeItem("test")`
 
 ---
 
-## Step 3 — Add "Loading..." state
+## Step 3 — Prompt AI
 
-Ask AI:
+Paste:
 
 ```
-Add a loading state. Before data arrives from the API, 
-show "Loading news..." in the center of the page.
-When data arrives, replace with the articles.
+In my Habit Tracker:
+- When a checkbox changes, save the done state to localStorage
+- When the page loads, read localStorage and restore all checkboxes
+- Also save/restore a "streak" counter (increases by 1 when all habits done)
+- If localStorage is empty on first load, default to all unchecked
+
+Give me updated JavaScript. Keep existing features working.
 ```
-
-Test: reload page, watch for the "Loading..." text (might flash quickly).
-
-If it's too fast to see, ask AI: *"Add a 2-second artificial delay so I can see the loading state."*
-
-(This is for testing — remove delay for production.)
 
 ---
 
-## Step 4 — Add error state
+## Step 4 — Save, push, test persistence
 
-Ask AI:
+Replace your `script.js` with AI's updated version. Push.
 
-```
-If fetch fails (server down, no internet), show "Something went wrong. 
-Please try again." with a retry button. Don't crash the page.
-```
+Wait 30 sec. Reload live URL. Check all boxes. **Reload again.** Still checked.
 
-**Test it**: temporarily change the URL in fetch to something broken (`https://api.heinsoe.com/newzzz.json`). Reload.
-
-Do you see the error state? Does the retry button work?
-
-Restore the URL.
+Close the tab. Reopen URL. Still checked.
 
 ---
 
-## Step 5 — Code review your own News App
+## Step 5 — View your data in DevTools
 
-Open your `index.html`. **Read it top to bottom.**
+F12 → **Application** tab → **Local Storage** → your URL.
 
-Ask yourself:
-- Any lines you don't understand?
-- Any lines that look suspicious?
-- Is there error handling for fetch failures?
-- Does the modal close properly if the user clicks outside?
-
-Pick ONE line you want to improve. Ask AI:
-
-```
-Review this line of my code and suggest if there's a better way: 
-[paste line]
-```
-
-Apply suggestion if it makes sense. Reject if AI's suggestion seems worse.
+You see your saved data as text (JSON).
 
 ---
 
-## Step 6 — Label (no AI!)
+## Step 6 — Clear and retry
+
+Click Clear All (trash icon in Application tab).
+
+Reload URL. All unchecked again. **That's "no data in localStorage"** — defaults kick in.
+
+---
+
+## Step 7 — Streak test
+
+Check all habits. Streak = 1.
+
+Clear localStorage. Reload. Streak back to 0.
+
+---
+
+## Step 8 — Label (no AI!)
 
 Write:
-
-1. What is **code review**?
-2. What is a **bug**?
-3. What does **"hallucination"** mean when talking about AI?
-4. Why read AI's code before pasting?
-5. Give an example of code that "looks right but is wrong."
+1. What is **localStorage**?
+2. Memory vs localStorage — difference?
+3. Why `JSON.stringify`?
+4. What is **state**?
+5. Where does localStorage physically live?
 
 ---
 
 ## Done when
 
-- [ ] Click to expand works (modal)
-- [ ] Loading state visible briefly on reload
-- [ ] Error state shows when URL is broken
-- [ ] You read all your code and understand each section
-- [ ] You asked AI to review at least one line
+- [ ] Checks persist across reload
+- [ ] Checks persist across closing tab
+- [ ] Streak counter works
+- [ ] You viewed localStorage in DevTools
 - [ ] Label answers written
-
----
-
-## If you finish early
-
-- **Dark mode toggle**: switch between light/dark theme
-- **Bookmarks**: save favorite articles to localStorage
-- **Share button**: copy article URL to clipboard
-- **Keyboard navigation**: press arrow keys to navigate articles
 
 ---
 
 ## Rules
 
-1. **Read before pasting.** Every AI output.
-2. **If AI's first fix doesn't work**, don't re-prompt the same thing. Look at the actual error and re-prompt with more context.
-3. **Code review is the human's job.** AI can draft; you edit.
+1. **Reload after each change** to test
+2. **DevTools → Application → Local Storage** is where to inspect
+3. **If weird**, check localStorage first before re-prompting
+
+---
+
+## If you finish early
+
+Add "Clear my data" button:
+
+```javascript
+clearBtn.addEventListener("click", () => {
+    localStorage.clear()
+    location.reload()
+})
+```
+
+Ask AI for complete integration.

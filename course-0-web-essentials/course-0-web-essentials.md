@@ -1,9 +1,9 @@
-# Course 0 — Web Essentials (v2)
-## 8 Days × 90 min + Homework — Code Reading & AI Direction
+# Course 0 — Web Essentials (v3)
+## 12 Days × 90 min + Homework — JS-Deep, Single Capstone, Fetch-Early
 
-**Format**: 4 weeks · 8 days · 90 min/day · **12 contact hours**
-**Homework**: 3 hr/day · **24 homework hours**
-**Total**: **36 hours**
+**Format**: 6 weeks · 12 days · 90 min/day · **18 contact hours**
+**Homework**: 3 hr/day · **36 homework hours**
+**Total**: **54 hours**
 
 **Taught at theBuilderPros workshops. Organized by theBuilderPros.**
 
@@ -11,332 +11,258 @@
 
 ## Mission
 
-> **Teach absolute beginners to READ code, UNDERSTAND how it runs in the browser, DIRECT AI to generate it, and VERIFY the result works — by building two web apps from scratch.**
+> **Teach absolute beginners to READ code, UNDERSTAND how browsers run it, DIRECT AI to generate it, and VERIFY the result works — by learning JS fundamentals and shipping a real News App with real users.**
 
-**Core principle (from Hein, 2026-11-03)**:
+### Core principle (Hein, 2026-11-03)
 
 > *"Code ကို အဓိက မသင်။ AI ရှိတယ်။ Code ကို သဘောပေါက်ရမယ်, ဖတ်တတ်ရမယ်။"*
->
-> *(Don't teach code as the primary thing. AI exists. Students must understand code and be able to read it.)*
 
 ### The Four Skills
 
-| # | Skill | What it means |
-|---|---|---|
-| **1. Read** | ကုဒ်တစ်ကြောင်းချင်းကို ဖတ်တတ် | Open any HTML/CSS/JS file and say what each line does |
-| **2. Understand** | ကုဒ်က ဘာလို့ အလုပ်လုပ်လဲ သိ | Know how the browser runs the code, where state lives, what triggers what |
-| **3. Direct** | AI ကို ကုဒ်ထုတ်ပေးဖို့ မှာတတ် | Write a prompt that produces the code you need |
-| **4. Verify** | AI ထုတ်တဲ့ ကုဒ် မှန်မမှန် စစ်တတ် | Run it, check behavior, read it, catch what's wrong |
+| Skill | What it means |
+|---|---|
+| **Read** | Open any HTML/CSS/JS file and say what each line does |
+| **Understand** | Know how browsers run code, where state lives, what triggers what |
+| **Direct** | Prompt AI to produce the code you need |
+| **Verify** | Run it, check behavior, read it, catch what's wrong |
 
-**No syntax drills. No "type 20 loops". No manual code memorization. AI generates; the student reads and verifies.**
+**No syntax drills. No hand-typed loops. AI generates; students read, understand, modify, verify.** But understanding is **deep** — students know what a variable, function, loop, event is and why it exists.
 
 ---
 
-## Modules Covered (A-K from theBuilderPros)
+## Course Structure (12 days, 2 phases)
 
-| Module | Course 0 depth | Where it appears |
+### Phase 1 — Learning (Days 1-8): Habit Tracker as practice vehicle
+
+Students build a Habit Tracker across 8 days while learning HTML, CSS, JS fundamentals, DOM, localStorage, and fetch. **Habit Tracker is NOT a capstone — it's a learning vehicle.** No formal grading on it.
+
+### Phase 2 — Capstone (Days 9-12): News App as final project
+
+Students apply what they learned to build a News App that fetches from Hein's pre-built API. This IS the capstone — graded, presented, user-tested.
+
+---
+
+## Modules A-K Coverage
+
+| Module | Depth | Where |
 |---|---|---|
-| **A** — Programming Fundamentals | Reading-level only | Days 2-4 (variables, functions, events in Habit Tracker) |
+| **A** — Programming Fundamentals | ⭐⭐ Deep (reading-level) | Days 3-7 (JS fundamentals) |
 | **B** — Dart & Flutter | ❌ Excluded | Course 1+ |
-| **C** — Development Tooling | Light | Day 1 (VS Code, browser DevTools) |
-| **D** — Terminal | Light | Day 5 (git commands only) |
-| **E** — Software Engineering | Concept | Day 7 (code review, verifying AI output) |
-| **F** — AI / LLM Coding | ⭐ Core, continuous | Days 2-8 (every day uses AI) |
-| **G** — Web Fundamentals | Light | Day 1 (how the web works), Day 6 (HTTP, fetch) |
-| **H** — HTML/CSS/JS | ⭐ Depth (reading) | Days 2-4 (Habit Tracker build) |
-| **I** — Git & GitHub | Light | Day 5 (basic workflow) |
-| **J** — DevOps/CI/CD | Light | Day 5 (GitHub Pages auto-deploy) |
-| **K** — Agentic Coding Advanced | Taste only | Day 8 (showing what's possible) |
-
-**Depth philosophy**: Deep on H, F, A reading. Light on C, D, I, J, G. Taste on E, K. Excluded B.
+| **C** — Dev Tooling | Light | Day 1 (VS Code, DevTools) |
+| **D** — Terminal | Light | Day 1 (clone via GitHub Desktop) + Day 12 (retrospective) |
+| **E** — Software Engineering | Concept | Day 11 (code review) |
+| **F** — AI/LLM Coding | ⭐⭐ Core, continuous | Every day |
+| **G** — Web Fundamentals | Light | Day 1 (how web works), Day 8-9 (HTTP, fetch) |
+| **H** — HTML/CSS/JS | ⭐⭐ Deep (reading focus) | Days 1-8 |
+| **I** — Git & GitHub | Light, integrated | Day 1 (clone) + daily commits + Day 12 (retrospective) |
+| **J** — DevOps/CI/CD | Light, integrated | Day 1 (Pages auto-deploy) + Day 12 (retrospective) |
+| **K** — Agentic Coding Advanced | Taste only | Day 12 |
 
 ---
 
-## The Two Projects
+## The 12 Days
 
-### Project 1 — **Daily Habit Tracker** (Days 1-5)
+### Week 1 — HTML & CSS Foundation
 
-Standalone, offline, browser-only. localStorage persistence. No backend.
-
-**What it does**:
-- Add habits (ဘုရားရှိခိုး, စာကျက်, exercise, etc.)
-- Check off each habit per day
-- See today's progress
-- Streak counter (via AI)
-- Data persists after browser close
-
-**Why this project**:
-- Beginner-friendly (boolean logic, visual checkbox feedback)
-- Myanmar context relevant
-- Low cognitive load — students focus on reading code, not business logic
-- Natural progression Day 1 → Day 5 (HTML → CSS → JS → Features → Deploy)
-
-### Project 2 — **News App** (Days 6-8)
-
-Browser-only. Consumes an API that Hein pre-builds and hosts. Students only fetch and display.
-
-**What it does**:
-- Fetch news articles from `https://api.heinsoe.com/news.json` (or similar)
-- Display: title, image, date, body preview
-- Filter by category
-- Click to read full article
-
-**Why this project**:
-- Introduces "server exists, returns JSON" concept
-- Teaches `fetch()`, async/await (reading-level, not writing)
-- Bridge to Course 1 (where backend is covered)
-- Shows students: real apps have moving parts beyond the browser
-
----
-
-## The 8 Days
-
-### Week 1 — Build the Habit Tracker
-
-#### Day 1 — Problem, Idea & First HTML
-**Marcus stage**: 1-2 (Problem → First App)
-**Modules touched**: C (VS Code intro), G (how the web works), H (HTML structure)
-**Class (90 min)**:
-- 15 min — What this course is / isn't (expectation set)
-- 10 min — "Why does Marcus need Sip? Why do you need an app?" (problem framing)
-- 15 min — Live demo: AI generates first HTML, instructor reads it line by line
-- 40 min — Students use AI to generate their Habit Tracker HTML skeleton, read every line
-- 10 min — Label: "What is HTML? What does `<h1>` mean? What is a tag?"
-**🚀 Ships**: HTML file open in browser with habits listed
-**Homework (3 hr)**:
-- Research: "What is HTML?" (watch 2 YouTube videos, write 3 sentences in Burmese)
-- Modify the HTML — add 3 more habits, change the heading
-- Open DevTools, click Elements tab, explore
-- Submit: screenshot of modified page + 3-sentence reflection
+#### Day 1 — Problem, Idea, HTML & GitHub Starter
+- **Marcus stage**: 1-2
+- **New vocab**: website, URL, HTML, tag, element, repository, clone, deploy
+- **Build**: HTML skeleton of Habit Tracker (from AI)
+- **Infrastructure**: Clone pre-made GitHub starter → Pages auto-deploys. Student has LIVE URL from Day 1.
+- **Ships**: HTML page open in browser + live Pages URL (behind the scenes)
 
 #### Day 2 — CSS Styling
-**Marcus stage**: 2 continued
-**Modules touched**: H (CSS depth), F (AI for styling)
-**Class (90 min)**:
-- 15 min — Homework review (show 2-3 student styles)
-- 10 min — "What is CSS? Style vs structure"
-- 15 min — Instructor demo: AI prompts for styling
-- 40 min — Students prompt AI for Habit Tracker CSS, read the generated CSS, modify colors
-- 10 min — Label: "What does `color` mean? What is a class? What is a selector?"
-**🚀 Ships**: Styled Habit Tracker (dark/light theme, nice fonts)
-**Homework (3 hr)**:
-- Research: 3 CSS properties (watch tutorials, write what they do)
-- Try 2 different styles via AI, pick favorite
-- Add a hover effect
-- Submit: screenshot + 2 CSS properties explained in own words
+- **New vocab**: CSS, selector, property, value, class, style
+- **Build**: Styled Habit Tracker (via AI prompts)
+- **Deploy**: Push, live URL updates
+- **Ships**: Styled live page
 
 ---
 
-### Week 2 — Make It Interactive
+### Week 2 — JavaScript Fundamentals (Reading-Level)
 
-#### Day 3 — JavaScript Basics (reading)
-**Marcus stage**: 2-3 (First App → Browser Model)
-**Modules touched**: A (variables, functions reading), H (JS in browser)
-**Class (90 min)**:
-- 15 min — Homework review
-- 15 min — "What is JavaScript? HTML = structure, CSS = look, JS = behavior"
-- 15 min — Instructor demo: AI generates "click to mark done" JS
-- 35 min — Students prompt AI, read the JS, change which habits can be marked
-- 10 min — Label: "What is a variable? What is a function? What is an event?"
-**🚀 Ships**: Habit Tracker where clicking a checkbox marks it done
-**Homework (3 hr)**:
-- Research: variable, function, event — 3-sentence definitions in own words
-- Add a "clear all" button (via AI)
-- Break the code on purpose — delete one line, see what happens, restore
-- Submit: before/after screenshot + bug report
+#### Day 3 — JS Basics: Variables & Data Types
+- **New vocab**: variable, let, const, string, number, boolean, array, console
+- **Why it matters**: Code remembers things via variables
+- **Build**: Prompt AI to log habits data. Read it in console.
+- **Deep concept**: `let` vs `const`, strings vs numbers (not just syntax — WHY)
+- **Ships**: Habit Tracker with console logs you understand
 
-#### Day 4 — localStorage & Add Features
-**Marcus stage**: 4 (Add Features)
-**Modules touched**: A (data persistence concept), H (DOM), F (AI prompting for features)
-**Class (90 min)**:
-- 15 min — Homework review
-- 10 min — "Where does your data go? Browser memory vs saved."
-- 15 min — Demo: refresh the page, data disappears → add localStorage via AI
-- 40 min — Students add 3 features via AI prompts:
-  - Save/load habits across refresh
-  - Streak counter
-  - Reset streak button
-- 10 min — Label: "What is localStorage? What is state? Where does it live?"
-**🚀 Ships**: Habit Tracker with persistent data + streaks
-**Homework (3 hr)**:
-- Research: localStorage limits, privacy, what browser APIs exist
-- Add ONE feature of your own via AI (e.g., delete habit, edit habit)
-- Break and fix (planted bug via AI)
-- Submit: feature demo + 1 bug fixed story
+#### Day 4 — Functions & Conditions
+- **New vocab**: function, parameter, return, if/else, operator (`===`, `>`, `<`, `&&`, `||`)
+- **Why it matters**: Code reusability (function) + decisions (if/else)
+- **Build**: Prompt AI for a "check if all habits done" function
+- **Deep concept**: Why DRY (don't repeat yourself); when to extract a function
+- **Ships**: Habit Tracker with named functions in code
 
 ---
 
-### Week 3 — Ship It
+### Week 3 — Loops & Interaction
 
-#### Day 5 — Git, GitHub & Deploy
-**Marcus stage**: 6 (Package, Deploy, Distribute — web part only)
-**Modules touched**: I (Git), J (CI/CD), D (terminal basics)
-**Class (90 min)**:
-- 15 min — Homework review
-- 10 min — "What is version control? Why does code history matter?"
-- 15 min — Demo: `git init`, commit, push to GitHub, Pages auto-deploys
-- 40 min — Students put their Habit Tracker on GitHub + GitHub Pages
-- 10 min — Label: "What is a commit? What is CI/CD? What does GitHub Pages do?"
-**🚀 Ships**: Live URL on internet (`username.github.io/habit-tracker/`)
-**Homework (3 hr)**:
-- Research: How Git works (watch 1 video), what is CI/CD
-- Make 3 commits with meaningful messages
-- Share URL with 2 friends, watch them use it
-- Submit: live URL + commit history screenshot + friend feedback (verbatim)
+#### Day 5 — Loops
+- **New vocab**: `for`, `forEach`, iteration, index, array methods
+- **Why it matters**: Doing the same thing many times (checking each habit)
+- **Build**: Prompt AI for loop to render all habits
+- **Deep concept**: `for` vs `forEach` vs `.map()` — same job, different styles
+- **Ships**: Habit Tracker that renders a dynamic list
+
+#### Day 6 — DOM & Events
+- **New vocab**: DOM, `querySelector`, event, listener, click, change
+- **Why it matters**: How JS talks to the HTML page
+- **Build**: Prompt AI for click handlers on checkboxes
+- **Deep concept**: Browser sees HTML as a tree (DOM), JS can walk the tree
+- **Ships**: Interactive Habit Tracker
 
 ---
 
-### Week 4 — Fetch Data From the World
+### Week 4 — State & External Data
 
-#### Day 6 — News App: Introduction + Fetch
-**Marcus stage**: 7 (connecting to the world)
-**Modules touched**: G (HTTP, request/response), F (AI for API work), A (async concepts reading-level)
-**Class (90 min)**:
-- 15 min — Homework review (show live Habit Trackers)
-- 15 min — "Where does Facebook get its posts? What is an API? What is JSON?"
-- 15 min — Instructor demo: open the News API URL in browser, see JSON. AI generates fetch code.
-- 35 min — Students build News App skeleton with AI, fetch from `https://api.heinsoe.com/news.json`, display titles
-- 10 min — Label: "What is fetch? What is JSON? What is a server?"
-**🚀 Ships**: News App showing live data from API
-**Homework (3 hr)**:
-- Research: What is HTTP, what is JSON (one tutorial each)
-- Explore the API: open the URL, read the JSON, identify fields
-- Add image + date display via AI
-- Submit: screenshot + "what the API returns" summary
+#### Day 7 — localStorage: Data That Persists
+- **New vocab**: state, localStorage, persistence, JSON.stringify/parse
+- **Why it matters**: Browser can remember after reload
+- **Build**: Save habit progress to localStorage
+- **Deep concept**: Memory (gone on reload) vs localStorage (saved)
+- **Ships**: Habit Tracker with persistent state 🚀 (Habit Tracker PRACTICE COMPLETE)
 
-#### Day 7 — News App: Features & Code Review
-**Marcus stage**: 7 continued
-**Modules touched**: E (software engineering — reviewing AI code), F (prompting craft), H (DOM depth)
-**Class (90 min)**:
-- 15 min — Homework review
-- 20 min — "AI gets things wrong. Here's how to spot it." (code review intro)
-- 15 min — Live: instructor shows an AI-generated News App with 2 bugs, students find them
-- 30 min — Students add features: filter by category, click to expand, loading state
-- 10 min — Label: "What is a bug? What is 'code review'? Why does AI sometimes lie?"
-**🚀 Ships**: News App with filters + expand + loading state
-**Homework (3 hr)**:
-- Research: 3 common AI coding mistakes
-- Review your own News App code: write 1 thing AI did well + 1 thing you'd change
-- Add final feature (dark mode, search, etc.)
-- Submit: code review doc (1 page) + updated app
+#### Day 8 — Fetch: Data From the Internet
+- **New vocab**: fetch, HTTP, request, response, JSON, API, async
+- **Why it matters**: Apps aren't islands — they connect to servers
+- **Build**: Add a random motivational quote (quotable.io API) to Habit Tracker
+- **Deep concept**: Browser as client, server as data source; async means "takes time"
+- **Ships**: Habit Tracker with motivational quote fetched on load
 
-#### Day 8 — Capstone: Showcase + Real Users + What's Next
-**Marcus stage**: 7 — Real Users + Growth
-**Modules touched**: F (final AI skills), E (user feedback), K (taste only — "look what's possible")
-**Class (90 min)**:
-- 15 min — Homework review
-- 30 min — Each student presents BOTH apps (Habit Tracker + News App) — 3 min each
-- 20 min — "Taste of advanced" — instructor shows:
-  - What agentic AI tools (Cursor, v0, Lovable) do differently
-  - What React / frameworks give you
-  - What backend adds
-- 15 min — "What's next" — Course 1 preview, resources list, Burmese learning channels
-- 10 min — Close + certificate
-**🎓 Ships**: Both apps live, with 3+ real users each
-**Homework (post-course, 1 week)**:
-- Share both apps with 5 real people
-- Collect feedback
-- Pick one app, keep improving for 1 week
-- Submit: final write-up (what worked, what didn't, what's next for them)
+---
+
+### Week 5 — Capstone 2 (News App)
+
+#### Day 9 — Capstone 2 Begins: News App Setup
+- **New focus**: Capstone starts — News App from scratch
+- **Build**: Fresh project `news-app/`. Prompt AI for News App using Hein's API.
+- **Deep concept**: Reading JSON structure; mapping JSON fields to HTML
+- **Ships**: News App showing live articles from Hein's API
+
+#### Day 10 — Capstone 2: Features
+- **Features via AI prompting**: search, category filter, click-to-expand, loading state, error state
+- **Deep concept**: Student directs AI; AI generates; student reads, verifies, modifies
+- **Ships**: News App with real features
+
+---
+
+### Week 6 — Polish & Showcase
+
+#### Day 11 — Code Review + User Feedback
+- **New vocab**: code review, bug, hallucination, feedback
+- **Build**: Review your own News App code. Share with 3 real users. Collect feedback.
+- **Deep concept**: AI gets things wrong; your job is to catch it
+- **Ships**: Polished News App + 3 user quotes
+
+#### Day 12 — 🎓 Showcase + What's Next
+- **In class**: Each student presents their News App (3 min)
+- **Retrospective**: Walkthrough — what was Git doing all 12 days? What's CI/CD?
+- **Taste**: React component, Cursor demo, backend intro
+- **Preview**: Course 1 syllabus
+- **Ships**: 🎓 Capstone 2 (News App) presented, with 3+ real users
+
+---
+
+## The Capstone — News App Only
+
+Only ONE formal capstone: **News App (Days 9-12)**.
+
+**Why News App over Habit Tracker as capstone**:
+- Fetch/API teaches "web is connected" — key insight for future
+- Capstone must have EXTERNAL data to feel like a "real app"
+- Habit Tracker gets built as a byproduct of learning JS — not graded, celebrated
+- News App is independent-build; Habit Tracker is guided-build. Capstone should be independent.
+
+### Completion markers (News App)
+
+| # | Marker | Evidence |
+|---|---|---|
+| 1 | News App is live | GitHub Pages URL that loads |
+| 2 | Fetches from API | Articles appear on load |
+| 3 | 3+ real users | User quotes in Day 11 submission |
+| 4 | Can explain the code | Day 12 showcase (3 min, own words) |
+
+**Habit Tracker completion** is encouraged but NOT required. Students who struggle on fundamentals may finish Habit Tracker over the capstone weeks.
+
+---
+
+## Git/Deploy — Integrated, Not Taught
+
+**Day 1**: Student clones a pre-made starter repo (via GitHub Desktop — one-click). Pages is enabled. Push gets auto-deploy.
+
+**Days 1-11**: Every day ends with `git commit && git push` (or GitHub Desktop click). Instructor demonstrates in 2 min. Zero concept intro. Students build muscle memory.
+
+**Day 12**: 10-min retrospective — "What was Git doing all 12 days? What's CI/CD? Why does `git push` make the site update?"
+
+Git/Deploy as **background competence**, not foreground topic. By Day 12, students have made 20+ commits without knowing what Git "is". The retrospective ties it together.
 
 ---
 
 ## Day Timing (90 minutes)
 
-Every day follows the same shape:
+Every day:
 
 | Block | Minutes | Purpose |
 |---|---|---|
-| Homework review | 15 | Who shipped? Who got stuck? What did research find? |
-| Concept intro | 10-15 | New vocabulary + why it matters (brief, no lecture) |
-| Instructor demo | 15 | Live AI prompt → generated code → read it line by line |
-| Student build | 35-40 | They prompt AI, read code, modify, ship |
-| Label | 10 | In their own words, what did we just do? Vocabulary stuck. |
+| Homework review | 10 | Who shipped? Who got stuck? |
+| Concept intro | 10-15 | New vocabulary + why it matters |
+| Instructor demo | 15 | Live AI prompt → generated code → read line by line |
+| Student build | 35-40 | Students prompt AI, read code, modify, ship |
+| Label | 10 | In own words, what did we do? |
+| Commit + close | 5 | `git push`, next class preview |
 
-**No lectures beyond 15 min.** No theory before practice. If content doesn't fit in 90 min, cut concept intro — never cut Student Build or Label.
-
----
-
-## Homework Structure (3 hr/day)
-
-Every day's homework = **Research (1 hr) + Build (1-2 hr) + Reflect (0.5 hr)**
-
-### Research (1 hr)
-
-Topics assigned by instructor. Sources:
-- YouTube (Burmese or English with subtitles)
-- MDN Web Docs (reference)
-- ChatGPT / Claude (ask for explanations)
-
-Output: 3-5 sentences in own words (Burmese OK)
-
-### Build (1-2 hr)
-
-Apply what was learned in class to:
-- Extend the project with a new feature
-- Modify something (change styling, add habit, change API display)
-- Break something on purpose, then restore (debugging practice)
-
-### Reflect (0.5 hr)
-
-Write 3-5 sentences:
-- What worked
-- What didn't
-- One question you still have
-
-**Submit via Google Classroom** — URL + screenshots + reflection text.
+If content doesn't fit, cut concept intro — never cut Student Build or Label.
 
 ---
 
-## Pass Criteria (soft, inspiration-focused)
+## Homework (3 hr/day, 36 hr total)
 
-**No pass/fail grading.** Course 0 is inspiration-focused. The deliverables below are **completion markers**, not gating criteria.
+Each day: **Research (1 hr) + Build (1-1.5 hr) + Reflect (0.5 hr)**
 
-| # | Marker | Evidence |
-|---|---|---|
-| 1 | Habit Tracker shipped live | GitHub Pages URL that works |
-| 2 | News App shipped live | GitHub Pages URL that works |
-| 3 | 3+ real users on at least one app | Feedback collected in writing |
-| 4 | Can explain what their code does | Day 8 oral presentation (3 min) |
+- **Research**: YouTube/MDN/AI; 3-5 sentences in own words (Burmese OK)
+- **Build**: Extend day's project; break and fix
+- **Reflect**: 3-5 sentences — what worked, confused, next question
 
-**Hein's note**: These are evidence of inspiration taking hold, not a filter to fail students. Any student who completes the arc — even with help — has succeeded. The goal is to **spark curiosity for Course 1**, not to filter.
+Submit via Google Classroom with URLs + text + screenshots.
 
 ---
 
-## Vocabulary Table (grows across 8 days)
-
-By Day 8, students can define these in their own words:
+## Vocabulary (by Day 12)
 
 | Day | New words |
 |---|---|
-| 1 | website, browser, URL, HTML, tag, element, VS Code, DevTools |
-| 2 | CSS, property, selector, class, color, font |
-| 3 | JavaScript, variable, function, event, click, console |
-| 4 | localStorage, state, persistence, feature, bug |
-| 5 | Git, commit, GitHub, repository, deploy, CI/CD, Pages |
-| 6 | API, fetch, HTTP, JSON, server, request, response |
-| 7 | code review, debug, prompt, AI output, hallucination |
-| 8 | framework, agentic, React, backend, user feedback |
+| 1 | website, URL, HTML, tag, element, repository, clone, deploy |
+| 2 | CSS, selector, property, value, class |
+| 3 | variable, let, const, string, number, boolean, array, console |
+| 4 | function, parameter, return, if/else, operator, DRY |
+| 5 | for, forEach, iteration, index, array method |
+| 6 | DOM, querySelector, event, listener |
+| 7 | state, localStorage, persistence, JSON |
+| 8 | fetch, HTTP, request, response, API, async |
+| 9 | capstone, JSON parsing, dynamic HTML |
+| 10 | search, filter, loading state, error state |
+| 11 | code review, bug, hallucination, feedback |
+| 12 | framework, agentic, backend, CI/CD, continuous deployment |
 
-~40 words by end of course. Students leave with vocabulary to **continue learning on their own**.
+~60 words. Students leave with vocabulary to **keep learning on their own**.
 
 ---
 
 ## What Course 0 Is NOT
 
-Honest limits — do not promise beyond these:
-
 - ❌ Not programmer training (Course 1+)
 - ❌ Not framework training (React, Flutter — Course 1+)
 - ❌ Not backend training (Course 2)
-- ❌ Not architecture training (Course 3)
-- ❌ Not job-ready after 36 hours
+- ❌ Not job-ready after 54 hours
 
-What it IS:
+**What it IS**:
 
 - ✅ Code literacy for beginners
+- ✅ JS fundamentals (reading-level depth)
 - ✅ AI tool fluency starter
-- ✅ Deploy / production pipeline exposure
+- ✅ Deploy / production pipeline exposure (integrated)
 - ✅ Confidence to continue to Course 1
 
 ---
@@ -345,21 +271,11 @@ What it IS:
 
 | Path | Contents |
 |---|---|
-| [`course-0-web-essentials.md`](course-0-web-essentials.md) | **OLD v1** (6 days, AI-only). Superseded by this file. |
-| [`syllabus-v2-8days.md`](syllabus-v2-8days.md) | **THIS FILE — current syllabus** |
-| [`../context/theBuilderPros-roadmap.md`](../context/theBuilderPros-roadmap.md) | theBuilderPros's roadmap source |
-| `day-01/` ... `day-08/` | Per-day lesson plans, exercises, homework (to be rebuilt) |
-| `instructor/` | Rubric, pacing, classroom setup |
-| `AGENT.md` | Rules for AI agents editing this |
-
----
-
-## Next Steps for Hein
-
-1. **Confirm 8-day plan matches theBuilderPros expectation** — show them this syllabus
-2. **Build the News API** — static JSON at a public URL, 10-20 sample articles
-3. **Rebuild `day-01/` through `day-08/`** — update folder structure, write per-day exercises/homework
-4. **Archive OLD syllabus (`course-0-web-essentials.md` v1)** — don't delete, mark as superseded
-5. **Translate key student materials to Burmese** — exercise.md, homework.md (English fine for instructor README)
-
-See [`../context/theBuilderPros-roadmap.md`](../context/theBuilderPros-roadmap.md) for the source material this syllabus is derived from.
+| [`course-0-web-essentials.md`](course-0-web-essentials.md) | THIS FILE — syllabus |
+| [`README.md`](README.md) | Overview, day table, module coverage |
+| [`AGENT.md`](AGENT.md) | AI agent rules |
+| [`../context/theBuilderPros-roadmap.md`](../context/theBuilderPros-roadmap.md) | Source material from theBuilderPros |
+| `day-01/` ... `day-12/` | Per-day: README (instructor), exercise, homework |
+| `instructor/` | tool-setup, pacing, api-setup, completion-markers, classroom-setup |
+| `_archived_v1/` | OLD 6-day v1 (AI-only, click-tools) |
+| `_archived_v2/` | OLD 8-day v2 (two-project, inspiration) |

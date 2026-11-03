@@ -1,124 +1,145 @@
 # Day 1 — In-Class Exercise
 
-**Goal**: By end of class, you have an HTML file for your Habit Tracker open in Chrome, and you can name what each tag does.
+**Goal**: Get your first web page live on the internet. By end of class, you have a URL anyone can open.
 
 ---
 
-## What you'll build today
+## Step 1 — Install GitHub Desktop (if not done)
 
-The **beginning** of your Habit Tracker — just the HTML skeleton. No colors yet. No clicking yet. Just the structure.
-
-By Day 5, this will be live on the internet. Today is Step 1.
+Download: **desktop.github.com**. Install. Sign in with your GitHub account.
 
 ---
 
-## Step 1 — Open ChatGPT or Claude
+## Step 2 — Use Hein's starter repo
 
-Go to **https://chatgpt.com** or **https://claude.ai**. Sign in.
+The teacher will share a GitHub link that looks like:
+**`github.com/hheinsoee/web-essentials-starter`**
+
+Click **Use this template** → **Create a new repository**.
+
+- Owner: your username
+- Name: `habit-tracker`
+- Public
+- Click Create.
 
 ---
 
-## Step 2 — Prompt the AI
+## Step 3 — Clone your new repo to your laptop
 
-Copy this prompt and paste it into the chat box. **Change the habits in `[brackets]`** to habits YOU want to track:
+Open **GitHub Desktop**:
+- File → **Clone Repository**
+- Find `YOUR_USERNAME/habit-tracker`
+- Choose where to save (Desktop is fine)
+- Click Clone
+
+---
+
+## Step 4 — Enable Pages (makes URL live)
+
+On github.com, go to your repo → **Settings** → **Pages**:
+- Source: **Deploy from a branch**
+- Branch: **main**, folder: **/ (root)**
+- Save
+
+Wait 30-60 seconds. Open: **`https://YOUR_USERNAME.github.io/habit-tracker/`**
+
+The placeholder page loads.
+
+---
+
+## Step 5 — Open the folder in a text editor
+
+Open the `habit-tracker` folder on your Desktop. You should see:
+- `index.html`
+- `styles.css` (empty)
+- `script.js` (empty)
+- `README.md`
+
+Open `index.html` in a text editor (VS Code, Notepad, TextEdit).
+
+---
+
+## Step 6 — Prompt AI for your HTML
+
+Go to **ChatGPT** or **Claude**. Paste:
 
 ```
-I want to build a simple Habit Tracker web app.
-
-Build me a single HTML file with:
-- A heading "My Daily Habits"
-- A list of 4 habits: [Pray, Study, Exercise, Water]
-- Next to each habit, a checkbox
-- A small text at the bottom showing today's date
-
-Keep it simple. No CSS or JavaScript yet. Just HTML.
-```
-
-Press Enter.
-
----
-
-## Step 3 — Read the generated HTML line by line
-
-**Don't just copy. Read.**
-
-Look at the output. Try to answer:
-- Which line shows your heading?
-- Which line is a checkbox?
-- Where is your habits list?
-
-If you don't understand a line, **ask the AI to explain it**:
-
-```
-Explain this line: <ul>
-```
-
----
-
-## Step 4 — Save the file
-
-1. Open a text editor (Notepad, TextEdit, VS Code — any works)
-2. Create a new file
-3. Copy the HTML from AI, paste into the file
-4. Save as `index.html` in a new folder called `habit-tracker` on your desktop
-
-**Important**: file name must end in `.html` (not `.txt`).
-
----
-
-## Step 5 — Open in browser
-
-Find the file on your desktop. **Double-click** it.
-
-Chrome (or your browser) opens. You see:
-- Your heading
-- Your list of habits
-- Checkboxes next to each
+I'm building a Habit Tracker. Give me HTML with:
+- Heading "My Daily Habits"
+- Unordered list of 4 habits: [Pray, Study, Exercise, Water]
+- Checkbox next to each habit
 - Today's date at the bottom
 
-**That's a webpage. You just built one.**
+Keep it simple. No CSS. Just HTML.
+```
+
+(Change the habits in `[brackets]` to YOUR habits.)
 
 ---
 
-## Step 6 — Label (no AI!)
+## Step 7 — Replace the HTML in your file
 
-Close AI. On paper or in notes app, write in your own words:
+Copy the HTML from AI. Open `index.html` in your editor. **Replace everything** between `<body>` and `</body>` with AI's content.
 
-1. What is HTML? (one sentence)
-2. What is a "tag"? (one sentence)
-3. What does `<h1>` mean?
-4. What does `<ul>` mean?
-5. What does `<input type="checkbox">` do?
+Save the file.
 
-**Teacher will ask you to share with the class.** It's not graded. Just show you understood.
+---
+
+## Step 8 — Commit and push
+
+Open GitHub Desktop. You'll see your changes.
+
+- Summary: `Day 1 — add habits HTML`
+- Click **Commit to main**
+- Click **Push origin**
+
+---
+
+## Step 9 — See your live URL update
+
+Wait 30-60 seconds. Reload your live URL in Chrome.
+
+**Your habits appear.** On the internet. Share-able.
+
+---
+
+## Step 10 — Label (no AI!)
+
+Write in a notes app:
+
+1. What is HTML?
+2. What is a **tag**?
+3. What does `<h1>` do?
+4. What does `<input type="checkbox">` do?
+5. What did `git push` do?
 
 ---
 
 ## Done when
 
-- [ ] You have a file called `index.html` on your desktop
-- [ ] Double-clicking it opens a webpage in Chrome
-- [ ] You see your heading, 4 habits, 4 checkboxes, and today's date
-- [ ] You wrote the 5 Label answers in your own words
-- [ ] You can point at a line of HTML and say "that's a tag"
+- [ ] You have a `habit-tracker` repo on GitHub
+- [ ] You have a live URL ending in `.github.io`
+- [ ] Your HTML with YOUR habits is live
+- [ ] You can read your HTML and name 3+ tags
+- [ ] Label answers written
+
+---
+
+## Rules
+
+1. **Save, commit, push.** Changes don't go live until you push.
+2. **If something's wrong**, ask the teacher. Most problems are 2-minute fixes.
+3. **Don't delete anything in the starter.** Just change what's in `<body>`.
 
 ---
 
 ## If you finish early
 
-Try modifying the HTML:
-- Add a 5th habit
-- Change the heading text
-- Add another `<h2>` subheading below the main heading
+Try asking AI:
+- "How do I add a profile picture?"
+- "How do I add a subheading?"
+- "How do I add a link?"
 
-**Reload the browser** after each change to see what happens.
+Try adding something. Commit, push, see it live.
 
-Don't delete anything you don't understand yet. If you break it, ask AI: *"My HTML stopped working after I added X. What did I do wrong?"*
-
----
-
-## What's next
-
-- Tomorrow (Day 2): make it look nice with CSS
-- Day 3: make the checkboxes do something with JavaScript
-- Day 5: put it on the internet so your friends can see
+**Don't worry about design yet.** That's Day 2.

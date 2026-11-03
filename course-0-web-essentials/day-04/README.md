@@ -1,134 +1,157 @@
-# Day 4 — localStorage & Features
+# Day 4 — Functions & Conditions
 
-**Project**: Habit Tracker (continuing)
-**Marcus stages**: 4 (Add Features)
-**Modules touched**: A (state concept), H (DOM), F (AI prompting craft)
-**Duration**: 90 min class + 3 hr homework
+**Phase**: Learning (Day 4 of 8)
+**Project**: Habit Tracker
+**Modules touched**: A (programming), H (JS), F (AI)
+**Duration**: 90 min + 3 hr HW
 
 ---
 
 ## Learning outcomes
 
-Students can:
-- **Read**: localStorage API calls
-- **Understand**: that browser can remember things between reloads
-- **Direct**: AI to add persistent storage
-- **Verify**: data survives page refresh and tab close
+- **Read**: a function definition and know what it does
+- **Understand**: functions bundle instructions; if/else decides between paths
+- **Direct**: AI to write functions and conditions
+- **Verify**: calling the function with different inputs gives expected outputs
 
 ---
 
-## 90-minute plan
+## 90-min plan
 
-| Block | Minutes | Activity |
+| Block | Min | Activity |
 |---|---|---|
-| Homework review | 15 | Students show counter + buttons added last homework |
-| Concept: "Where does data live?" | 10 | Browser memory vs disk/localStorage |
-| Demo | 15 | AI adds localStorage, students see refresh preserves state |
-| Student build | 40 | Add persistence + streak counter + reset button |
-| Label | 10 | localStorage? State? Save/load? |
+| HW review | 10 | Students show operations in Console |
+| Concept: Functions + if/else | 15 | Why bundle code; how decisions work |
+| Instructor demo | 15 | AI generates a function with conditions |
+| Student build | 35 | Students add 2+ functions to script.js |
+| Label + commit | 15 | Function, parameter, return, if/else |
 
 ---
 
-## Concept phase (10 min)
+## Concept (15 min)
 
-Ask the class:
-> *"ကိုယ့် Habit Tracker ကို ပိတ်, ဖွင့်ပြန်။ ဘာဖြစ်လဲ?"*
+### Functions — "a named recipe"
 
-Answer: All checks disappear. Why?
-- Browser က **memory ထဲမှာ** ထား
-- Reload ရင် — memory clear → data ပျောက်
+```javascript
+function greet(name) {
+    console.log("Hello, " + name)
+}
 
-**Analogy**: 
-- Browser memory → **ကိုယ့်ဦးနှောက်** (short-term memory)
-- localStorage → **စာအုပ်** (writes it down, keeps it)
-
+greet("Hein")   // → "Hello, Hein"
+greet("Pwint")  // → "Hello, Pwint"
 ```
-Click checkbox
-       ↓
-JavaScript updates variable (in memory)
-       ↓
-localStorage.setItem('habits', ...) ← SAVE
-       ↓
-Reload page
-       ↓
-localStorage.getItem('habits') ← LOAD
-       ↓
-JavaScript restores checked state
+
+Parts:
+- `function` = keyword
+- `greet` = name
+- `(name)` = parameter (input)
+- `{ ... }` = body (what it does)
+- Called with `greet("Hein")`
+
+**Why**: same code, used many times. **DRY** = Don't Repeat Yourself.
+
+### Conditions — if/else
+
+```javascript
+let count = 4
+
+if (count === 4) {
+    console.log("All done!")
+} else {
+    console.log("Keep going")
+}
+```
+
+Operators:
+- `===` = exactly equal to
+- `>` greater than
+- `<` less than
+- `>=` greater or equal
+- `<=` less or equal
+- `&&` AND (both true)
+- `||` OR (either true)
+- `!` NOT
+
+### Combined — function with condition
+
+```javascript
+function checkDone(count, total) {
+    if (count === total) {
+        return "All done!"
+    } else {
+        return "Still " + (total - count) + " to go"
+    }
+}
+
+console.log(checkDone(4, 4))   // "All done!"
+console.log(checkDone(2, 4))   // "Still 2 to go"
 ```
 
 ---
 
-## Instructor demo (15 min)
+## Demo (15 min)
 
 Prompt AI:
 
 ```
-I have a Habit Tracker with HTML, CSS, JS. The checkboxes work but
-reset when I reload the page. I want:
+Add to my script.js:
+- A function called `countCompleted` that takes an array of booleans
+  (whether each habit is done) and returns how many are true
+- A function called `getStatusMessage` that returns:
+  - "All habits done!" if all are true
+  - "Great progress!" if more than half
+  - "Keep going" if less than half
 
-- When I check a habit, save that it's checked to localStorage
-- When the page loads, read localStorage and re-check the saved habits
-- Also save and restore the "streak" count — how many days in a row the user hit all habits
+Then call both functions with example data and log results.
 
-Give me updated JS. Explain each new line.
-
-Here is my current HTML:
-[paste]
+Explain each line.
 ```
 
-AI gives updated code. **Instructor reads each new piece**:
+Read every function:
+- Parameter definition
+- `if/else if/else` structure
+- `return` keyword
+- Function call
 
-> *"ဒီ `localStorage.setItem('habits', JSON.stringify(state))` က —*
->
-> *localStorage ဆိုတဲ့ စာအုပ်ထဲ 'habits' ဆိုတဲ့ စာမျက်နှာမှာ state ကို ရေးထည့်။*
->
-> *`JSON.stringify` က — object ကို text ပြောင်း (localStorage က text ပဲ သိမ်းနိုင်လို့)။*"
->
-> *"ဒီ `localStorage.getItem('habits')` က — စာအုပ်ဖွင့်, 'habits' စာမျက်နှာကို ဖတ်။*
->
-> *`JSON.parse` က — text ကို object ပြန်ပြောင်း။"*
-
-Reload. All checks preserved. **Close tab. Reopen.** Still preserved.
-
-> *"ဒါပဲ — browser က 'ကိုယ့် data' ကို မှတ်ထား။"*
+Save. Push. See logs.
 
 ---
 
-## Student build (40 min)
+## Student build (35 min)
 
-Each student:
-1. Prompt AI (adapt demo prompt)
-2. Replace their JS with the new version
-3. Test: check boxes → reload → still checked
-4. **Then** prompt AI for streak counter:
-   - "Each day user checks all habits, streak +1. Reset streak if they miss a day."
-5. **Then** prompt AI for reset button:
-   - "Add a 'Reset today' button that unchecks all habits."
+Each student prompts AI for:
+1. A function that logs "Welcome to habit tracker" (simple warmup)
+2. A function `isWeekend` that returns true if today is Sat/Sun
+3. A function `greetByTime` that returns:
+   - "Good morning" before noon
+   - "Good afternoon" before 6pm
+   - "Good evening" after 6pm
+
+They test by calling each in Console or script.
 
 **Instructor circulates**:
-- `JSON.parse` fails → data in localStorage was never set; add safety: `JSON.parse(raw || '[]')`
-- Streak logic wrong → re-prompt with specific wording
-- Reset button clears localStorage → remind: only clear today, not streak
+- Student writes `=` instead of `===` → "triple equals = exactly equal"
+- `return` vs `console.log` confusion → "return gives back a value; log prints"
+- AI uses `function expression` or arrow syntax → OK, both work, pick one style
 
 ---
 
-## Label phase (10 min)
+## Label (10 min)
 
-Write (no AI):
+Write:
 
-1. What is **localStorage**?
-2. What does "save" mean in programming?
-3. What does "state" mean?
-4. Why does `JSON.stringify` exist?
-5. What's the difference between browser memory and localStorage?
+1. What is a **function**?
+2. What is a **parameter**?
+3. What does `return` do?
+4. What is **DRY**?
+5. Difference between `=` and `===`?
 
-### Pocket answers
-
-- **localStorage** — a small notebook the browser keeps for your site, surviving reloads and tab close
-- **Save** — write data somewhere it won't disappear
-- **State** — the current situation of your app (which habits are checked, what streak is at)
-- **`JSON.stringify`** — converts a JavaScript object into a text string (localStorage can only hold text)
-- **Memory vs localStorage** — memory forgets on reload; localStorage remembers
+**Pocket answers**:
+- Function = reusable named block of code
+- Parameter = input the function needs
+- Return = value given back when function is called
+- DRY = Don't Repeat Yourself (write once, use many times)
+- `=` assigns; `===` compares
 
 ---
 
@@ -136,19 +159,18 @@ Write (no AI):
 
 | Failure | Fix |
 |---|---|
-| Reload loses data | localStorage code not placed, or key name mismatch |
-| Streak counts wrong | Logic edge case — missing day detection; re-prompt |
-| Reset button clears everything | Specify: "clear today's checks only, not streak" |
-| localStorage shows weird text | `JSON.stringify` not applied |
-| Student checks localStorage in DevTools and panics at raw JSON | Explain: "that's just how data looks when saved — it's normal" |
+| Student calls function but nothing happens | Needs to `console.log(result)` or `return` then log |
+| `if` without `{}` | OK for single line, but encourage braces for clarity |
+| AI uses `==` instead of `===` | Both work; `===` is stricter and preferred |
+| Student confuses `return` with `console.log` | "`return` = give back; `log` = print to Console" |
 
 ---
 
-## What this day is NOT
+## NOT
 
-- Not sessionStorage, IndexedDB, cookies deep-dive
-- Not security (localStorage limits — Course 1)
-- Not sync across devices (Course 2+)
-- Not database (localStorage is "local" — just this browser)
+- Arrow function syntax deep dive
+- Closures / scope deep dive (Course 1)
+- Recursion
+- Pure functions / side effects (Course 1)
 
-Keep tight: data saves, data loads, data persists.
+Keep tight: function, parameter, return, if/else. 4 concepts.
