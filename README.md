@@ -1,4 +1,4 @@
-# theBuilderPros — Teaching Materials
+# Absolute Beginner — Teaching Materials
 
 Courses taught by **Hein Soe** at theBuilderPros workshops.
 
@@ -6,7 +6,7 @@ Courses taught by **Hein Soe** at theBuilderPros workshops.
 
 | Course | Audience | Length | Produces |
 |---|---|---|---|
-| [**Course 0** — Adaptive Production Builder](course-0-adaptive-production-builder/) | Absolute beginner, no code | 3 weeks · 12h class · 24h homework | A builder with a live mini-app and real users |
+| [**Course 0** — Web Essentials](course-0-web-essentials/) | Absolute beginner, no code | 3 weeks · 12h class · 24h homework | A builder with a live mini-app and real users |
 | [**Course 1** — AI-Assisted Full-Stack Development](course-1-ai-assisted-fullstack.md) | Someone who finished Course 0 (or equivalent) | 6 weeks · 24h class · 36h homework | A full-stack builder who can read & direct code |
 
 See [`program-roadmap-levels-1-8.md`](program-roadmap-levels-1-8.md) for the long-term 8-level roadmap.
@@ -32,7 +32,7 @@ Do not inflate these claims anywhere. The courses are honest about what they do 
 
 ## Rules for AI agents editing this repo
 
-See [`course-0-adaptive-production-builder/AGENT.md`](course-0-adaptive-production-builder/AGENT.md) and [`AGENT.md`](AGENT.md) for Course 1.
+See [`course-0-web-essentials/AGENT.md`](course-0-web-essentials/AGENT.md) and [`AGENT.md`](AGENT.md) for Course 1.
 
 ## License
 
