@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course 0 — Slides Viewer</title>
+
+    <!-- Reveal.js core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+    <!-- Course 0 custom theme overrides -->
+    <style>
+        :root {
+            --r-background-color: #0b0d12;
+            --r-main-color: #f5f5f5;
+            --r-heading-color: #ffd166;
+            --r-link-color: #118ab2;
+            --r-selection-background-color: #ef476f;
+        }
+        .reveal {
+            font-family: "Padauk", "Myanmar Text", "Noto Sans Myanmar", "Inter", system-ui, sans-serif;
+            font-size: 32px;
+        }
+        .reveal h1 {
+            color: #ffd166;
+            text-transform: none;
+            font-size: 1.8em;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 0.2em;
+            margin-bottom: 0.4em;
+        }
+        .reveal h2 {
+            color: #06d6a0;
+            text-transform: none;
+            font-size: 1.3em;
+        }
+        .reveal h3 {
+            color: #118ab2;
+            text-transform: none;
+            font-size: 1.1em;
+        }
+        .reveal code {
+            background: #1e2130;
+            color: #ffd166;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+        .reveal pre {
+            box-shadow: none;
+            border-left: 4px solid #06d6a0;
+            border-radius: 8px;
+            background: #1e2130;
+            width: 100%;
+        }
+        .reveal pre code {
+            color: #f5f5f5;
+            background: transparent;
+            padding: 20px;
+            max-height: none;
+        }
+        .reveal blockquote {
+            border-left: 4px solid #ef476f;
+            background: rgba(239, 71, 111, 0.1);
+            padding: 15px 25px;
+            width: fit-content;
+            font-style: italic;
+        }
+        .reveal strong { color: #ffd166; }
+        .reveal em { color: #06d6a0; font-style: normal; font-weight: 500; }
+        .reveal table {
+            font-size: 0.85em;
+            margin: 0.5em auto;
+        }
+        .reveal table th {
+            background: #1e2130;
+            color: #ffd166;
+            border-color: #333;
+        }
+        .reveal table td {
+            border-color: #333;
+        }
+        .reveal ul, .reveal ol {
+            display: block;
+        }
+
+        /* Error page styling */
+        .error-page {
+            padding: 60px;
+            font-family: system-ui;
+            color: #f5f5f5;
+            background: #0b0d12;
+            min-height: 100vh;
+        }
+        .error-page h1 { color: #ef476f; margin-bottom: 20px; }
+        .error-page code {
+            background: #1e2130; padding: 2px 10px; border-radius: 4px; color: #ffd166;
+        }
+        .error-page a { color: #06d6a0; }
+    </style>
+</head>
+<body>
+
+<div class="reveal" id="reveal-root" style="display:none;">
+    <div class="slides">
+        <section id="markdown-slide" data-markdown=""
+                 data-separator="^---$"
+                 data-separator-vertical="^--$"
+                 data-separator-notes="^Note:">
+        </section>
+    </div>
+</div>
+
+<div class="error-page" id="error-page" style="display:none;">
+    <h1>⚠️ Slides not loaded</h1>
+    <p id="error-message"></p>
+    <h2 style="color:#06d6a0;margin-top:30px;">How to use this viewer</h2>
+    <p>Add <code>?day=03</code> to the URL. Example:</p>
+    <p><code>viewer.html?day=03</code> → loads <code>../day-03/slides.md</code></p>
+    <h2 style="color:#06d6a0;margin-top:30px;">Available days</h2>
+    <ul id="day-list"></ul>
+</div>
+
+<!-- Reveal.js scripts -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+
+<script>
+    // Parse ?day=NN from URL
+    const params = new URLSearchParams(window.location.search);
+    const dayParam = params.get("day");
+
+    function showError(msg) {
+        document.getElementById("reveal-root").style.display = "none";
+        document.getElementById("error-page").style.display = "block";
+        document.getElementById("error-message").innerHTML = msg;
+
+        // List all days (hardcoded 1-12)
+        const list = document.getElementById("day-list");
+        for (let i = 1; i <= 12; i++) {
+            const n = String(i).padStart(2, "0");
+            list.innerHTML += `<li><a href="?day=${n}">Day ${i}</a></li>`;
+        }
+    }
+
+    if (!dayParam) {
+        showError("No day specified. Add <code>?day=03</code> to the URL.");
+    } else {
+        const paddedDay = dayParam.padStart(2, "0");
+        const mdPath = `../day-${paddedDay}/slides.md`;
+
+        // Set the markdown path
+        document.getElementById("markdown-slide").setAttribute("data-markdown", mdPath);
+        document.getElementById("reveal-root").style.display = "block";
+        document.title = `Course 0 — Day ${parseInt(paddedDay)} Slides`;
+
+        // Initialize Reveal
+        Reveal.initialize({
+            hash: true,
+            slideNumber: "c/t",
+            controls: true,
+            progress: true,
+            center: true,
+            transition: "slide",
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        }).catch((err) => {
+            showError(`Failed to load slides: ${err.message}<br>Expected file: <code>${mdPath}</code>`);
+        });
+    }
+</script>
+
+</body>
+</html>
