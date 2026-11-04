@@ -193,49 +193,56 @@ By Day 12, student can:
 
 ---
 
-## Slides (standalone HTML — browser only)
+## Slides (Reveal.js — browser only)
 
-Teacher-facing slide decks live in `day-NN/slides.html` (self-contained HTML files).
+Teacher-facing slide decks:
+- Source: `day-NN/slides.md` (markdown — easy to edit)
+- Viewer: `slides/viewer.html` (ONE viewer for all days)
+- Landing: `slides/index.html` (links to all days)
 
-**Browser only. No VSCode, no npm, no pnpm, no install.** Just double-click.
+**Zero install. No npm, no VSCode shown.** Just Python's built-in server.
 
 ### How to present
 
 ```bash
-# In terminal:
-open day-03/slides.html
-
-# Or double-click slides.html in Finder
+cd course-0-web-essentials
+python3 -m http.server 8000
 ```
 
-Browser opens → press `F` for fullscreen → use `←` `→` to navigate.
+Open browser:
 
-### Visible controls
+```
+http://localhost:8000/slides/            ← landing page with all days
+http://localhost:8000/slides/viewer.html?day=03   ← direct to Day 3
+```
 
-- **Progress bar** (top)
-- **← / → buttons** (bottom center)
-- **Slide counter** (e.g., "3 / 16")
-- **Fullscreen button** (⛶)
+### Controls (Reveal.js built-in)
 
-### Keyboard shortcuts
+- `→` `←` `Space` — navigate
+- `F` — fullscreen
+- `Esc` — slide overview (click any to jump)
+- `S` — speaker notes window
+- `?` — all shortcuts
 
-- `→` `Space` `PageDown` — next
-- `←` `PageUp` — previous
-- `Home` `End` — jump to first / last
-- `F` — fullscreen toggle
+**Progress bar** at bottom. **Slide counter** (e.g., "3/16").
 
-### For classroom projector
+### Structure
 
-1. Open `slides.html` in browser
-2. Drag browser to projector screen
-3. Press `F`
-4. Control from laptop keyboard
+```
+course-0-web-essentials/
+├── slides/
+│   ├── index.html         ← landing page
+│   ├── viewer.html        ← generic Reveal.js viewer
+│   └── how-to-present.md  ← full guide
+└── day-NN/
+    └── slides.md          ← markdown source (edit this)
+```
 
-Students see slides only — not VSCode editor.
+**One viewer, many day sources.** Edit `day-NN/slides.md`, reload browser, see changes.
 
-See [`slides/how-to-present.md`](slides/how-to-present.md) for full guide (recording, sharing, editing).
+See [`slides/how-to-present.md`](slides/how-to-present.md) for full guide.
 
-Currently only Day 3 has slides (`day-03/slides.html`). Extend to Days 4-12 as flipped format rolls out.
+Currently only Day 3 has slides. Extend as flipped format rolls out.
 
 ---
 

@@ -1,48 +1,87 @@
 # How to Present Slides — For Hein
 
-**Framework**: Reveal.js (loaded via CDN, no install)
-**Source**: `day-NN/slides.md` (pure markdown — easy to edit)
-**Viewer**: `day-NN/present.html` (opens slides.md in browser)
+**Framework**: Reveal.js (CDN, zero install)
+**Source**: `day-NN/slides.md` (markdown — easy to edit)
+**Viewer**: `slides/viewer.html` (ONE viewer for all days)
+**Index**: `slides/index.html` (landing page with all day links)
 
 ---
 
-## Presenting a class
+## Quickest way to present
 
 ### Step 1 — Start local server (one terminal command)
 
 ```bash
-cd day-03
+cd course-0-web-essentials
 python3 -m http.server 8000
 ```
 
 (Python 3 built-in to Mac. Windows: `python -m http.server 8000`)
 
-### Step 2 — Open browser
+### Step 2 — Open browser to landing page
 
 ```
-http://localhost:8000/present.html
+http://localhost:8000/slides/
 ```
 
-Slides appear. Press `F` for fullscreen.
+Click any day (e.g., "Day 3 — JS Variables").
 
-### Step 3 — Navigate
+### Step 3 — Present
+
+Slides appear in Reveal.js. Press `F` for fullscreen.
+
+---
+
+## Directly load a specific day
+
+Skip the index and go straight to a day:
+
+```
+http://localhost:8000/slides/viewer.html?day=03
+```
+
+`?day=03` loads `../day-03/slides.md`.
+
+---
+
+## Controls (Reveal.js built-in)
 
 - **Arrow keys** `→` `←` for next/prev
 - **Space** for next
 - **Esc** for slide overview (all slides at once)
-- **S** for speaker notes window
+- **S** for speaker notes window (separate window)
 - **F** for fullscreen
 - **?** for all shortcuts
+- **Click `?print-pdf`** in URL → Print → PDF export
 
-**Progress bar** at bottom. **Slide number** bottom-right (e.g., "3/15").
+Progress bar at bottom. Slide counter bottom-right.
+
+---
+
+## Structure
+
+```
+course-0-web-essentials/
+├── slides/
+│   ├── viewer.html          ← ONE generic Reveal.js viewer
+│   ├── index.html           ← Landing page with all day links
+│   └── how-to-present.md    ← this file
+├── day-03/
+│   └── slides.md            ← Markdown content (only Day 3 so far)
+├── day-04/
+│   └── (no slides.md yet)
+└── ...
+```
+
+**One viewer serves all days.** No duplicated HTML per day.
 
 ---
 
 ## Why a local server?
 
-Modern browsers block `fetch()` from `file://` for security (CORS). Since Reveal.js fetches `slides.md`, we need HTTP.
+Modern browsers block `fetch()` from `file://` for security (CORS). Reveal.js fetches `slides.md`, so we need HTTP.
 
-**`python3 -m http.server`** = simplest option, built into Mac + most Linux. Windows has it too.
+**`python3 -m http.server`** = simplest option. Built into Mac + most Linux. Windows has it too.
 
 One command. No install.
 
@@ -50,7 +89,7 @@ One command. No install.
 
 ## Editing slides between classes
 
-Edit `day-NN/slides.md` in any text editor (TextEdit, Notepad, VSCode — your choice).
+Edit `day-NN/slides.md` in any text editor (TextEdit, Notepad, Marpit, VSCode — your choice).
 
 **Reload browser** to see changes.
 
@@ -103,14 +142,10 @@ Note: These notes only show in speaker view (press S).
 
 ### Code blocks
 
-Use fenced code with language:
-
-````markdown
 ```javascript
 let count = 0
 console.log(count)
 ```
-````
 
 ### Burmese text
 
@@ -118,45 +153,22 @@ Works natively. Theme uses Padauk / Myanmar Text / Noto Sans Myanmar fallback.
 
 ---
 
-## Theme customization
+## Add slides for a new day
 
-Edit the `<style>` block in `present.html`:
-
-```css
-:root {
-    --r-background-color: #0b0d12;      /* page background */
-    --r-heading-color: #ffd166;         /* h1/h2/h3 */
-}
-```
-
-Reload browser to see changes.
-
-### Pre-built Reveal.js themes
-
-Change `theme/black.css` to another:
-
-- `theme/white.css` — light theme
-- `theme/beige.css` — warm beige
-- `theme/night.css` — dark blue
-- `theme/moon.css` — dark olive
-- `theme/solarized.css` — solarized light
-- `theme/dracula.css` — purple dark
-- `theme/simple.css` — minimal
-
-Replace:
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/THEME.css" id="theme">
-```
+1. Create `day-NN/slides.md` (follow Day 3 as template)
+2. Write markdown with `---` separators
+3. Edit `slides/index.html` → find `days` array → mark `ready: true` for your day
+4. Open `http://localhost:8000/slides/viewer.html?day=NN`
 
 ---
 
 ## For classroom projector
 
 1. Connect laptop to projector
-2. Open browser to `http://localhost:8000/present.html`
+2. Open browser to `http://localhost:8000/slides/viewer.html?day=03`
 3. Drag browser window to projector screen
 4. Press `F` (fullscreen)
-5. Teach from laptop (keyboard/trackpad controls slides on projector)
+5. Teach from laptop (keyboard controls slides on projector)
 
 ### Speaker view
 
@@ -165,7 +177,6 @@ Press `S` on laptop → opens new window with:
 - Next slide preview
 - Speaker notes
 - Elapsed time
-- Timer
 
 Put speaker window on laptop, main slides on projector.
 
@@ -175,7 +186,7 @@ Put speaker window on laptop, main slides on projector.
 
 Add `?print-pdf` to URL:
 ```
-http://localhost:8000/present.html?print-pdf
+http://localhost:8000/slides/viewer.html?day=03&print-pdf
 ```
 
 Browser → Print → Save as PDF.
@@ -193,99 +204,87 @@ Each slide = one page.
 
 ---
 
-## Why Reveal.js (not Marp, not custom HTML)
+## Theme customization
 
-| Choice | Pros | Cons |
-|---|---|---|
-| **Reveal.js** ✅ | Mature, feature-rich, speaker notes, PDF export, pure MD source | Needs local server |
-| Marp (CLI) | Simple MD | Needs npm install |
-| Marp (VSCode) | No install if VSCode | VSCode visible during class ❌ |
-| Custom HTML | Zero dependency | Reinventing wheel, no features |
-| Google Slides | Rich UI | Requires internet, cloud account |
+Edit the `<style>` block in `slides/viewer.html`:
 
-**Reveal.js = best balance** for Course 0 use case:
-- ✅ Pure markdown source
-- ✅ Framework-based (don't reinvent)
-- ✅ Browser only (no VSCode shown)
-- ✅ Zero install (CDN)
-- ⚠️ Needs 1 terminal command (python server)
-
----
-
-## Where slides live
-
-```
-course-0-web-essentials/
-├── slides/
-│   └── how-to-present.md    ← this file
-├── day-03/
-│   ├── slides.md            ← markdown source (edit this)
-│   └── present.html         ← Reveal.js viewer (loads slides.md)
-└── ... (future: day-04/slides.md + present.html, etc.)
+```css
+:root {
+    --r-background-color: #0b0d12;
+    --r-heading-color: #ffd166;
+}
 ```
 
-Each day has own `slides.md` + `present.html` pair.
+Reload browser.
 
-**Why both per day**: `present.html` references `./slides.md` (same folder). Avoids cross-folder paths.
+### Switch Reveal.js base theme
+
+Change `theme/black.css` to:
+
+- `theme/white.css` — light
+- `theme/beige.css` — warm
+- `theme/night.css` — dark blue
+- `theme/moon.css` — dark olive
+- `theme/dracula.css` — purple dark
+- `theme/simple.css` — minimal
+
+Edit `viewer.html`:
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/THEME.css" id="theme">
+```
 
 ---
 
 ## Troubleshooting
 
-### "Failed to load slides.md" error
+### "Failed to load slides" error
 - You opened via `file://` (double-click)
-- Fix: use `python3 -m http.server` as above
+- Fix: use `python3 -m http.server`
+
+### "Slides not loaded" with day list
+- URL missing `?day=NN` — click a day from `slides/index.html`
 
 ### Blank slides
 - Hard refresh: `Cmd+Shift+R`
 - Check browser console (F12) for errors
+- Check `day-NN/slides.md` exists
 
 ### Burmese text as boxes (□□□)
 - Install "Padauk" from fonts.google.com
 - Or use "Noto Sans Myanmar" (built into most OS)
 
-### Slides too small on projector
-- `Cmd +` to zoom browser (text scales)
-- Or edit `font-size` in present.html CSS
-
-### Speaker notes don't open
-- Pop-up blocker? Allow for localhost
-- Press `S` again after allowing
-
-### `python3` not found (Mac)
-- Try `python` (older Macs)
-- Or install from python.org (free, 5 min)
-
-### `python3` not found (Windows)
+### `python3` not found
 - Try `python -m http.server 8000`
-- Or install from python.org
+- Install from python.org (free, 5 min)
 
 ---
 
 ## Quick reference
 
-**Start server**: `cd day-03 && python3 -m http.server 8000`
-**URL**: `http://localhost:8000/present.html`
+**Start server**: `cd course-0-web-essentials && python3 -m http.server 8000`
+**Landing**: `http://localhost:8000/slides/`
+**Direct day**: `http://localhost:8000/slides/viewer.html?day=03`
 **Navigation**: `→` `←` `Space` `Esc`
 **Fullscreen**: `F`
 **Speaker notes**: `S`
 **All shortcuts**: `?`
-**Edit**: open `slides.md` in any editor, reload browser
+**Edit**: open `day-NN/slides.md` in any editor, reload browser
 
 ---
 
-## Mindset reminders
+## Mindset
 
 - **Slides = anchor**, not script
 - **1 idea per slide** — split if cramped
-- **Less text, more visuals** — use code blocks, tables
-- **Skip ahead** (Esc + click target slide) if class finishes a section fast
+- **Less text, more visuals**
 - **Students' questions > slide completion**
+- **Skip ahead** (Esc + click target slide) if class finishes a section fast
 
 ---
 
-## Next steps
+## Status
 
-- ✅ Day 3 slides ready (`day-03/slides.md` + `present.html`)
-- ⏳ Create for Days 4-12 when Day 3 teaching stabilizes
-- 💡 First class: test slides with projector before students arrive
+- ✅ `slides/viewer.html` — generic viewer
+- ✅ `slides/index.html` — landing page
+- ✅ `day-03/slides.md` — first slide deck
+- ⏳ Days 4-12 — `slides.md` not yet created (extend as flipped teaching stabilizes)
