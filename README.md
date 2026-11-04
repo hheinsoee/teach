@@ -7,6 +7,7 @@ Courses taught by **Hein Soe** at **theBuilderPros** workshops.
 ## ⭐ Course 0 — Web Essentials (ACTIVE)
 
 **Status**: Being taught now (Nov 2026 cohort)
+**Positioning**: **Vocational training** (trade skill) — NOT engineer training
 **Audience**: Absolute beginners — no programming background
 **Length**: 6 weeks · 12 days × 90 min · **54 hr total** (18 class + 36 homework)
 **Produces**: An **inspired beginner** who can read code, direct AI, and ship real web apps

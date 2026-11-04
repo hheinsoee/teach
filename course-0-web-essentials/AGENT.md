@@ -66,6 +66,16 @@ See [`instructor/teaching-guide.md`](instructor/teaching-guide.md) for concrete 
 
 **8. Honesty.** Course 0 produces an **inspired beginner**, not a programmer. 54 hours cannot produce a programmer. Never upgrade this claim.
 
+**9. Vocational, not engineer training.** Course 0 is a **trade skill** (AI-assisted web building). It does NOT teach:
+- Computer Science theory
+- Algorithms & data structures
+- System design & architecture
+- Formal software engineering
+
+Think "AI-era web builder apprenticeship" — practical skills for shipping web apps. Engineering career requires years of CS + engineering work experience, which Course 0 doesn't claim or deliver.
+
+If any content starts drifting into CS theory or engineering fundamentals, flag and remove.
+
 ---
 
 ## Scope — IN and OUT

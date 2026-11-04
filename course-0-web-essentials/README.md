@@ -10,6 +10,22 @@ Taught at **theBuilderPros** workshops as the entry point before Course 1.
 
 ---
 
+## Positioning
+
+> **This is vocational training, not engineer training.**
+
+Course 0 teaches a **trade skill** (AI-assisted web building for shipping real apps). It does NOT teach:
+- Computer Science theory
+- Algorithms & data structures
+- System design & architecture
+- Formal software engineering
+
+Think of it as "AI-era web builder apprenticeship" — practical skills for shipping web apps, not academic CS education.
+
+If student wants to become a software engineer → that requires years of CS + engineering work experience. Course 0 doesn't claim that path.
+
+---
+
 ## Core principle
 
 > **"Code ကို အဓိက မသင်။ AI ရှိတယ်။ Code ကို သဘောပေါက်ရမယ်, ဖတ်တတ်ရမယ်။"**
@@ -30,11 +46,11 @@ Four skills: **Read · Understand · Direct · Verify.** No syntax drills. AI ge
 
 ## Who this is NOT for
 
-- ❌ Someone who wants to be a professional programmer in 54 hours
+- ❌ Someone who wants to be a professional software engineer (this is vocational, not engineer training)
+- ❌ Students who want deep CS theory, algorithms, data structures
 - ❌ Experienced developers (will be bored)
-- ❌ Students who want deep CS theory
 - ❌ Students wanting full-stack with backend/database (that's Course 1+)
-- ❌ Job-prep in 6 weeks (needs more time)
+- ❌ Job-prep for engineering positions in 6 weeks (impossible)
 
 ## The promise
 

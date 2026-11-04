@@ -13,6 +13,8 @@
 
 > **Teach absolute beginners to READ code, UNDERSTAND how browsers run it, DIRECT AI to generate it, and VERIFY the result works — using vanilla JS (Days 3-5), then React (Days 6-12) to ship a real News App with real users.**
 
+**Positioning**: This is **vocational training** (AI-assisted web building trade skill) — NOT engineer training. No CS theory, no algorithms, no system design. Think "AI-era web builder apprenticeship" for shipping real apps.
+
 ### Core principle (Hein, 2026-11-03)
 
 > *"Code ကို အဓိက မသင်။ AI ရှိတယ်။ Code ကို သဘောပေါက်ရမယ်, ဖတ်တတ်ရမယ်။"*
