@@ -77,24 +77,24 @@ Student = **active learner, question-asker, struggle-explorer**.
 
 ---
 
-## Materials Structure (5 files per day)
+## Materials Structure (3 required + 1 optional per day)
 
 ```
 day-NN/
-├── prework.md         ← Viber/Telegram message, 1-2 days before class
-├── self-study.md      ← Videos/docs/AI to explore before class
-├── README.md          ← Instructor plan (Q&A + discussion focus)
-├── in-class.md        ← What students do in class (minimal)
-└── homework.md        ← Post-class consolidation + questions
+├── README.md          ← Instructor plan (Q&A + discussion focus) — required
+├── self-study.md      ← Viber template + W3Schools + 3-question prompt — required
+├── homework.md        ← Post-class build + reflect submission — required
+└── in-class.md        ← Slidev slide deck (optional, teacher presents)
 ```
 
 Each file serves a phase of the student journey:
 
-1. **prework.md** → "setup your environment"
-2. **self-study.md** → "explore this topic"
-3. **in-class.md** → "come with questions"
-4. **README.md** → (for teacher only) "how to run class"
-5. **homework.md** → "consolidate + prepare for next"
+1. **self-study.md** → "learn basics at home, come with 3 questions"
+2. **README.md** → "teacher's 90-min flipped plan, AI prompts, risks"
+3. **in-class.md** → (optional) teacher's Slidev slide deck
+4. **homework.md** → "consolidate + prepare for next class"
+
+Previous `prework.md` was removed — Viber message now lives inside `self-study.md`.
 
 ---
 
@@ -276,7 +276,7 @@ Then **revert to traditional pacing** for cohort 1, iterate to flipped for cohor
 
 - [`ai-assistant-prompts.md`](ai-assistant-prompts.md) — AI prompts for Hein during teaching
 - [`pacing.md`](pacing.md) — 90-min day structure (updated for flipped)
-- Day folders — `prework.md`, `self-study.md`, `README.md`, `in-class.md`, `homework.md`
+- Day folders — `README.md`, `self-study.md`, `homework.md` (+ optional `in-class.md` for slides)
 
 ---
 

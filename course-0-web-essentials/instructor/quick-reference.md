@@ -14,7 +14,7 @@ Full details: [`teaching-guide.md`](teaching-guide.md) · [`setup-guide.md`](set
 | 💬 Discussion | 15 | Top 3 confusions explained |
 | 🤝 Live build | 25 | Teacher at AI, students follow |
 | ✍️ Label | 10 | Own words, no AI |
-| 📋 Wrap | 15 | Next prework + homework + preview |
+| 📋 Wrap | 15 | Next self-study + homework + preview |
 
 **Never cut Q&A or Label.**
 
@@ -95,7 +95,7 @@ Give me: emotional reset + pivot activity + honest thing to say.
 ## 5 files per day (student experience)
 
 ```
-prework.md        → Viber 2 days before (15-20 min setup)
+self-study.md     → Viber message (W3Schools + videos + 3 questions)
 self-study.md     → night before (60-90 min + 3 questions)
 in-class.md       → during class (student follows)
 homework.md       → after class (build + 3 next questions)

@@ -59,7 +59,7 @@ Read: [`setup-guide.md`](setup-guide.md)
 
 2. ✅ Prepare Viber/Telegram group
    - Invite students
-   - Pin Day 1 prework message
+   - Pin Day 1 self-study message (from `day-01/self-study.md`)
 
 **Critical before Day 9** (2-3 hours Hein work):
 3. ✅ Host News API at `api.heinsoe.com/news.json` (or similar)
@@ -104,8 +104,8 @@ Open on phone during every class: [`quick-reference.md`](quick-reference.md)
 ## Pre-class ritual (every day)
 
 ### 2 days before class
-- [ ] Open `day-NN/prework.md`
-- [ ] Copy content to Viber/Telegram group
+- [ ] Open `day-NN/self-study.md`
+- [ ] Copy Viber template to Telegram/Viber group
 - [ ] Monitor ✅ reactions
 
 ### 1 day before class
@@ -127,7 +127,7 @@ Open on phone during every class: [`quick-reference.md`](quick-reference.md)
 
 ### After class
 - [ ] Open AI, run "debrief prompt" from teaching-guide.md
-- [ ] Assign Day N+1 prework (Viber in 2 days)
+- [ ] Send Day N+1 self-study to Viber (2 days ahead)
 - [ ] Collect student questions for next class
 
 ---
@@ -171,14 +171,14 @@ instructor/
 └── grading-guide.md        ← Completion markers + Classroom
 
 ../day-01/ ... ../day-12/
-├── prework.md              ← Viber 2 days before
-├── self-study.md           ← Night before
 ├── README.md               ← Instructor plan (90-min flipped)
-├── in-class.md             ← Student in-class guide
-└── homework.md             ← Post-class
+├── self-study.md           ← Student (Viber template + W3Schools + 3 questions)
+├── homework.md             ← Post-class submission
+└── in-class.md             ← OPTIONAL: Slidev slide deck (teacher presents)
 ```
 
-(Note: Only Day 3 currently has 5-file structure. Days 1-2 already taught. Days 4-12 being migrated to flipped.)
+(Days 1-2 already taught in `ab/` with 3-file traditional structure.
+Days 3-12 use flipped: README + self-study + homework, optionally in-class.md for slides.)
 
 ---
 
@@ -198,7 +198,6 @@ instructor/
 - Host News API (test fetching)
 - Create Viber/Telegram group
 - Invite first cohort
-- Send Day 1 prework to students
 
 ### Day of Day 1
 - Deep breath

@@ -20,7 +20,8 @@
   "dependencies": {
     "@slidev/cli": "^52.16.0",
     "@slidev/theme-default": "^0.25.0",
-    "@slidev/theme-seriph": "^0.25.0"
+    "@slidev/theme-seriph": "^0.25.0",
+    "markdown-it": "^14.3.3"
   },
   "packageManager": "pnpm@10.11.0"
 }

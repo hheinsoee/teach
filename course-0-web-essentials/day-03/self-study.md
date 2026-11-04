@@ -1,179 +1,138 @@
-# Day 3 — Self-Study (Before Class)
+# Day 3 — Self-Study
 
-**Do this at home the night before Day 3.** Target time: 60-90 minutes.
+**Do this at home the night before Day 3.** Target time: ~1 hour.
 
-**Goal**: Learn how code "remembers" things using variables. See data in your browser's Console.
+**Goal**: Learn how code "remembers" things using variables + see data in the browser Console.
 
-**After this self-study**: write **3 questions** you want to ask in class. Those questions = your "ticket to class".
-
----
-
-## Step 1 — Open DevTools Console
-
-Open your live URL in Chrome. Press **F12** (or right-click → **Inspect**).
-
-Click the **Console** tab. You can type JavaScript here directly.
+**After this self-study**: write **3 questions** to bring to class.
 
 ---
 
-## Step 2 — Try variables yourself (3 min)
+## 📱 Viber message template (teacher sends to group)
 
-Type in Console (each line, press Enter):
+> *"Day 3 မလာခင် ည — ၁ နာရီ self-study လုပ်ပေးပါ:*
+>
+> *၁။ W3Schools ဖတ် (30 min):*
+> *- https://www.w3schools.com/js/js_variables.asp*
+> *- https://www.w3schools.com/js/js_datatypes.asp*
+> *- https://www.w3schools.com/js/js_let.asp*
+> *- https://www.w3schools.com/js/js_const.asp*
+>
+> *၂။ YouTube ကြည့် (15 min):*
+> *- Search: "JavaScript variables for beginners"*
+> *- ဒါမှမဟုတ် ဒီ video: [YouTube link to beginner video]*
+>
+> *၃။ DevTools Console မှာ စမ်း (15 min):*
+> *- F12 နှိပ်, Console tab ဖွင့်*
+> *- let myName = "Hein" ရိုက်ကြည့်*
+> *- console.log(myName) စမ်းကြည့်*
+>
+> *၄။ 3 questions ရေး:*
+> *- ဖတ်ထား/ကြည့်ထား/စမ်းထားတဲ့ထဲက confusion 3 ခု*
+> *- ဥပမာ: "ဘာလို့ array က [0] ကနေ စရေတွက်တာလဲ?"*
+> *- ဒီ 3 questions က မနက်ဖြန် class ရဲ့ ticket*
+>
+> *မေးစရာ ရှိရင် ချက်ချင်း Viber မှာ ပြော။"*
+
+---
+
+## Full study plan (expanded)
+
+### 1. Read W3Schools (30 min)
+
+Pick what you need. All free, Burmese-friendly structure:
+
+- [JavaScript Variables](https://www.w3schools.com/js/js_variables.asp) — what variables are
+- [JavaScript Data Types](https://www.w3schools.com/js/js_datatypes.asp) — string, number, boolean, array
+- [JavaScript Let](https://www.w3schools.com/js/js_let.asp) — when values can change
+- [JavaScript Const](https://www.w3schools.com/js/js_const.asp) — when values are fixed
+- [JavaScript Console.log](https://www.w3schools.com/jsref/met_console_log.asp) — how to inspect data
+
+Each page has **"Try it Yourself"** button — click to experiment.
+
+### 2. Watch a video (15 min)
+
+Search YouTube: **"JavaScript variables for beginners"**
+
+Any 10-15 min beginner video works. Recommended:
+- Programming with Mosh (short, clear)
+- FreeCodeCamp (longer, deeper)
+- Any Burmese JS tutorial if preferred
+
+### 3. Try in Console (15 min)
+
+Open your live URL. Press **F12** → **Console** tab.
+
+Try these one by one:
 
 ```javascript
 let myName = "YOUR NAME"
-```
-Then:
-```javascript
 console.log(myName)
 ```
 
-What appears?
-
-Try with a number:
 ```javascript
 let myAge = 25
 console.log(myAge)
 ```
 
-Try an array:
 ```javascript
-let myHabits = ["Pray", "Study", "Water"]
-console.log(myHabits)
+let habits = ["Pray", "Study", "Water"]
+console.log(habits)
+console.log(habits[0])
+console.log(habits.length)
 ```
 
-**Notice**: `console.log` shows you what's inside a variable.
-
----
-
-## Step 3 — Prompt AI for script.js
-
-Paste in ChatGPT/Claude:
-
-```
-Add JavaScript to my Habit Tracker. Create a file script.js that:
-- Declares a const array called `habits` with 4 habit names
-- Logs the number of habits using habits.length
-- Logs the first habit using habits[0]
-- Logs today's date using new Date()
-- Logs whether all habits are "done" (hardcode as false for now)
-
-Explain each line in simple English.
+```javascript
+const name = "Hein"
+name = "John"
 ```
 
----
+**What does the last one do?** Write it down — that's a question for class.
 
-## Step 4 — Save script.js
+### 4. Write 3 questions (bring to class) ⭐
 
-Copy JS from AI. Open `script.js` in editor. Paste. Save.
+As you read/watch/try, confusing things will come up. **Write them down.**
 
----
+Example questions:
+- "Why does `array[0]` give the first item, not `array[1]`?"
+- "What's the difference between `let` and `const` for arrays?"
+- "Does `console.log` work in production websites too?"
 
-## Step 5 — Check it's linked
+**No question is stupid.** Most questions are shared by everyone.
 
-In `index.html`, find before `</body>`:
-
-```html
-<script src="script.js"></script>
-```
-
-(Starter should have this.)
-
-If not, add it. Save.
-
----
-
-## Step 6 — Commit + push
-
-GitHub Desktop → Summary: `Day 3 — add JS variables` → Commit → Push.
-
----
-
-## Step 7 — See the logs
-
-Wait 30 sec. Reload live URL. Open DevTools (F12) → Console.
-
-**You see 4 log lines**. That's your JS running inside the browser.
-
----
-
-## Step 8 — Read your code
-
-Open `script.js`. Try to answer:
-- Which line is a variable?
-- Which line is a string?
-- Which line is a number?
-- Which line is an array?
-
-If stuck, ask AI: "Explain line X of this code: [paste]"
-
----
-
-## Step 9 — Label (no AI!)
-
-Write:
-
-1. What is a **variable**?
-2. `let` vs `const` difference?
-3. The 4 types we learned (string, number, boolean, array) — what's each?
-4. What does `console.log()` do?
-5. Why do variables exist?
+**Bring your 3 questions on paper or phone.** Class starts with each student sharing one.
 
 ---
 
 ## Done when (before class)
 
-- [ ] You typed 3 variables in Console directly
-- [ ] `script.js` has your habits array
-- [ ] Live URL + Console shows 4+ log lines
-- [ ] You can point at a line and say "that's a variable" / "that's a string"
-- [ ] Label answers written
-- [ ] **3 questions written to ask in class** ⭐ (required)
+- [ ] Read W3Schools variables + types pages
+- [ ] Watched 1 beginner video (10-15 min)
+- [ ] Tried at least 5 variables in DevTools Console
+- [ ] Noticed what happens with `const name = "X"; name = "Y"`
+- [ ] Wrote 3 questions to ask in class
 
 ---
 
-## Your 3 questions (ticket to class)
+## If stuck
 
-Before arriving to class, write **3 questions** that came up during self-study. Examples of good questions:
+Message teacher on Viber. Don't come to class without self-study — the whole class is built around your questions.
 
-- "Why does `let` exist if `const` works for most things?"
-- "What happens if I use a variable name that's a reserved word?"
-- "Can I store a function inside a variable?"
-
-Bring these questions written down. Teacher will collect at start of class.
-
-**If you have no questions**: write "I understood everything" + attempt to explain variables + types in 3 sentences. If you really can explain, that's your "question-equivalent" — share with class.
-
----
-
-## If you finish early
-
-Try in Console:
-
-```javascript
-let habits = ["Pray", "Study"]
-habits.push("Exercise")
-console.log(habits)
+If AI (ChatGPT/Claude) is easier for you than reading:
+```
+Explain JavaScript variables to a complete beginner in Burmese.
+What's the difference between let and const?
+What are the 4 basic data types?
 ```
 
-What changes? What does `.push()` do?
-
-Or try:
-
-```javascript
-let x = 5
-let y = 3
-console.log(x + y)
-console.log(x - y)
-console.log(x * y)
-```
-
-Numbers can do math. We'll see this in Day 4.
+Save AI's answer. Still write 3 questions.
 
 ---
 
-## Rules
+## Why this format
 
-1. **Variables have no spaces** in names. `my habit` ❌ → `myHabit` ✅
-2. **Strings need quotes** (`"Pray"`). Numbers don't (`4`).
-3. **If something breaks**, Console shows red error. Read it, ask AI.
+Flipped classroom = you learn basics at home, class discusses confusion.
+
+Class is **90 minutes of Q&A + live building**, not teacher lecturing.
+
+Your questions make the class useful. Without them, we have nothing to discuss.

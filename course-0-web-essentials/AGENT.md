@@ -122,22 +122,32 @@ Marcus story stages coverage:
 
 ---
 
-## Day folder contract (4 files + optional slides)
+## Day folder contract (3 required + 1 optional)
 
 Every `day-NN/` contains (flipped structure):
 
 | File | Audience | Timing | Contains |
 |---|---|---|---|
-| `prework.md` | student (Burmese) | 1-2 days before class (Viber) | Setup, installs, "do this at home" |
-| `self-study.md` | student (Burmese) | Night before class | Videos, docs, AI exploration, 3-question prep |
-| `README.md` | instructor | Reference | Q&A-focused 90-min plan, AI prompts, risks |
+| `README.md` | instructor | Reference | Q&A-focused 90-min plan, AI prompts, risks, teacher prep notes |
+| `self-study.md` | student (Burmese) | Night before class | **Viber message template** + W3Schools links + video suggestions + 3-question prep |
 | `homework.md` | student (Classroom-ready) | After class | Build + reflect + 3 questions for next class |
 
-**Optional (as needed)**:
+**Optional (teacher creates when needed)**:
 
 | File | Audience | Purpose |
 |---|---|---|
-| `in-class.md` | Teacher (shown on projector) + students (follow on screen) | Markdown source for Reveal.js slide deck, `---` separators |
+| `in-class.md` | Teacher (projector) | Slidev slide deck (markdown with frontmatter + `---` separators) |
+
+**About `prework.md`** (deleted from v5):
+
+Previous iteration had `prework.md` as student-facing Viber message. Removed because:
+- Setup instructions belong in `self-study.md` Viber template
+- Teacher prep (if needed per day) belongs at top of `README.md`
+- Separate `prework.md` was extra complexity
+
+**About `in-class.md`**:
+
+Slide deck for teacher to present. Students watch on projector, don't read directly. Built with Slidev (`pnpm day3` opens in browser at localhost:3030). Optional — teacher can present without slides if preferred.
 
 **About `in-class.md`**:
 
