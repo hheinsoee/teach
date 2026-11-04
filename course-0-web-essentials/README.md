@@ -122,15 +122,21 @@ Students build muscle memory, concept comes at the end. See [`instructor/setup-g
 
 ---
 
-## Day timing (90 min)
+## Day timing (90 min) — Flipped Classroom
 
-| Block | Min |
-|---|---|
-| HW review | 10 |
-| Concept | 10-15 |
-| Demo | 15 |
-| Build | 35-40 |
-| Label + commit | 15 |
+Teacher ~30% active, student ~70% active. Students come prepared with questions from homework + self-study.
+
+| Block | Min | Who's active |
+|---|---|---|
+| **Q&A from self-study** | 25 | 🙋 Students ask |
+| **Discussion + clarification** | 15 | 💬 Mixed |
+| **Live building** | 25 | 🤝 Collaborative (teacher at AI) |
+| **Label** | 10 | ✍️ Students write |
+| **Next assignment + wrap** | 15 | 📋 Teacher |
+
+**Not traditional lecture-and-exercise.** See [`instructor/teaching-guide.md`](instructor/teaching-guide.md) for full philosophy + risk mitigations + AI co-teacher prompts.
+
+**Note on day READMEs**: Day 1-12 README files currently show v4 traditional schedule (teacher-led). The flipped schedule above is the **override** — follow it over day files.
 
 ---
 

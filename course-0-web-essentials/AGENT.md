@@ -141,17 +141,19 @@ Every `day-NN/` contains:
 
 ---
 
-## Day timing (90 min)
+## Day timing (90 min) — Flipped
 
-| Block | Min |
-|---|---|
-| HW review | 10 |
-| Concept | 10-15 |
-| Instructor demo | 15 |
-| Student build | 35-40 |
-| Label + commit | 10-15 |
+| Block | Min | Who's active |
+|---|---|---|
+| Q&A from self-study | 25 | 🙋 Students |
+| Discussion + clarification | 15 | 💬 Mixed |
+| Live building | 25 | 🤝 Collaborative |
+| Label | 10 | ✍️ Students |
+| Next assignment + wrap | 15 | 📋 Teacher |
 
-Cut concept if tight. Never cut Build or Label.
+**Never cut Q&A or Label.** If tight, cut discussion time, not student speaking.
+
+**IMPORTANT**: Day 1-12 README files still show v4 traditional schedule (teacher demo + student build). These are legacy. Use the flipped schedule above as the override until day files are rewritten.
 
 ---
 
