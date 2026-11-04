@@ -193,56 +193,48 @@ By Day 12, student can:
 
 ---
 
-## Slides (Reveal.js — browser only)
+## Slides (Slidev)
 
-Teacher-facing slide decks:
-- Source: `day-NN/slides.md` (markdown — easy to edit)
-- Viewer: `slides/viewer.html` (ONE viewer for all days)
-- Landing: `slides/index.html` (links to all days)
+Teacher-facing slide decks built with [Slidev](https://sli.dev/) — same as Hein's `digital-literacy-slides` project.
 
-**Zero install. No npm, no VSCode shown.** Just Python's built-in server.
+**Source**: `day-NN/in-class.md` (markdown + Slidev frontmatter — easy to edit)
 
-### How to present
+### Setup (one time)
 
 ```bash
 cd course-0-web-essentials
-python3 -m http.server 8000
+pnpm install
 ```
 
-Open browser:
+### Present
 
+```bash
+pnpm day3   # opens Day 3 slides on http://localhost:3030/
 ```
-http://localhost:8000/slides/            ← landing page with all days
-http://localhost:8000/slides/viewer.html?day=03   ← direct to Day 3
-```
 
-### Controls (Reveal.js built-in)
+Replace `day3` with `day4` ... `day12` as slides are created.
 
-- `→` `←` `Space` — navigate
+### Controls (Slidev built-in)
+
+- `→` `Space` — next
+- `←` — previous
 - `F` — fullscreen
-- `Esc` — slide overview (click any to jump)
-- `S` — speaker notes window
+- `O` — overview (grid of all slides)
+- `P` — **presenter mode** (notes + timer + next preview)
+- `D` — draw/annotate on slides
+- `G` — go to slide number
 - `?` — all shortcuts
 
-**Progress bar** at bottom. **Slide counter** (e.g., "3/16").
+### Export
 
-### Structure
-
-```
-course-0-web-essentials/
-├── slides/
-│   ├── index.html         ← landing page
-│   ├── viewer.html        ← generic Reveal.js viewer
-│   └── how-to-present.md  ← full guide
-└── day-NN/
-    └── slides.md          ← markdown source (edit this)
+```bash
+pnpm export:day3   # PDF
+pnpm build:day3    # static site (for sharing)
 ```
 
-**One viewer, many day sources.** Edit `day-NN/slides.md`, reload browser, see changes.
+See [`slides/how-to-present.md`](slides/how-to-present.md) for full guide (presenter mode, drawing, recording).
 
-See [`slides/how-to-present.md`](slides/how-to-present.md) for full guide.
-
-Currently only Day 3 has slides. Extend as flipped format rolls out.
+Currently only Day 3 has Slidev slides. Extend as flipped format rolls out.
 
 ---
 

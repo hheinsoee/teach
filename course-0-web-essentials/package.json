@@ -1,0 +1,26 @@
+{
+  "name": "course-0-slides",
+  "version": "1.0.0",
+  "description": "Course 0 — Web Essentials slide decks (Slidev)",
+  "private": true,
+  "scripts": {
+    "day3": "slidev day-03/in-class.md --open",
+    "day4": "slidev day-04/in-class.md --open",
+    "day5": "slidev day-05/in-class.md --open",
+    "day6": "slidev day-06/in-class.md --open",
+    "day7": "slidev day-07/in-class.md --open",
+    "day8": "slidev day-08/in-class.md --open",
+    "day9": "slidev day-09/in-class.md --open",
+    "day10": "slidev day-10/in-class.md --open",
+    "day11": "slidev day-11/in-class.md --open",
+    "day12": "slidev day-12/in-class.md --open",
+    "export:day3": "slidev export day-03/in-class.md",
+    "build:day3": "slidev build day-03/in-class.md"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.16.0",
+    "@slidev/theme-default": "^0.25.0",
+    "@slidev/theme-seriph": "^0.25.0"
+  },
+  "packageManager": "pnpm@10.11.0"
+}

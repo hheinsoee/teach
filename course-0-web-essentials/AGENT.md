@@ -135,12 +135,21 @@ Every `day-NN/` contains (flipped structure):
 
 **Optional (as needed)**:
 
-| File | Purpose |
-|---|---|
-| `slides.md` | Teacher's slide deck content (markdown, Reveal.js format) |
-| `present.html` | Reveal.js viewer loading slides.md in browser |
+| File | Audience | Purpose |
+|---|---|---|
+| `in-class.md` | Teacher (shown on projector) + students (follow on screen) | Markdown source for Reveal.js slide deck, `---` separators |
 
-**Note**: `in-class.md` was removed — overlapped with `slides.md`. Slides serve as both teacher's deck AND student's in-class visual reference.
+**About `in-class.md`**:
+
+Serves dual role:
+- ✅ **Teacher's slide deck** — shown on projector during class
+- ✅ **Student in-class guide** — visible on projector while teacher leads
+- ✅ Shareable with students AFTER class (recording + link) for review
+- ⚠️ Format: markdown with `---` slide separators (Reveal.js format)
+
+In flipped classrooms, students arrive **prepared** (prework + self-study + 3 questions). Class time = discussion + Q&A + live build. `in-class.md` is projected content students follow visually while participating.
+
+**Viewer**: Single `slides/viewer.html` loads any `day-NN/in-class.md` via `?day=NN` URL param. Landing page at `slides/index.html`.
 
 **Current state**:
 - Days 1-2 (already taught in `ab/`): 3 files each (`README`, `exercise`, `homework`)

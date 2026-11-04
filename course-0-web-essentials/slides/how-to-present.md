@@ -1,290 +1,250 @@
 # How to Present Slides — For Hein
 
-**Framework**: Reveal.js (CDN, zero install)
-**Source**: `day-NN/slides.md` (markdown — easy to edit)
-**Viewer**: `slides/viewer.html` (ONE viewer for all days)
-**Index**: `slides/index.html` (landing page with all day links)
+**Framework**: [Slidev](https://sli.dev/) (same as `digital-literacy-slides` project)
+**Source**: `day-NN/in-class.md` (markdown + Slidev frontmatter)
 
 ---
 
-## Quickest way to present
-
-### Step 1 — Start local server (one terminal command)
+## Setup (one time)
 
 ```bash
 cd course-0-web-essentials
-python3 -m http.server 8000
+pnpm install
 ```
 
-(Python 3 built-in to Mac. Windows: `python -m http.server 8000`)
-
-### Step 2 — Open browser to landing page
-
-```
-http://localhost:8000/slides/
-```
-
-Click any day (e.g., "Day 3 — JS Variables").
-
-### Step 3 — Present
-
-Slides appear in Reveal.js. Press `F` for fullscreen.
+Downloads Slidev + themes. Takes ~30 seconds.
 
 ---
 
-## Directly load a specific day
+## Present a day
 
-Skip the index and go straight to a day:
-
+```bash
+pnpm day3     # opens Day 3 slides in browser
+pnpm day4     # Day 4
+# ...
+pnpm day12    # Day 12
 ```
-http://localhost:8000/slides/viewer.html?day=03
-```
 
-`?day=03` loads `../day-03/slides.md`.
+Opens http://localhost:3030/ automatically. Press `F` for fullscreen.
+
+### Alternative — manual slidev command
+
+```bash
+pnpm slidev day-03/in-class.md --open
+```
 
 ---
 
-## Controls (Reveal.js built-in)
+## Controls (Slidev built-in)
 
-- **Arrow keys** `→` `←` for next/prev
-- **Space** for next
-- **Esc** for slide overview (all slides at once)
-- **S** for speaker notes window (separate window)
-- **F** for fullscreen
-- **?** for all shortcuts
-- **Click `?print-pdf`** in URL → Print → PDF export
+- `→` `Space` — next slide
+- `←` — previous slide
+- `F` — fullscreen
+- `O` — overview (grid of all slides)
+- `P` — presenter mode (notes + timer + next preview)
+- `D` — drawing mode (annotate on slide)
+- `G` — go to slide number
+- `?` — show all shortcuts
 
-Progress bar at bottom. Slide counter bottom-right.
-
----
-
-## Structure
-
-```
-course-0-web-essentials/
-├── slides/
-│   ├── viewer.html          ← ONE generic Reveal.js viewer
-│   ├── index.html           ← Landing page with all day links
-│   └── how-to-present.md    ← this file
-├── day-03/
-│   └── slides.md            ← Markdown content (only Day 3 so far)
-├── day-04/
-│   └── (no slides.md yet)
-└── ...
-```
-
-**One viewer serves all days.** No duplicated HTML per day.
+**Progress bar** + **slide counter** built in.
 
 ---
 
-## Why a local server?
+## Presenter mode (press `P`)
 
-Modern browsers block `fetch()` from `file://` for security (CORS). Reveal.js fetches `slides.md`, so we need HTTP.
+Opens new window with:
+- Current slide
+- **Next slide preview**
+- **Speaker notes** (your `<!-- -->` comments)
+- **Timer** (elapsed class time)
+- **Click counter** (for animated slides)
 
-**`python3 -m http.server`** = simplest option. Built into Mac + most Linux. Windows has it too.
-
-One command. No install.
+Put presenter window on laptop, main slides on projector.
 
 ---
 
-## Editing slides between classes
+## Editing slides
 
-Edit `day-NN/slides.md` in any text editor (TextEdit, Notepad, Marpit, VSCode — your choice).
+Edit `day-NN/in-class.md` in any text editor. **Save → browser auto-reloads** (hot reload).
 
-**Reload browser** to see changes.
+### Slide format
 
-### Slide separator
+Each `---` with frontmatter = new slide:
 
 ```markdown
-# Slide 1
-Content
-
+---
+layout: center
+background: '#1e1a2e'
 ---
 
-# Slide 2
-More content
+# Slide title
 
----
+Content here
 
-# Slide 3
-End
+<!--
+Speaker notes (not shown in slides)
+-->
 ```
 
-Each `---` on its own line = new slide.
+### Layouts
 
-### Vertical slides (sub-slides)
-
-For nested slides (↓ navigation):
-
-```markdown
-# Main slide
-
---
-
-## Sub-slide 1
-
---
-
-## Sub-slide 2
-
----
-
-# Next main slide
-```
+- `default` — standard
+- `center` — centered content
+- `cover` — title slide
+- `two-cols` — 2-column layout
+- `image-right`, `image-left` — image + text
+- `quote` — big quote
+- `end` — closing slide
 
 ### Speaker notes
 
 ```markdown
 # Slide content
 
-Note: These notes only show in speaker view (press S).
+<!--
+These notes show in presenter mode (press P).
+မြန်မာနဲ့လည်း ရေးလို့ရတယ်။
+-->
 ```
 
-### Code blocks
+### Code with highlighting
 
+````markdown
 ```javascript
 let count = 0
 console.log(count)
 ```
+````
+
+### Interactive animations
+
+```markdown
+<div v-click>Shows on first click</div>
+<div v-click>Shows on second click</div>
+```
 
 ### Burmese text
 
-Works natively. Theme uses Padauk / Myanmar Text / Noto Sans Myanmar fallback.
+Works natively with `theme: seriph` or default theme. Font fallbacks to Myanmar Text / Noto Sans Myanmar.
 
 ---
 
-## Add slides for a new day
+## Export to PDF
 
-1. Create `day-NN/slides.md` (follow Day 3 as template)
-2. Write markdown with `---` separators
-3. Edit `slides/index.html` → find `days` array → mark `ready: true` for your day
-4. Open `http://localhost:8000/slides/viewer.html?day=NN`
+```bash
+pnpm export:day3
+```
+
+Creates `day-03/in-class-export.pdf`.
+
+---
+
+## Build static site (optional)
+
+For sharing with students after class:
+
+```bash
+pnpm build:day3
+```
+
+Creates `dist/` folder — upload to GitHub Pages or any static host.
 
 ---
 
 ## For classroom projector
 
 1. Connect laptop to projector
-2. Open browser to `http://localhost:8000/slides/viewer.html?day=03`
-3. Drag browser window to projector screen
-4. Press `F` (fullscreen)
-5. Teach from laptop (keyboard controls slides on projector)
-
-### Speaker view
-
-Press `S` on laptop → opens new window with:
-- Current slide
-- Next slide preview
-- Speaker notes
-- Elapsed time
-
-Put speaker window on laptop, main slides on projector.
-
----
-
-## Export to PDF
-
-Add `?print-pdf` to URL:
-```
-http://localhost:8000/slides/viewer.html?day=03&print-pdf
-```
-
-Browser → Print → Save as PDF.
-
-Each slide = one page.
+2. Run `pnpm day3` (opens http://localhost:3030/)
+3. Drag browser to projector screen
+4. Press `F` for fullscreen on projector
+5. Press `P` on laptop to open presenter mode
+6. Teach from laptop (keyboard controls slides on projector)
 
 ---
 
 ## For recording
 
-1. Start server + fullscreen browser
-2. Start OBS Studio / QuickTime / any screen recorder
-3. Record the browser window
-4. Students see clean slides (no VSCode, no file explorer)
-
----
-
-## Theme customization
-
-Edit the `<style>` block in `slides/viewer.html`:
-
-```css
-:root {
-    --r-background-color: #0b0d12;
-    --r-heading-color: #ffd166;
-}
-```
-
-Reload browser.
-
-### Switch Reveal.js base theme
-
-Change `theme/black.css` to:
-
-- `theme/white.css` — light
-- `theme/beige.css` — warm
-- `theme/night.css` — dark blue
-- `theme/moon.css` — dark olive
-- `theme/dracula.css` — purple dark
-- `theme/simple.css` — minimal
-
-Edit `viewer.html`:
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/THEME.css" id="theme">
-```
+1. `pnpm day3` to start slides
+2. Fullscreen on main screen
+3. Start OBS Studio / QuickTime recording
+4. Record browser window
+5. Clean slides (no editor, no file explorer)
 
 ---
 
 ## Troubleshooting
 
-### "Failed to load slides" error
-- You opened via `file://` (double-click)
-- Fix: use `python3 -m http.server`
+### `pnpm not found`
+Install pnpm: https://pnpm.io/installation
 
-### "Slides not loaded" with day list
-- URL missing `?day=NN` — click a day from `slides/index.html`
+Or use npm instead: `npm install && npx slidev day-03/in-class.md --open`
 
-### Blank slides
-- Hard refresh: `Cmd+Shift+R`
-- Check browser console (F12) for errors
-- Check `day-NN/slides.md` exists
+### Slides don't load
+- Check terminal for errors
+- Ensure `in-class.md` has proper Slidev frontmatter
+- Hard refresh browser: `Cmd+Shift+R`
 
-### Burmese text as boxes (□□□)
+### Burmese text boxes (□□□)
 - Install "Padauk" from fonts.google.com
-- Or use "Noto Sans Myanmar" (built into most OS)
+- Or "Noto Sans Myanmar" (built into most OS)
 
-### `python3` not found
-- Try `python -m http.server 8000`
-- Install from python.org (free, 5 min)
+### Port 3030 already in use
+Kill old server: `lsof -ti:3030 | xargs kill`
+
+Or change port: `pnpm slidev day-03/in-class.md --port 3031`
+
+---
+
+## Status
+
+- ✅ `package.json` — Slidev setup
+- ✅ `day-03/in-class.md` — first Slidev deck
+- ⏳ Days 4-12 — Slidev `in-class.md` not yet created (extend as flipped teaching stabilizes)
+
+---
+
+## Why Slidev (not Reveal.js, not Marp)
+
+Hein pointed to `/Users/heinsoe/Desktop/sarshay/digital-literacy-slides` which uses Slidev.
+
+**Slidev advantages**:
+- ✅ Same tool across Hein's projects (consistency)
+- ✅ Hot reload (edit → save → see instantly)
+- ✅ Rich theming (seriph, default, plus npm themes)
+- ✅ Vue components inline for interactivity
+- ✅ Built-in presenter mode (notes + timer + preview)
+- ✅ Drawing/annotation on slides
+- ✅ Icon support (iconify built in)
+- ✅ Better syntax highlighting (Shiki)
+- ⚠️ Requires `pnpm install` (acceptable — same as digital-literacy-slides)
 
 ---
 
 ## Quick reference
 
-**Start server**: `cd course-0-web-essentials && python3 -m http.server 8000`
-**Landing**: `http://localhost:8000/slides/`
-**Direct day**: `http://localhost:8000/slides/viewer.html?day=03`
-**Navigation**: `→` `←` `Space` `Esc`
-**Fullscreen**: `F`
-**Speaker notes**: `S`
-**All shortcuts**: `?`
-**Edit**: open `day-NN/slides.md` in any editor, reload browser
+```bash
+# Setup once
+cd course-0-web-essentials && pnpm install
+
+# Present
+pnpm day3
+
+# Edit
+# Open day-03/in-class.md in any text editor
+# Save → browser reloads
+
+# Fullscreen: F
+# Presenter mode: P
+# Draw: D
+# Export PDF: pnpm export:day3
+```
 
 ---
 
 ## Mindset
 
 - **Slides = anchor**, not script
-- **1 idea per slide** — split if cramped
-- **Less text, more visuals**
+- **1 idea per slide**
+- **Less text, more visuals** (use Vue components for interactivity)
 - **Students' questions > slide completion**
-- **Skip ahead** (Esc + click target slide) if class finishes a section fast
-
----
-
-## Status
-
-- ✅ `slides/viewer.html` — generic viewer
-- ✅ `slides/index.html` — landing page
-- ✅ `day-03/slides.md` — first slide deck
-- ⏳ Days 4-12 — `slides.md` not yet created (extend as flipped teaching stabilizes)
+- **Presenter mode is your friend** (notes, timer, next-slide preview)

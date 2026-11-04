@@ -1,12 +1,10 @@
 node_modules/
 
-# Marp / Reveal.js PDF exports (generated, not source)
-*.pdf
-day-*/slides.pdf
-day-*/slides.html
-
-# Marp cache
-.marp-cache/
+# Slidev artifacts
+.slidev/
+dist/
+*-export.pdf
+day-*/dist/
 
 # OS
 .DS_Store
