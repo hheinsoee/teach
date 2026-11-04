@@ -48,7 +48,7 @@ Hein's API: `https://api.heinsoe.com/news.json` (or wherever Hein hosts it).
 
 JSON array of 10-20 articles. Each has: `id`, `title`, `image`, `body`, `date`, `category`.
 
-See [`instructor/api-setup.md`](../instructor/api-setup.md).
+See [`instructor/setup-guide.md`](../instructor/setup-guide.md).
 
 ---
 
@@ -60,7 +60,7 @@ Each student:
 3. Enable Pages (Settings → Pages → main / root)
 4. Open starter: `index.html` (React CDN pre-included), `styles.css`, `app.jsx`
 
-**Pre-make `news-app-starter` repo** with React CDN. See [`instructor/starter-repo-setup.md`](../instructor/starter-repo-setup.md).
+**Pre-make `news-app-starter` repo** with React CDN. See [`instructor/setup-guide.md`](../instructor/setup-guide.md).
 
 ---
 

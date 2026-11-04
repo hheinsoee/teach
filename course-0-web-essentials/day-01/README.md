@@ -34,7 +34,7 @@
 
 **IMPORTANT**: Hein must prepare the starter repo BEFORE Day 1.
 
-See [`instructor/starter-repo-setup.md`](../instructor/starter-repo-setup.md).
+See [`instructor/setup-guide.md`](../instructor/setup-guide.md).
 
 Starter repo contents:
 - `index.html` with placeholder content

@@ -118,7 +118,7 @@ The real capstone. Built from scratch using all learned skills. Fetches from Hei
 - **Days 1-11**: `git commit && git push` daily (2-min demo, no concept intro)
 - **Day 12**: Retrospective — "What was Git doing all along?"
 
-Students build muscle memory, concept comes at the end. See [`instructor/starter-repo-setup.md`](instructor/starter-repo-setup.md).
+Students build muscle memory, concept comes at the end. See [`instructor/setup-guide.md`](instructor/setup-guide.md).
 
 ---
 
@@ -153,7 +153,7 @@ Submit via Google Classroom: URLs + text + screenshots.
 
 Habit Tracker completion encouraged, not required.
 
-See [`instructor/completion-markers.md`](instructor/completion-markers.md).
+See [`instructor/grading-guide.md`](instructor/grading-guide.md).
 
 ---
 
@@ -176,13 +176,11 @@ By Day 12, student can:
 | Document | Purpose |
 |---|---|
 | [`course-0-web-essentials.md`](course-0-web-essentials.md) | Full syllabus (source of truth) |
+| [`module-coverage-matrix.md`](module-coverage-matrix.md) | Module × Day coverage matrix |
 | [`../context/theBuilderPros-roadmap.md`](../context/theBuilderPros-roadmap.md) | Source material from theBuilderPros |
-| [`instructor/starter-repo-setup.md`](instructor/starter-repo-setup.md) | Starter repos Hein must prepare |
-| [`instructor/api-setup.md`](instructor/api-setup.md) | News API spec Hein must host |
-| [`instructor/completion-markers.md`](instructor/completion-markers.md) | 4 soft markers |
-| [`instructor/pacing.md`](instructor/pacing.md) | Day-by-day pacing + what to cut |
-| [`instructor/classroom-setup.md`](instructor/classroom-setup.md) | Google Classroom config |
-| [`instructor/tool-setup.md`](instructor/tool-setup.md) | Student pre-work |
+| [`instructor/teaching-guide.md`](instructor/teaching-guide.md) | Flipped teaching philosophy + AI co-teacher prompts |
+| [`instructor/setup-guide.md`](instructor/setup-guide.md) | Student tools + starter repos + News API spec |
+| [`instructor/grading-guide.md`](instructor/grading-guide.md) | Completion markers + Google Classroom |
 | [`AGENT.md`](AGENT.md) | Rules for AI agents editing this |
 
 ---

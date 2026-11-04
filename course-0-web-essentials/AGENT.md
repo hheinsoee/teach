@@ -35,15 +35,30 @@ Do not "improve" these away.
 
 Students read HTML/CSS/JS AI generates. **No syntax drills.** No "type 20 loops." AI generates; student reads, modifies, verifies.
 
+**0b. Flipped classroom.** Hein's teaching philosophy:
+> *"အိမ်စာ များများ + self-study များများ + ကျောင်းသား မေးခွန်း များများ"*
+
+Teacher does NOT lecture 70% of class. Student does prework + self-study, comes to class WITH questions. Class = Q&A (25 min) + discussion (15 min) + live build (25 min) + label (10 min) + wrap (15 min). Teacher active ~30%, student active ~70%.
+
+See [`instructor/teaching-guide.md`](instructor/teaching-guide.md).
+
+**0c. AI as teacher's assistant.** Hein is first-time teacher. AI (ChatGPT/Claude) is his **silent co-teacher** — not students' only AI, but Hein's own.
+
+- Pre-class: AI helps prepare day, anticipates questions
+- In-class: AI helps handle unexpected questions, risk mitigations
+- Post-class: AI helps debrief, calibrate pacing
+
+See [`instructor/teaching-guide.md`](instructor/teaching-guide.md) for concrete prompts.
+
 **1. Two projects, one capstone.** Days 1-8 = Habit Tracker (practice). Days 9-12 = News App (capstone, formally marked).
 
-**2. API is pre-built by Hein.** Students don't build backends. They fetch from Hein's `news.json` only. See [`instructor/api-setup.md`](instructor/api-setup.md).
+**2. API is pre-built by Hein.** Students don't build backends. They fetch from Hein's `news.json` only. See [`instructor/setup-guide.md`](instructor/setup-guide.md).
 
 **3. AI generates code; student reads it.** Every day uses ChatGPT, Claude, or similar. Then Label phase — student explains in own words.
 
 **4. Four skills every day**: Read · Understand · Direct · Verify. If any missing, day is incomplete.
 
-**5. Soft completion markers, not pass/fail.** Course 0 is an **inspiration course**. No oral exam gates, no vibe-coder failures. See [`instructor/completion-markers.md`](instructor/completion-markers.md).
+**5. Soft completion markers, not pass/fail.** Course 0 is an **inspiration course**. No oral exam gates, no vibe-coder failures. See [`instructor/grading-guide.md`](instructor/grading-guide.md).
 
 **6. Ship something visible every day.** Day 1 live URL from GitHub starter. Days 2-11 push updates. Day 12 presentation.
 
@@ -97,15 +112,32 @@ Marcus story stages coverage:
 
 ---
 
-## Day folder contract
+## Day folder contract (5 files per day — flipped structure)
 
-Every `day-NN/`:
+Every `day-NN/` contains:
 
-| File | Audience | Contains |
-|---|---|---|
-| `README.md` | instructor | 90-min plan, AI prompts, common failures |
-| `exercise.md` | student (class) | Step-by-step |
-| `homework.md` | student (10pt, Classroom-ready) | Research + Build + Reflect (3 hr) |
+| File | Audience | Timing | Contains |
+|---|---|---|---|
+| `prework.md` | student (Burmese) | 1-2 days before class (Viber) | Setup, installs, "do this at home" |
+| `self-study.md` | student (Burmese) | Night before class | Videos, docs, AI exploration, 3-question prep |
+| `README.md` | instructor | Reference | Q&A-focused 90-min plan, AI prompts, risks |
+| `in-class.md` | student (Burmese) | During class | Minimal — follow teacher's lead |
+| `homework.md` | student (Classroom-ready) | After class | Build + reflect + 3 questions for next class |
+
+**Total**: 60 files (12 days × 5). OK — each file is single-purpose and short.
+
+**Student experience**:
+- 2 days before: Viber message with `prework.md` content
+- Night before: do `self-study.md` (videos + research + 3 questions)
+- In class: follow `in-class.md`, ask questions
+- After class: `homework.md` (build + 3 questions for next class)
+
+**Current state (v4)**: Days have 3 files only (`README.md`, `exercise.md`, `homework.md`).
+
+**v5 rollout plan**:
+- **Day 3 prototype first** (since Day 1-2 already taught in `ab/`)
+- If Day 3 flipped structure works → extend to Days 4-12
+- Days 1-2 stay as-is (already taught)
 
 ---
 
