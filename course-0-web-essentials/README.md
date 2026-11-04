@@ -193,6 +193,43 @@ By Day 12, student can:
 
 ---
 
+## Slides (Marp — VSCode extension)
+
+Teacher-facing slide decks live in `day-NN/slides.md` (Marp markdown format).
+
+**No npm, no build, no package.json.** Just VSCode + Marp extension.
+
+### How to use
+
+1. **Install VSCode extension**: "Marp for VS Code" (by marp-team) — free, 1-click install
+2. **Open `day-NN/slides.md`** in VSCode
+3. **Right-side preview pane** shows live slides (updates as you edit)
+4. **Present fullscreen**: command palette → "Marp: Open preview" → F5 for fullscreen
+5. **Export (optional)**: right-click `slides.md` → "Export slide deck" → HTML/PDF/PPTX
+
+### Classroom usage
+
+- Open `slides.md` in VSCode
+- Marp preview pane → fullscreen (F5 or external monitor)
+- Navigate: ← → arrow keys
+- Edit live between classes without rebuild
+
+### Theme
+
+Custom Burmese-friendly theme at `slides/theme.css`. VSCode Marp extension auto-loads via `.vscode/settings.json` (create if missing):
+
+```json
+{
+  "markdown.marp.themes": ["./slides/theme.css"]
+}
+```
+
+Currently only Day 3 has slides. Extend as flipped format rolls out.
+
+See [`slides/how-to-present.md`](slides/how-to-present.md) for full guide.
+
+---
+
 ## Start here
 
 | Document | Purpose |

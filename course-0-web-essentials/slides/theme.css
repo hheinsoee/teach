@@ -1,0 +1,181 @@
+/* @theme course0 */
+
+/*
+ * Course 0 — Web Essentials slide theme
+ * Burmese-friendly, high-contrast, large text
+ *
+ * Use in slides.md frontmatter:
+ *   ---
+ *   marp: true
+ *   theme: course0
+ *   paginate: true
+ *   ---
+ */
+
+@import "default";
+
+section {
+    background: #0b0d12;
+    color: #f5f5f5;
+    font-family: "Padauk", "Myanmar Text", "Noto Sans Myanmar", "Inter",
+        system-ui, -apple-system, sans-serif;
+    font-size: 28px;
+    line-height: 1.5;
+    padding: 60px 70px;
+}
+
+/* Headings */
+h1 {
+    color: #ffd166;
+    font-size: 56px;
+    margin-bottom: 0.4em;
+    border-bottom: 3px solid #ffd166;
+    padding-bottom: 0.2em;
+}
+
+h2 {
+    color: #06d6a0;
+    font-size: 42px;
+    margin-bottom: 0.4em;
+}
+
+h3 {
+    color: #118ab2;
+    font-size: 32px;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 0.8em;
+}
+
+/* Lists */
+ul,
+ol {
+    padding-left: 1.5em;
+    margin-bottom: 0.6em;
+}
+
+li {
+    margin-bottom: 0.4em;
+}
+
+/* Inline code */
+code {
+    background: #1e2130;
+    color: #ffd166;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: "SF Mono", Monaco, Consolas, monospace;
+    font-size: 0.9em;
+}
+
+/* Code blocks */
+pre {
+    background: #1e2130 !important;
+    border-radius: 8px;
+    padding: 20px !important;
+    font-size: 24px !important;
+    overflow-x: auto;
+    border-left: 4px solid #06d6a0;
+}
+
+pre code {
+    background: transparent;
+    color: #f5f5f5;
+    padding: 0;
+    font-size: 24px;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #ef476f;
+    padding-left: 24px;
+    margin-left: 0;
+    color: #d0d0d0;
+    font-style: italic;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.5em 0;
+}
+
+th,
+td {
+    border: 1px solid #333;
+    padding: 10px 16px;
+    text-align: left;
+}
+
+th {
+    background: #1e2130;
+    color: #ffd166;
+}
+
+/* Strong / emphasis */
+strong {
+    color: #ffd166;
+}
+
+em {
+    color: #06d6a0;
+}
+
+/* Links */
+a {
+    color: #118ab2;
+    text-decoration: underline;
+}
+
+/* Page number */
+section::after {
+    color: #666;
+    font-size: 0.6em;
+}
+
+/* Title slide class */
+section.title {
+    background: linear-gradient(135deg, #0b0d12 0%, #1e2130 100%);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+section.title h1 {
+    font-size: 72px;
+    border: none;
+    color: #ffd166;
+}
+
+section.title h2 {
+    font-size: 36px;
+    color: #06d6a0;
+}
+
+/* Question/Q&A slide class */
+section.qa {
+    background: #1e1a2e;
+}
+
+section.qa h1 {
+    color: #ef476f;
+}
+
+/* Build/exercise slide class */
+section.build {
+    background: #0f1e1a;
+}
+
+section.build h1 {
+    color: #06d6a0;
+}
+
+/* Wrap slide class */
+section.wrap {
+    background: linear-gradient(135deg, #1e2130 0%, #0b0d12 100%);
+    text-align: center;
+}

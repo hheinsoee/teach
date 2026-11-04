@@ -1,0 +1,13 @@
+node_modules/
+*.pdf
+*.html
+
+# Keep slides.md source files, ignore generated outputs
+day-*/slides.pdf
+day-*/slides.html
+
+# Marp cache
+.marp-cache/
+
+# OS
+.DS_Store
