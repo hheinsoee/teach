@@ -1,13 +1,3 @@
----
-marp: true
-theme: course0
-paginate: true
-header: "Day 3 — JS Variables & Data Types"
-footer: "Course 0 — Web Essentials"
----
-
-<!-- _class: title -->
-
 # Day 3
 
 ## JavaScript Variables & Data Types
@@ -28,39 +18,33 @@ footer: "Course 0 — Web Essentials"
 
 ---
 
-<!-- _class: qa -->
+## Phase 1 — Q&A
 
-# Phase 1 — Q&A
-
-## ⏰ 25 min
+### ⏰ 25 min
 
 **Rule**: Each student, 1 question
 
-ည self-study လုပ်ပြီးရင် — **3 questions** ထဲက တစ်ခု
+ည self-study လုပ်ပြီးရင် — **3 questions** ထဲက တစ်ခု ပြော
 
-မသိရင် → "ငါ့ကို X က confusing ဖြစ်တယ်" ဆိုရုံ
+မသိရင် → "ငါ့ကို X က confusing ဖြစ်တယ်" ဆိုရုံ ပြော
 
 ---
 
-<!-- _class: qa -->
-
-## Your questions on the board
+### Your questions on the board
 
 (Teacher writes each student's question here)
 
-**Silence မဖြစ်စေနဲ့** — မေးမှာလဲ learning ဖြစ်တယ်
+> **Silence မဖြစ်စေနဲ့** — မေးမှသာ learning ဖြစ်တယ်
 
 ---
 
-# Phase 2 — Discussion (15 min)
+## Phase 2 — Discussion (15 min)
 
 အခု အများဆုံး confusion တွေ ရှင်းပြမယ်
 
 ---
 
-## Variable ဆိုတာ ဘာလဲ
-
-**Analogy**:
+### Variable ဆိုတာ ဘာလဲ
 
 > ဘူးထဲ ပစ္စည်းထည့်ထား
 > ဘူးရဲ့ လက်ပတ်မှာ **နာမည်ရေးထား**
@@ -68,14 +52,14 @@ footer: "Course 0 — Web Essentials"
 ```javascript
 let habitName = "Pray"
     ↑         ↑  ↑
-   ဘူး       = တန်ဖိုး
+   ဘူး       =  တန်ဖိုး
 ```
 
 Variable = **မှတ်ထားလို့ရတဲ့ box**
 
 ---
 
-## `let` vs `const`
+### `let` vs `const`
 
 ```javascript
 let count = 0
@@ -90,16 +74,16 @@ name = "John"   // ❌ Error
 | `let` | ✅ Yes |
 | `const` | ❌ No |
 
-**Default: use `const`**, use `let` when you know it'll change
+**Default: `const`**, use `let` when you know it'll change
 
 ---
 
-## Data Types — 4 အခြေခံ
+### Data Types — 4 အခြေခံ
 
 ```javascript
-let text   = "Pray"         // string (စာလုံး)
-let count  = 4              // number (ဂဏန်း)
-let done   = true           // boolean (ဟုတ်/မဟုတ်)
+let text   = "Pray"              // string (စာလုံး)
+let count  = 4                   // number (ဂဏန်း)
+let done   = true                // boolean (ဟုတ်/မဟုတ်)
 let list   = ["Pray", "Study"]   // array (စာရင်း)
 ```
 
@@ -111,7 +95,7 @@ let list   = ["Pray", "Study"]   // array (စာရင်း)
 
 ---
 
-## `console.log` ဆိုတာ ဘာလဲ
+### `console.log` ဆိုတာ ဘာလဲ
 
 ```javascript
 console.log("Hello")
@@ -121,25 +105,21 @@ console.log(count + 1)
 
 **Browser DevTools → Console tab** မှာ ပေါ်
 
-→ **Debugging အတွက် အသုံးဝင်ဆုံး tool**
+→ Debugging အတွက် အသုံးဝင်ဆုံး tool
 
-F12 နှိပ်ပြီး console tab ဖွင့်
-
----
-
-<!-- _class: build -->
-
-# Phase 3 — Live Build
-
-## ⏰ 25 min
-
-အခု AI နဲ့ အတူတူ code ထည့်မယ်
+**F12 နှိပ်** ပြီး Console tab ဖွင့်
 
 ---
 
-<!-- _class: build -->
+## Phase 3 — Live Build
 
-## Prompt we'll use
+### ⏰ 25 min
+
+အခု **AI နဲ့ အတူတူ** code ထည့်မယ်
+
+---
+
+### Prompt we'll use
 
 ```
 Add JavaScript to script.js:
@@ -151,14 +131,13 @@ Add JavaScript to script.js:
 Simple, beginner comments.
 ```
 
-**Teacher က AI ဖွင့်ထား**
-**ကျောင်းသားက ကိုယ့် `script.js` ဖိုင်ကို modify**
+- Teacher က AI ဖွင့်ထား
+- ကျောင်းသားက ကိုယ့် `script.js` ပြင်
+- Save → Commit → Push
 
 ---
 
-<!-- _class: build -->
-
-## Expected output in Console
+### Expected output in Console
 
 ```
 Habits: 4
@@ -172,9 +151,9 @@ Commit message: `Day 3 — add JS variables`
 
 ---
 
-# Phase 4 — Label (10 min)
+## Phase 4 — Label (10 min)
 
-**No AI. ကိုယ့်စကားနဲ့ ရေး:**
+**No AI.** ကိုယ့်စကားနဲ့ ရေး:
 
 1. What is a **variable**?
 2. `let` vs `const` difference?
@@ -186,22 +165,19 @@ Pair-share with neighbor (3 min)
 
 ---
 
-<!-- _class: wrap -->
+## Phase 5 — Wrap
 
-# Phase 5 — Wrap
-
-## ⏰ 15 min
+### ⏰ 15 min
 
 Today you learned:
+
 - ✅ Variables (`let`, `const`)
 - ✅ 4 data types (string, number, boolean, array)
 - ✅ `console.log` for debugging
 
 ---
 
-<!-- _class: wrap -->
-
-## Day 4 — Functions & Conditions
+### Day 4 — Functions & Conditions
 
 တနင်္လာ class — **code က decisions လုပ်တတ်အောင်**
 
@@ -217,24 +193,9 @@ if (count === 4) {
 
 ---
 
-<!-- _class: wrap -->
+## 🎉 ကျေးဇူးတင်ပါတယ်
 
-# ကြေးငွေ ပင်ပန်းခံ ကြေးငွေ
-
-ဒီနေ့ လေ့လာခဲ့တာ:
-
-- Variables = ဘူးထဲ ပစ္စည်းထည့်
-- Types = string, number, boolean, array
-- console.log = debug ပေါ်စေ
-- `let` vs `const` — changeable vs locked
-
-**Thank you — ပြီးပြီ 🎉**
-
----
-
-<!-- _class: title -->
-
-# Questions မေးချင်တယ် ?
+### Questions?
 
 Class ပြီးရင်လည်း Viber မှာ မေးလို့ရ
 

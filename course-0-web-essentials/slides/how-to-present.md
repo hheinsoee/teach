@@ -1,206 +1,214 @@
 # How to Present Slides — For Hein
 
-**Zero install (VSCode) or browser-only approaches.**
+**Framework**: Reveal.js (loaded via CDN, no install)
+**Source**: `day-NN/slides.md` (pure markdown — easy to edit)
+**Viewer**: `day-NN/present.html` (opens slides.md in browser)
 
 ---
 
-## Setup (one time, 2 min)
+## Presenting a class
 
-### Prerequisites
-- VSCode installed (code.visualstudio.com)
-- No npm, no pnpm, no Node.js needed
+### Step 1 — Start local server (one terminal command)
 
-### Install Marp extension
-
-1. Open VSCode
-2. Extensions (left sidebar, or `Cmd+Shift+X`)
-3. Search "Marp for VS Code"
-4. Click Install (publisher: marp-team)
-
-Done. No other setup.
-
----
-
-## Daily workflow — Present a class
-
-### 1. Open the day's slides
-
-```
-File → Open folder → course-0-web-essentials
-Click day-03/slides.md
+```bash
+cd day-03
+python3 -m http.server 8000
 ```
 
-### 2. Open preview
+(Python 3 built-in to Mac. Windows: `python -m http.server 8000`)
 
-Three ways:
-- **Right-side preview**: Click "Open Preview to the Side" icon (top-right of editor)
-- **Full preview**: `Cmd+Shift+V`
-- **Marp specific**: Command palette (`Cmd+Shift+P`) → "Marp: Toggle Marp feature" if preview looks plain
+### Step 2 — Open browser
 
-### 3. Go fullscreen for class
+```
+http://localhost:8000/present.html
+```
 
-- Open Marp preview in a new window
-- Press `F11` (fullscreen)
-- Or open preview URL in Chrome fullscreen
+Slides appear. Press `F` for fullscreen.
 
-### 4. Navigate during class
+### Step 3 — Navigate
 
-- `→` next slide
-- `←` previous slide
-- `Home` first slide
-- `End` last slide
-- `F` fullscreen toggle
+- **Arrow keys** `→` `←` for next/prev
+- **Space** for next
+- **Esc** for slide overview (all slides at once)
+- **S** for speaker notes window
+- **F** for fullscreen
+- **?** for all shortcuts
+
+**Progress bar** at bottom. **Slide number** bottom-right (e.g., "3/15").
 
 ---
 
-## Edit slides between classes
+## Why a local server?
 
-Just edit `day-NN/slides.md` in VSCode. Preview updates automatically.
+Modern browsers block `fetch()` from `file://` for security (CORS). Since Reveal.js fetches `slides.md`, we need HTTP.
+
+**`python3 -m http.server`** = simplest option, built into Mac + most Linux. Windows has it too.
+
+One command. No install.
+
+---
+
+## Editing slides between classes
+
+Edit `day-NN/slides.md` in any text editor (TextEdit, Notepad, VSCode — your choice).
+
+**Reload browser** to see changes.
 
 ### Slide separator
 
-Each `---` on its own line = new slide:
-
 ```markdown
 # Slide 1
-Content here
+Content
 
 ---
 
 # Slide 2
 More content
-```
 
-### Slide classes (custom styling)
-
-In this course's theme, use `<!-- _class: NAME -->` for special slides:
-
-| Class | When to use |
-|---|---|
-| `<!-- _class: title -->` | Title slide, section opener |
-| `<!-- _class: qa -->` | Q&A phase slides |
-| `<!-- _class: build -->` | Live build phase slides |
-| `<!-- _class: wrap -->` | Wrap / closing slides |
-
-Example:
-
-```markdown
 ---
 
-<!-- _class: qa -->
+# Slide 3
+End
+```
 
-# Phase 1 — Q&A
+Each `---` on its own line = new slide.
 
-Your questions...
+### Vertical slides (sub-slides)
+
+For nested slides (↓ navigation):
+
+```markdown
+# Main slide
+
+--
+
+## Sub-slide 1
+
+--
+
+## Sub-slide 2
+
+---
+
+# Next main slide
+```
+
+### Speaker notes
+
+```markdown
+# Slide content
+
+Note: These notes only show in speaker view (press S).
 ```
 
 ### Code blocks
 
-Use fenced code blocks:
+Use fenced code with language:
 
 ````markdown
 ```javascript
 let count = 0
+console.log(count)
 ```
 ````
 
-### Images
+### Burmese text
 
-```markdown
-![Screenshot](../ab/day2/image.png)
-```
-
-Keep images in a local folder — paths relative to slides.md.
-
-### Inline HTML
-
-Marp allows HTML — use for custom layouts:
-
-```markdown
-<div style="text-align: center;">
-Big centered text
-</div>
-```
-
----
-
-## Export slides (optional)
-
-### To PDF
-1. Right-click `slides.md` in VSCode file explorer
-2. "Marp: Export slide deck..."
-3. Choose PDF
-
-### To HTML (standalone)
-Same but choose HTML. Produces single `.html` file you can:
-- Email to students
-- Host on GitHub Pages
-- Open offline
-
-### To PPTX (PowerPoint)
-Same but choose PPTX. If recording with OBS and need PowerPoint-like controls.
-
----
-
-## Alternative: Browser-only (no VSCode)
-
-If student uses Chromebook or iPad:
-
-1. Go to **https://marp.app/**
-2. Paste your `slides.md` content
-3. Left side: markdown editor, right side: slide preview
-4. Export via menu
-
-**No install, works anywhere.**
-
----
-
-## Recording classes
-
-### Setup
-- Fullscreen Marp preview on primary monitor
-- OBS Studio / QuickTime recording
-- Optional: webcam overlay for teacher face
-
-### Tips
-- Keep slides on main screen
-- Browser/terminal on second screen (for AI demos)
-- Pause recording between phases to re-center
+Works natively. Theme uses Padauk / Myanmar Text / Noto Sans Myanmar fallback.
 
 ---
 
 ## Theme customization
 
-File: `slides/theme.css`
+Edit the `<style>` block in `present.html`:
 
-Change colors, fonts, spacing. Reload preview after save.
+```css
+:root {
+    --r-background-color: #0b0d12;      /* page background */
+    --r-heading-color: #ffd166;         /* h1/h2/h3 */
+}
+```
 
-Current theme uses:
-- Dark background (`#0b0d12`)
-- Yellow headings (`#ffd166`)
-- Green accents (`#06d6a0`)
-- Burmese font: `Padauk`, `Myanmar Text`, `Noto Sans Myanmar`
+Reload browser to see changes.
+
+### Pre-built Reveal.js themes
+
+Change `theme/black.css` to another:
+
+- `theme/white.css` — light theme
+- `theme/beige.css` — warm beige
+- `theme/night.css` — dark blue
+- `theme/moon.css` — dark olive
+- `theme/solarized.css` — solarized light
+- `theme/dracula.css` — purple dark
+- `theme/simple.css` — minimal
+
+Replace:
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/THEME.css" id="theme">
+```
 
 ---
 
-## Troubleshooting
+## For classroom projector
 
-### Preview is blank
-- Ensure file starts with `---\nmarp: true\n---`
-- Check VSCode status bar for "Marp" indicator (click to enable)
+1. Connect laptop to projector
+2. Open browser to `http://localhost:8000/present.html`
+3. Drag browser window to projector screen
+4. Press `F` (fullscreen)
+5. Teach from laptop (keyboard/trackpad controls slides on projector)
 
-### Theme doesn't apply
-- Check `.vscode/settings.json` has `"markdown.marp.themes": ["./slides/theme.css"]`
-- Reload window (`Cmd+Shift+P` → "Reload Window")
+### Speaker view
 
-### Burmese text looks broken
-- Install font: "Padauk" from Google Fonts (free)
-- Or use "Noto Sans Myanmar" (built into most OS)
+Press `S` on laptop → opens new window with:
+- Current slide
+- Next slide preview
+- Speaker notes
+- Elapsed time
+- Timer
 
-### Slides too long
-- Each slide should be visible without scrolling
-- If text overflows, split to 2 slides
-- Reduce `font-size` in theme.css if needed
+Put speaker window on laptop, main slides on projector.
+
+---
+
+## Export to PDF
+
+Add `?print-pdf` to URL:
+```
+http://localhost:8000/present.html?print-pdf
+```
+
+Browser → Print → Save as PDF.
+
+Each slide = one page.
+
+---
+
+## For recording
+
+1. Start server + fullscreen browser
+2. Start OBS Studio / QuickTime / any screen recorder
+3. Record the browser window
+4. Students see clean slides (no VSCode, no file explorer)
+
+---
+
+## Why Reveal.js (not Marp, not custom HTML)
+
+| Choice | Pros | Cons |
+|---|---|---|
+| **Reveal.js** ✅ | Mature, feature-rich, speaker notes, PDF export, pure MD source | Needs local server |
+| Marp (CLI) | Simple MD | Needs npm install |
+| Marp (VSCode) | No install if VSCode | VSCode visible during class ❌ |
+| Custom HTML | Zero dependency | Reinventing wheel, no features |
+| Google Slides | Rich UI | Requires internet, cloud account |
+
+**Reveal.js = best balance** for Course 0 use case:
+- ✅ Pure markdown source
+- ✅ Framework-based (don't reinvent)
+- ✅ Browser only (no VSCode shown)
+- ✅ Zero install (CDN)
+- ⚠️ Needs 1 terminal command (python server)
 
 ---
 
@@ -208,29 +216,76 @@ Current theme uses:
 
 ```
 course-0-web-essentials/
-├── .vscode/
-│   └── settings.json           ← Marp VSCode config (auto-loads theme)
 ├── slides/
-│   ├── theme.css               ← Custom theme (shared across all days)
-│   └── how-to-present.md       ← This file
+│   └── how-to-present.md    ← this file
 ├── day-03/
-│   └── slides.md               ← Day 3 slide deck (first one)
-└── ... (future: day-04/slides.md, etc.)
+│   ├── slides.md            ← markdown source (edit this)
+│   └── present.html         ← Reveal.js viewer (loads slides.md)
+└── ... (future: day-04/slides.md + present.html, etc.)
 ```
+
+Each day has own `slides.md` + `present.html` pair.
+
+**Why both per day**: `present.html` references `./slides.md` (same folder). Avoids cross-folder paths.
+
+---
+
+## Troubleshooting
+
+### "Failed to load slides.md" error
+- You opened via `file://` (double-click)
+- Fix: use `python3 -m http.server` as above
+
+### Blank slides
+- Hard refresh: `Cmd+Shift+R`
+- Check browser console (F12) for errors
+
+### Burmese text as boxes (□□□)
+- Install "Padauk" from fonts.google.com
+- Or use "Noto Sans Myanmar" (built into most OS)
+
+### Slides too small on projector
+- `Cmd +` to zoom browser (text scales)
+- Or edit `font-size` in present.html CSS
+
+### Speaker notes don't open
+- Pop-up blocker? Allow for localhost
+- Press `S` again after allowing
+
+### `python3` not found (Mac)
+- Try `python` (older Macs)
+- Or install from python.org (free, 5 min)
+
+### `python3` not found (Windows)
+- Try `python -m http.server 8000`
+- Or install from python.org
+
+---
+
+## Quick reference
+
+**Start server**: `cd day-03 && python3 -m http.server 8000`
+**URL**: `http://localhost:8000/present.html`
+**Navigation**: `→` `←` `Space` `Esc`
+**Fullscreen**: `F`
+**Speaker notes**: `S`
+**All shortcuts**: `?`
+**Edit**: open `slides.md` in any editor, reload browser
 
 ---
 
 ## Mindset reminders
 
-- **Slides = anchor**, not script. Don't read them aloud.
-- **1 idea per slide** — if 3 ideas, make 3 slides
-- **Less text, more visuals** — code blocks + headings
-- **Teach ကို slide follow မယ့်အတိုင်း မဟုတ်** — students' questions က priority
+- **Slides = anchor**, not script
+- **1 idea per slide** — split if cramped
+- **Less text, more visuals** — use code blocks, tables
+- **Skip ahead** (Esc + click target slide) if class finishes a section fast
+- **Students' questions > slide completion**
 
 ---
 
 ## Next steps
 
-- Day 3 slides done (`day-03/slides.md`)
-- Extend to Day 4-12 as flipped teaching stabilizes
-- Share with students after each class (export HTML, paste link in Viber)
+- ✅ Day 3 slides ready (`day-03/slides.md` + `present.html`)
+- ⏳ Create for Days 4-12 when Day 3 teaching stabilizes
+- 💡 First class: test slides with projector before students arrive

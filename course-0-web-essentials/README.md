@@ -193,40 +193,49 @@ By Day 12, student can:
 
 ---
 
-## Slides (Marp — VSCode extension)
+## Slides (standalone HTML — browser only)
 
-Teacher-facing slide decks live in `day-NN/slides.md` (Marp markdown format).
+Teacher-facing slide decks live in `day-NN/slides.html` (self-contained HTML files).
 
-**No npm, no build, no package.json.** Just VSCode + Marp extension.
+**Browser only. No VSCode, no npm, no pnpm, no install.** Just double-click.
 
-### How to use
+### How to present
 
-1. **Install VSCode extension**: "Marp for VS Code" (by marp-team) — free, 1-click install
-2. **Open `day-NN/slides.md`** in VSCode
-3. **Right-side preview pane** shows live slides (updates as you edit)
-4. **Present fullscreen**: command palette → "Marp: Open preview" → F5 for fullscreen
-5. **Export (optional)**: right-click `slides.md` → "Export slide deck" → HTML/PDF/PPTX
+```bash
+# In terminal:
+open day-03/slides.html
 
-### Classroom usage
-
-- Open `slides.md` in VSCode
-- Marp preview pane → fullscreen (F5 or external monitor)
-- Navigate: ← → arrow keys
-- Edit live between classes without rebuild
-
-### Theme
-
-Custom Burmese-friendly theme at `slides/theme.css`. VSCode Marp extension auto-loads via `.vscode/settings.json` (create if missing):
-
-```json
-{
-  "markdown.marp.themes": ["./slides/theme.css"]
-}
+# Or double-click slides.html in Finder
 ```
 
-Currently only Day 3 has slides. Extend as flipped format rolls out.
+Browser opens → press `F` for fullscreen → use `←` `→` to navigate.
 
-See [`slides/how-to-present.md`](slides/how-to-present.md) for full guide.
+### Visible controls
+
+- **Progress bar** (top)
+- **← / → buttons** (bottom center)
+- **Slide counter** (e.g., "3 / 16")
+- **Fullscreen button** (⛶)
+
+### Keyboard shortcuts
+
+- `→` `Space` `PageDown` — next
+- `←` `PageUp` — previous
+- `Home` `End` — jump to first / last
+- `F` — fullscreen toggle
+
+### For classroom projector
+
+1. Open `slides.html` in browser
+2. Drag browser to projector screen
+3. Press `F`
+4. Control from laptop keyboard
+
+Students see slides only — not VSCode editor.
+
+See [`slides/how-to-present.md`](slides/how-to-present.md) for full guide (recording, sharing, editing).
+
+Currently only Day 3 has slides (`day-03/slides.html`). Extend to Days 4-12 as flipped format rolls out.
 
 ---
 

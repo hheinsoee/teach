@@ -122,32 +122,36 @@ Marcus story stages coverage:
 
 ---
 
-## Day folder contract (5 files per day — flipped structure)
+## Day folder contract (4 files + optional slides)
 
-Every `day-NN/` contains:
+Every `day-NN/` contains (flipped structure):
 
 | File | Audience | Timing | Contains |
 |---|---|---|---|
 | `prework.md` | student (Burmese) | 1-2 days before class (Viber) | Setup, installs, "do this at home" |
 | `self-study.md` | student (Burmese) | Night before class | Videos, docs, AI exploration, 3-question prep |
 | `README.md` | instructor | Reference | Q&A-focused 90-min plan, AI prompts, risks |
-| `in-class.md` | student (Burmese) | During class | Minimal — follow teacher's lead |
 | `homework.md` | student (Classroom-ready) | After class | Build + reflect + 3 questions for next class |
 
-**Total**: 60 files (12 days × 5). OK — each file is single-purpose and short.
+**Optional (as needed)**:
+
+| File | Purpose |
+|---|---|
+| `slides.md` | Teacher's slide deck content (markdown, Reveal.js format) |
+| `present.html` | Reveal.js viewer loading slides.md in browser |
+
+**Note**: `in-class.md` was removed — overlapped with `slides.md`. Slides serve as both teacher's deck AND student's in-class visual reference.
+
+**Current state**:
+- Days 1-2 (already taught in `ab/`): 3 files each (`README`, `exercise`, `homework`)
+- Days 3-12 (flipped): 4 files each (prework, self-study, README, homework)
+- Day 3 also has `slides.md` + `present.html` (prototype — extend to other days when ready)
 
 **Student experience**:
 - 2 days before: Viber message with `prework.md` content
 - Night before: do `self-study.md` (videos + research + 3 questions)
-- In class: follow `in-class.md`, ask questions
+- In class: teacher presents slides (if available), students follow slides on projector
 - After class: `homework.md` (build + 3 questions for next class)
-
-**Current state (v4)**: Days have 3 files only (`README.md`, `exercise.md`, `homework.md`).
-
-**v5 rollout plan**:
-- **Day 3 prototype first** (since Day 1-2 already taught in `ab/`)
-- If Day 3 flipped structure works → extend to Days 4-12
-- Days 1-2 stay as-is (already taught)
 
 ---
 
