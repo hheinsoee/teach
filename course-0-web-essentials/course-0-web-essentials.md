@@ -50,7 +50,7 @@ Students apply what they learned to build a News App that fetches from Hein's pr
 | **B** — Dart & Flutter | ❌ Excluded | Course 1+ |
 | **C** — Dev Tooling | Light | Day 1 (VS Code, DevTools) |
 | **D** — Terminal | Light | Day 1 (clone via GitHub Desktop) + Day 12 (retrospective) |
-| **E** — Software Engineering | Concept | Day 11 (code review) |
+| **E** — Software Engineering | ❌ Excluded | Course 1+ (code review, testing, team workflow) |
 | **F** — AI/LLM Coding | ⭐⭐ Core, continuous | Every day |
 | **G** — Web Fundamentals | Light | Day 1 (how web works), Day 8-9 (HTTP, fetch) |
 | **H** — HTML/CSS/JS | ⭐⭐ Deep (reading focus) | Days 1-8 |
@@ -150,8 +150,8 @@ Students apply what they learned to build a News App that fetches from Hein's pr
 
 ### Week 6 — Polish & Showcase
 
-#### Day 11 — Code Review + User Feedback
-- **New vocab**: code review, bug, hallucination, feedback
+#### Day 11 — Polish + Real Users
+- **New vocab**: UX feedback, iteration, polish
 - **Build**: Review your own News App code. Share with 3 real users. Collect feedback.
 - **Deep concept**: AI gets things wrong; your job is to catch it
 - **Ships**: Polished News App + 3 user quotes
@@ -243,7 +243,7 @@ Submit via Google Classroom with URLs + text + screenshots.
 | 8 | fetch, HTTP, request, response, API, async |
 | 9 | capstone, JSON parsing, dynamic HTML |
 | 10 | search, filter, loading state, error state |
-| 11 | code review, bug, hallucination, feedback |
+| 11 | UX feedback, iteration, polish |
 | 12 | framework, agentic, backend, CI/CD, continuous deployment |
 
 ~60 words. Students leave with vocabulary to **keep learning on their own**.

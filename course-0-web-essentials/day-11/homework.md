@@ -10,25 +10,26 @@
 
 ## Part 1 — Research (1 hour)
 
-### A. Code quality
-- Research "clean code" principles
-- 3 things that make code easy to read
+### A. What makes an app "usable"?
+- Simplicity principles
+- Mobile-first design
+- "Clarity over cleverness"
 
-### B. User testing in real companies
-- How do pros get user feedback?
+### B. User feedback in real companies
+- How do product teams gather feedback?
 - "Usability testing" basics
 
-Write 3-4 sentences per topic.
+Write 4-5 sentences per topic.
 
 ---
 
 ## Part 2 — Build + Share (1-1.5 hours)
 
-### A. Fix 2 more things based on user feedback
+### A. Fix 2 more issues from user feedback
 
-Look at your 3 users' feedback. Pick the top 2 issues. Fix with AI.
+Look at your 3 users' feedback from class. Pick top 2 issues. Fix with AI.
 
-### B. Get 2 more real users (total: 5)
+### B. Get 2 more real users (total 5)
 
 Send URL to 2 more people. Collect feedback.
 
@@ -38,14 +39,15 @@ Make sure:
 - All features work on mobile
 - Loading state looks nice
 - Error state is helpful
-- README.md in your repo describes what the app does
+- README.md in your news-app repo explains what it is
 
-### D. Prepare presentation for Day 12
+### D. Prepare Day 12 presentation
 
 Write 3-4 sentences:
-- What does your News App do?
-- One feature you're proud of
-- One thing you'd add next
+1. What your News App does
+2. Favorite feature + why
+3. Best user feedback (quote)
+4. What you'd add next
 
 You'll present this tomorrow.
 
@@ -55,9 +57,9 @@ You'll present this tomorrow.
 
 5 sentences:
 1. Biggest surprise from user feedback?
-2. What's one thing you'd never thought of?
+2. One thing you'd never thought of?
 3. Did you fix all user complaints?
-4. How does it feel to have 5 users?
+4. How does it feel to have 5 real users?
 5. What would you build next?
 
 ---
@@ -65,7 +67,7 @@ You'll present this tomorrow.
 ## Submit
 
 1. Final News App URL
-2. 5 user feedback quotes
+2. 5 user feedback quotes (screenshots or text)
 3. Presentation prep (3-4 sentences)
 4. Reflection
 
@@ -75,7 +77,7 @@ You'll present this tomorrow.
 
 - [ ] 2+ user issues fixed
 - [ ] 5 total real users
-- [ ] README.md describes app
+- [ ] README.md in repo
 - [ ] Presentation ready
 - [ ] Reflection submitted
 
@@ -83,8 +85,4 @@ You'll present this tomorrow.
 
 ## Looking ahead
 
-Day 12 = Final showcase. You present your News App to the class. 3 min each.
-
-Then: taste of what's next (React, backend, AI agents).
-
-Then: certificate / wrap-up.
+Day 12 = Final showcase. 3-min presentation of your News App. Then taste of what's next.

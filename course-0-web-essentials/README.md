@@ -22,11 +22,19 @@ Four skills: **Read · Understand · Direct · Verify.** No syntax drills. AI ge
 
 ## Who this is for
 
-Absolute beginner — no prior web/programming experience. Comfortable with a laptop + Chrome. Can read basic English. Wants to understand how web apps work and build real things with AI as coding partner.
+- ✅ **Absolute beginner** — no programming, no web experience
+- ✅ Comfortable with laptop + Chrome
+- ✅ Can read basic English
+- ✅ Wants to build + ship web apps with AI help
+- ✅ Curious about how websites work
 
 ## Who this is NOT for
 
-Someone who wants to be a professional programmer in 54 hours. Depth is Course 1+.
+- ❌ Someone who wants to be a professional programmer in 54 hours
+- ❌ Experienced developers (will be bored)
+- ❌ Students who want deep CS theory
+- ❌ Students wanting full-stack with backend/database (that's Course 1+)
+- ❌ Job-prep in 6 weeks (needs more time)
 
 ## The promise
 
@@ -81,7 +89,7 @@ The real capstone. Built from scratch using all learned skills. Fetches from Hei
 ### Week 6 — Polish & Showcase
 | Day | Title | Ships |
 |---|---|---|
-| [11](day-11/) | Code Review + User Feedback | 3+ real users |
+| [11](day-11/) | Polish + Real Users | 3+ real users |
 | [12](day-12/) | 🎓 Showcase + What's Next | Presented |
 
 ---
@@ -94,7 +102,7 @@ The real capstone. Built from scratch using all learned skills. Fetches from Hei
 | B — Dart & Flutter | ❌ Excluded (Course 1+) |
 | C — Dev Tooling | Light |
 | D — Terminal | Light (git CLI not used; GitHub Desktop) |
-| E — Software Engineering | Concept (Day 11) |
+| E — Software Engineering | ❌ Excluded (Course 1+) |
 | F — AI/LLM Coding | ⭐⭐ Core (every day) |
 | G — Web Fundamentals | Light (Day 1, 8-9) |
 | H — HTML/CSS/JS | ⭐⭐ Deep (reading) |

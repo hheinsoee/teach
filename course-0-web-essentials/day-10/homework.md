@@ -89,4 +89,4 @@ Fix. Push.
 
 ## Day 11 preview
 
-Day 11 = code review + getting real users. Prepare your News App to be shared.
+Day 11 = polish + real user feedback. Prepare your News App to be shared with friends and family.
