@@ -1,6 +1,10 @@
-# Day 3 — In-Class Exercise
+# Day 3 — Self-Study (Before Class)
+
+**Do this at home the night before Day 3.** Target time: 60-90 minutes.
 
 **Goal**: Learn how code "remembers" things using variables. See data in your browser's Console.
+
+**After this self-study**: write **3 questions** you want to ask in class. Those questions = your "ticket to class".
 
 ---
 
@@ -117,13 +121,28 @@ Write:
 
 ---
 
-## Done when
+## Done when (before class)
 
 - [ ] You typed 3 variables in Console directly
 - [ ] `script.js` has your habits array
 - [ ] Live URL + Console shows 4+ log lines
 - [ ] You can point at a line and say "that's a variable" / "that's a string"
 - [ ] Label answers written
+- [ ] **3 questions written to ask in class** ⭐ (required)
+
+---
+
+## Your 3 questions (ticket to class)
+
+Before arriving to class, write **3 questions** that came up during self-study. Examples of good questions:
+
+- "Why does `let` exist if `const` works for most things?"
+- "What happens if I use a variable name that's a reserved word?"
+- "Can I store a function inside a variable?"
+
+Bring these questions written down. Teacher will collect at start of class.
+
+**If you have no questions**: write "I understood everything" + attempt to explain variables + types in 3 sentences. If you really can explain, that's your "question-equivalent" — share with class.
 
 ---
 

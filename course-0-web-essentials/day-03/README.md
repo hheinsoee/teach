@@ -1,165 +1,234 @@
-# Day 3 — JS Basics: Variables & Data Types
+# Day 3 — JS Variables & Data Types (Flipped)
 
-**Phase**: Learning (Day 3 of 8)
+**Phase**: Learning (Day 3 of 8) — First JS day, prototype of flipped format
 **Project**: Habit Tracker
-**Modules touched**: A (programming fundamentals), H (JS), F (AI)
-**Duration**: 90 min + 3 hr HW
+**Modules touched**: A (programming), H (JS), F (AI)
+**Duration**: 90 min class + ~3 hr homework (split: 1.5 hr pre-class self-study + 1.5 hr post-class build)
+
+> **This is the first flipped day.** Day 1-2 were traditional. Day 3 onward (if successful) uses this format.
+
+---
+
+## Pre-class (student does at home)
+
+- **prework.md** sent via Viber 2 days before (15-20 min setup)
+- **self-study.md** done night before (60-90 min: videos, console experiments, write 3 questions)
+
+Student arrives with:
+- Working live URL
+- DevTools open
+- ChatGPT/Claude logged in
+- **3 written questions**
+
+---
+
+## In-class 90-min flow (flipped)
+
+| Block | Min | Who's active | What |
+|---|---|---|---|
+| **Q&A collection** | 25 | 🙋 Students | Each shares 1 question; teacher writes on board |
+| **Discussion + clarification** | 15 | 💬 Mixed | Teacher explains top 3 common confusions with analogies |
+| **Live building** | 25 | 🤝 Collaborative | Teacher at AI, students modify in their script.js |
+| **Label** | 10 | ✍️ Students | Own words: variable, let, const, types |
+| **Wrap + next assignment** | 15 | 📋 Teacher | Day 4 prework + homework + preview |
 
 ---
 
 ## Learning outcomes
 
+By end of class, student can:
 - **Read**: a JS line and identify variable, type, assignment
-- **Understand**: variables remember things; types are what kind of thing
+- **Understand**: variables remember things; types are kinds
 - **Direct**: AI to log data about habits using variables
 - **Verify**: console.log output in DevTools
 
 ---
 
-## 90-min plan
+## Teacher prep before this day
 
-| Block | Min | Activity |
-|---|---|---|
-| HW review | 10 | 2 students show styled pages |
-| Concept: "Code remembers things" | 15 | Variables + 4 data types |
-| Instructor demo | 15 | AI generates JS with variables, read console output |
-| Student build | 35 | Students prompt, log data, inspect console |
-| Label + commit | 15 | Variable, type, console.log |
+### AI prompt — anticipate common confusions
+
+Ask your AI assistant:
+
+```
+I'm teaching Day 3 of Course 0 — Web Essentials.
+Topic: JS variables and data types (let, const, string, number, boolean, array).
+Cohort: absolute beginners, Burmese-primary, did 60-90 min self-study night before.
+
+Anticipate the 10 most common beginner confusions about variables and types.
+For each: the confusion + a 1-sentence Burmese-friendly analogy.
+```
+
+Save answers. Have them ready for Q&A phase.
+
+### Example anticipated confusions
+
+- `=` vs `===` (assignment vs comparison)
+- Strings quotes `"Pray"` vs numbers `4`
+- Why arrays start at 0 not 1
+- `let` vs `const` — when to use which
+- `undefined` vs `null`
+- Variable naming (no spaces, camelCase)
+- Array vs object (introduce briefly)
+- `console.log` — where it shows up
+- Reserved words (can't name variable `function`)
+- `typeof` operator
 
 ---
 
-## Concept (15 min) — the first programming concept
+## Phase 1 — Q&A collection (25 min)
 
-Whiteboard:
+### Protocol
 
-```
-Code က အရာတွေကို "မှတ်" ထားတယ်။
-"မှတ်" တာ ဟာကို — "variable" လို့ ခေါ်။
+1. "Each of you, 1 question. I'll write them all on the board."
+2. Round-robin — go around the room
+3. If student says "no question": "What was easiest? What felt weird?"
+4. Write EVERY question on board, no filtering
 
-Example:
-   let habitName = "Pray"
-       ↑        ↑  ↑
-     ဒါ var   =  value
+**Why collect all first**: pattern recognition. If 5 students ask about `let` vs `const` — THAT's the topic to deep-dive.
 
-Types (ဘယ်လိုအရာ ဖြစ်လဲ):
-- "Pray"       →  string (စာလုံး)
-- 4            →  number (ဂဏန်း)
-- true         →  boolean (ဟုတ်/မဟုတ်)
-- [1, 2, 3]    →  array (စာရင်း)
-```
+### If Q&A phase is silent
 
-**Key points**:
-- `let` = "assign and can change later"
-- `const` = "assign, never changes"
-- Types matter — can't add "Pray" + 4
-- `console.log(x)` = "show me what x is"
+**Seed questions** (from your AI prep):
+- "When you tried `let habits = []` in console, did anything surprise you?"
+- "Did the self-study video explain why strings need quotes?"
+- "What's the weirdest thing you noticed about `console.log`?"
 
-**Analogy**: Variables = **ဘူးထဲမှာ ထည့်ထား**။ Name က ဘူးရဲ့ label, value က ဘူးထဲက အရာ။
+**Wait 30 seconds minimum before rescuing.** Awkward silence is OK.
 
 ---
 
-## Demo (15 min)
+## Phase 2 — Discussion + clarification (15 min)
 
-Open DevTools (F12 → Console). Type live:
+Group questions on board into themes. Pick top 3. Explain each.
 
-```javascript
-let myName = "Hein"
-console.log(myName)
-```
+### Analogies to use
 
-Output: `"Hein"`.
+- **Variable** = ဘူးထဲ ပစ္စည်းထည့်ထား, ဘူးရဲ့ လက်ပတ်မှာ နာမည်ရေးထား
+- **let vs const** = ပြင်နိုင်တဲ့ ဘူး (let) vs ပြင်မရတဲ့ ဘူး (const)
+- **String vs number** = စာသား (quotes needed) vs ဂဏန်း (no quotes)
+- **Array** = စာရင်း — အတန်းချ ထားတဲ့ ပစ္စည်းတွေ, 0 ကနေ စရေတွက်
+- **console.log** = screen ပေါ် pop-up message ပြ (debugging အတွက်)
 
-```javascript
-let habitCount = 4
-console.log(habitCount)
-```
+### When student asks something you don't know
 
-Output: `4`.
+> *"ကိုယ်လည်း မသိဘူး — အတူတူ AI ကို မေးကြမယ်"*
 
-```javascript
-let habits = ["Pray", "Study", "Exercise", "Water"]
-console.log(habits)
-```
-
-Output: array.
-
-```javascript
-let allDone = false
-console.log(allDone)
-```
-
-Output: `false`.
-
-Then prompt AI:
-
-```
-Add JavaScript to my Habit Tracker that:
-- Declares an array of habits
-- Logs the number of habits
-- Logs the first habit's name
-- Logs whether today is a weekday
-
-Explain each line in Burmese or simple English.
-```
-
-Read AI's JS line by line. Save to `script.js`. Add `<script src="script.js"></script>` before `</body>`.
-
-Open live URL, F12 → Console. See the logs.
+Open AI on big screen. Type question. Read answer together. Model "learning in real-time".
 
 ---
 
-## Student build (35 min)
+## Phase 3 — Live building (25 min)
 
-Each student:
-1. Open DevTools Console
-2. Type a few variables manually (log name, favorite number)
-3. Prompt AI for script.js (habits array + logs)
-4. Save to `script.js`
-5. Push
-6. Open live URL + console, see logs
+Open ChatGPT in front of class. Prompt:
 
-**Instructor circulates**:
-- Student doesn't know how to open DevTools → F12 or right-click → Inspect
-- Variable name has space → "no spaces in variable names"
-- Student uses `=` instead of `===` for compare → Day 4 topic, not today
+```
+Add JavaScript to the Habit Tracker script.js file:
+- Declare an array of 4 habits (const habits = [...])
+- Log the number of habits
+- Log the first habit name
+- Log today's date using new Date()
+
+Keep it simple, beginner-friendly comments in each line.
+```
+
+Read AI's code line by line WITH class:
+- "ဒီ `const` က ဘာလဲ?"
+- "ဒီ `habits[0]` က ဘာလို့ 0 သုံးတာလဲ?"
+- "ဒီ `.length` က ဘာလဲ?"
+
+Students follow in their own `script.js`. Commit + push together. All see URL update at same time.
+
+**Then iterate** — "ဘာထည့်ချင်လဲ?" Student requests → AI generates → read → commit.
 
 ---
 
-## Label (10 min)
+## Phase 4 — Label (10 min)
 
-Write (no AI):
+Students write (no AI, 5 min):
 
 1. What is a **variable**?
-2. Difference between `let` and `const`?
-3. Name the 4 data types we learned
+2. `let` vs `const` difference?
+3. 4 data types learned
 4. What does `console.log()` do?
 5. Why do variables exist?
 
-**Pocket answers**:
-- Variable = a named box that holds a value
-- `let` = can change value later; `const` = can't change
-- string, number, boolean, array
-- Logs a value to the browser Console for debugging
-- To remember and re-use things in code
+Then **pair-share** (2 min): compare with neighbor.
+
+Volunteer 2-3 students read theirs aloud (3 min).
 
 ---
 
-## Common failures
+## Phase 5 — Wrap + next assignment (15 min)
 
-| Failure | Fix |
+- **Celebrate**: first JS day done
+- **Preview Day 4**: functions + if/else — "we'll teach code to make decisions"
+- **Assign**:
+  - **Day 3 homework** (post-class) — see `homework.md`
+  - **Day 4 prework** — will arrive on Viber in 2 days
+  - **Day 4 self-study** — will arrive on Viber 1 day before class
+
+---
+
+## Common risks today
+
+| Risk | Handle |
 |---|---|
-| F12 doesn't open DevTools | Try right-click → Inspect |
-| Console shows red error | Read error, paste to AI with "what does this mean?" |
-| JS doesn't run | `<script>` tag placement wrong — before `</body>` |
-| AI uses complex syntax | Re-prompt: "simpler, basic variables only" |
+| Students didn't do self-study | Q&A phase will reveal; have them follow during live build |
+| Q&A phase is silent | Seed questions ready; wait before rescuing |
+| Student asks advanced JS question | "Great question — that's Course 1+. Let me note it." |
+| Variable naming confusion | Pair with partner, debug together |
+| `=` vs `===` universal confusion | 2-min focused explanation in discussion phase |
 
 ---
 
-## NOT
+## AI co-teacher prompts for today
 
-- Operators (`+`, `-`, `*`) → Day 4
-- Conditions / if/else → Day 4
-- Loops → Day 5
-- Writing JS from scratch (reading via AI only)
+See [`../instructor/teaching-guide.md`](../instructor/teaching-guide.md) for full prompt library.
 
-Keep tight: variable, type, console.log. 3 concepts.
+Quick ones for Day 3:
+
+### Before class
+```
+I'm teaching JS variables and types to beginners tonight. Give me:
+- 5 common confusions with Burmese analogies
+- 3 seed questions if Q&A is silent
+- 1 live build prompt I can use with AI on screen
+```
+
+### During class (silent question)
+```
+A student asked: "[question verbatim]"
+Context: Day 3, JS variables intro. Beginner level.
+Give me a 30-second simple answer with a Burmese analogy.
+```
+
+### After class
+```
+Day 3 done. Things that went well: [...]. Things that struggled: [...].
+What should I adjust for Day 4 (functions + conditions)?
+```
+
+---
+
+## This day is NOT
+
+- Not variable syntax drill
+- Not deep type theory
+- Not scope / hoisting / closures (Course 1)
+- Not teacher-led lecture
+
+---
+
+## After class — debrief for Hein
+
+Ask yourself:
+1. Did Q&A phase fill 25 min naturally, or forced?
+2. Were student questions aligned with what you anticipated?
+3. Did live build phase feel collaborative or demonstration-only?
+4. Any student who looked lost?
+
+If **flipped worked** → extend format to Days 4-12
+If **flipped failed** → revert Day 4 to traditional, debug what went wrong
+
+Use AI assistant to debrief: paste what happened, ask "what should I change?"
