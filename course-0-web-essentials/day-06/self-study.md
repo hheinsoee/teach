@@ -1,4 +1,9 @@
-# Day 6 — DOM concept + React intro
+# Day 6 — Self-Study: DOM concept + React intro
+
+**Do this at home the night before class.** Target time: 60-90 minutes.
+
+**After this self-study**: write **3 questions** to ask in class. Those questions = your "ticket to class".
+
 
 **Goal**: See why vanilla DOM is painful. Meet React. Convert your Habit Tracker to React.
 

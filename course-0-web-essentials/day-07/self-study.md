@@ -1,4 +1,9 @@
-# Day 7 — React State + localStorage
+# Day 7 — Self-Study: React State + localStorage
+
+**Do this at home the night before class.** Target time: 60-90 minutes.
+
+**After this self-study**: write **3 questions** to ask in class. Those questions = your "ticket to class".
+
 
 **Goal**: Make your Habit Tracker interactive and persistent — using React's `useState` and `useEffect`.
 

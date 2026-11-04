@@ -1,4 +1,9 @@
-# Day 5 — In-Class Exercise
+# Day 5 — Self-Study (Before Class)
+
+**Do this at home the night before class.** Target time: 60-90 minutes.
+
+**After this self-study**: write **3 questions** to ask in class. Those questions = your "ticket to class".
+
 
 **Goal**: Learn to **repeat** code with loops. Process every habit in an array.
 

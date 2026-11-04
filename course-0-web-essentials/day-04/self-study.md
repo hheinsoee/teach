@@ -1,4 +1,9 @@
-# Day 4 — In-Class Exercise
+# Day 4 — Self-Study (Before Class)
+
+**Do this at home the night before class.** Target time: 60-90 minutes.
+
+**After this self-study**: write **3 questions** to ask in class. Those questions = your "ticket to class".
+
 
 **Goal**: Learn to bundle code into **functions** and make **decisions** with if/else.
 

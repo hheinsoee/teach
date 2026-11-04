@@ -1,5 +1,12 @@
 # Day 12 — 🎓 Showcase + What's Next
 
+> **v5 flipped format**: This day uses 5 files: `prework.md` (Viber 2 days before) + `self-study.md` (night before) + `README.md` (this file) + `in-class.md` (student in-class guide) + `homework.md` (post-class).
+>
+> **Class structure (90 min)**: Q&A 25min + Discussion 15min + Live Build 25min + Label 10min + Wrap 15min. Teacher ~30% active, student ~70% active.
+>
+> **The 90-min plan table below is legacy v4 traditional**. See `../instructor/teaching-guide.md` for flipped guidance.
+
+
 **Phase**: ⭐ Capstone 2 (Day 4 of 4) — FINAL DAY
 **Project**: Showcase + wrap-up
 **Modules touched**: K (taste), I/J (retrospective)

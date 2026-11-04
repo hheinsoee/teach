@@ -1,5 +1,10 @@
 # Day 11 — Polish + Real Users
 
+**Do this at home the night before class.** Target time: 60-90 minutes.
+
+**After this self-study**: write **3 questions** to ask in class. Those questions = your "ticket to class".
+
+
 **Goal**: Read your own News App code to understand it. Get 3 real users to try it.
 
 ---

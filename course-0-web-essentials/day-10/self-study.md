@@ -1,4 +1,9 @@
-# Day 10 — News App Features (React)
+# Day 10 — Self-Study: News App Features (React)
+
+**Do this at home the night before class.** Target time: 60-90 minutes.
+
+**After this self-study**: write **3 questions** to ask in class. Those questions = your "ticket to class".
+
 
 **Goal**: Add real features to your News App — search, filter, expand.
 

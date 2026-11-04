@@ -1,4 +1,9 @@
-# Day 12 — Final Showcase
+# Day 12 — Self-Study: Final Showcase
+
+**Do this at home the night before class.** Target time: 60-90 minutes.
+
+**After this self-study**: write **3 questions** to ask in class. Those questions = your "ticket to class".
+
 
 **Goal**: Present your News App. See what's next.
 
