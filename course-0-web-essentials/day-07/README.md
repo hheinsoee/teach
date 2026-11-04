@@ -1,7 +1,7 @@
-# Day 7 — localStorage: Data That Persists
+# Day 7 — React State (useState) + localStorage
 
-**Phase**: Learning (Day 7 of 8) — Habit Tracker practice COMPLETE after today
-**Project**: Habit Tracker (final build day)
+**Phase**: Learning (Day 7 of 8)
+**Project**: Habit Tracker — practice complete after today
 **Modules touched**: A, H, F
 **Duration**: 90 min + 3 hr HW
 
@@ -9,10 +9,10 @@
 
 ## Learning outcomes
 
-- **Read**: `localStorage.setItem` / `getItem` + `JSON.stringify` / `parse`
-- **Understand**: browser can remember data across page reloads
-- **Direct**: AI to save/restore habit state
-- **Verify**: refresh page — state persists
+- **Read**: `useState` hook and understand what it tracks
+- **Understand**: state = things that change, React re-renders when state changes
+- **Direct**: AI to add state + localStorage to Habit Tracker
+- **Verify**: checkboxes stay checked across reload
 
 ---
 
@@ -20,53 +20,81 @@
 
 | Block | Min | Activity |
 |---|---|---|
-| HW review | 10 | Students show buttons working |
-| Concept: Where does data live? | 15 | Memory vs localStorage |
-| Instructor demo | 15 | AI adds localStorage, refresh preserves state |
-| Student build | 35 | Each student adds persistence to Habit Tracker |
-| Label + commit | 15 | localStorage, state, JSON |
+| HW review | 10 | Students show components added |
+| Concept: What is state? | 15 | Why components need memory |
+| Instructor demo | 15 | AI adds useState + localStorage |
+| Student build | 40 | Habit Tracker with checkable + persistent state |
+| Label + commit | 10 | useState, state, hook |
 
 ---
 
 ## Concept (15 min)
 
-### Where does data live?
+### What is "state"?
 
-Ask: *"Habit Tracker ကို reload လုပ်ရင် ဘာဖြစ်လဲ?"*
+So far components render **static** data (habits array passed as props).
 
-→ Check boxes အကုန် ပျောက်။ Why? **Memory ပဲ**။
+But: what if user clicks a checkbox? **Which habit is checked?**
 
-Draw:
+That's **state** — data that changes over time, inside a component.
 
-```
-JS Variables (memory)
-       ↑ fast, temporary
-       | lost on reload
+### useState — React's state hook
 
-localStorage
-       ↑ stays after reload
-       | per browser, per domain
-```
+```jsx
+import { useState } from 'react';  // (not needed with CDN — useState is global)
 
-### How to use
+function App() {
+    const [count, setCount] = useState(0);
 
-```javascript
-// Save
-localStorage.setItem("done", JSON.stringify([true, false, true, false]))
-
-// Load
-let raw = localStorage.getItem("done")
-let done = JSON.parse(raw) || [false, false, false, false]
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Add 1</button>
+        </div>
+    );
+}
 ```
 
-### Why JSON?
+Parts:
+- `useState(0)` — create state starting at 0
+- `[count, setCount]` — current value + function to update
+- `setCount(count + 1)` — update state, React re-renders
 
-localStorage က **string ပဲ သိမ်းနိုင်**။ Array, object သိမ်းချင်ရင် — `JSON.stringify` နဲ့ string ပြောင်း → ပြန်ဖတ်တဲ့အခါ `JSON.parse` နဲ့ ပြန် object ပြောင်း။
+**Key insight**: Don't mutate directly. `count = count + 1` ❌ Must use `setCount`.
 
-**Analogy**:
-- Memory = ဦးနှောက် (short-term)
-- localStorage = စာအုပ် (writes it down)
-- JSON = အရာကို စာအဖြစ်ပြောင်းနည်း
+### For Habit Tracker
+
+Each habit needs "done" state:
+
+```jsx
+const [done, setDone] = useState([false, false, false, false])
+
+// When checkbox clicked:
+function toggle(i) {
+    const newDone = [...done]
+    newDone[i] = !newDone[i]
+    setDone(newDone)
+}
+```
+
+### localStorage with React
+
+Save on state change (effect):
+
+```jsx
+// Save whenever `done` changes
+useEffect(() => {
+    localStorage.setItem('done', JSON.stringify(done))
+}, [done])
+
+// Load once on mount
+const [done, setDone] = useState(() => {
+    const saved = localStorage.getItem('done')
+    return saved ? JSON.parse(saved) : [false, false, false, false]
+})
+```
+
+(Introduce `useEffect` here briefly, Day 8 deep dive.)
 
 ---
 
@@ -75,63 +103,67 @@ localStorage က **string ပဲ သိမ်းနိုင်**။ Array, obje
 Prompt AI:
 
 ```
-In my Habit Tracker:
-- Save which habits are checked to localStorage after any change
-- Load from localStorage when page loads
-- If no saved state, default to all unchecked
+In my React Habit Tracker:
+- Add state for which habits are done (array of booleans)
+- Clicking a checkbox toggles that habit's done state
+- When habit is done, strike through the text
+- Save done state to localStorage, restore on page load
 
-Give me the JS. Explain where save/load happen.
+Use useState (and useEffect for localStorage).
+
+Keep my component structure (App, HabitList, Habit).
+
+Explain state and useState in simple English.
 ```
 
-Read AI's output:
-- Where it saves: inside the change listener
-- Where it loads: at page start
-- `JSON.stringify` call: converts array to string
-- `JSON.parse` call: converts back
-- Default fallback: `|| [false, false, false, false]`
+Read AI's code:
+- `useState` initial value
+- The toggle function
+- `onChange` handler on checkbox
+- Conditional styling: `done[i] ? 'line-through' : 'none'`
+- `useEffect` for save
+- Initial state from localStorage
 
-Save, push.
-
-Reload URL. Check boxes. Reload again. **State preserved.**
-
-Close tab. Reopen URL. **Still preserved.**
-
-Open DevTools → Application → Local Storage → see the stored data.
+Save, push. Test:
+- Click checkbox → strike through
+- Reload → still checked
+- Close tab, reopen → still checked
 
 ---
 
-## Student build (35 min)
+## Student build (40 min)
 
 Each student:
 1. Prompt AI (adapted)
-2. Add localStorage save/load to their `script.js`
+2. Replace `app.jsx` with new version
 3. Push
-4. Test: check → reload → still checked
-5. Add streak counter via AI: "If all done, streak +1. New day resets."
-6. View localStorage in DevTools
+4. Test persistence
+5. Open DevTools → Application → Local Storage → see saved data
 
 **Instructor circulates**:
-- Reload loses data → localStorage code not reached (wrong listener event)
-- `JSON.parse` crashes → raw is null; need fallback
-- Streak counter resets wrong → day comparison tricky
+- State doesn't update → forgot to use `setDone`, mutating `done` directly
+- `useState` not defined → with CDN, use `const { useState } = React`
+- `useEffect` fires infinitely → missing dependency array `[done]`
+- localStorage key conflict → use unique name
 
 ---
 
 ## Label (10 min)
 
 Write:
-1. What is **localStorage**?
-2. Difference between memory and localStorage?
-3. Why do we need `JSON.stringify`?
-4. What does **state** mean?
-5. Where does localStorage live physically?
+
+1. What is **state** in React?
+2. What does `useState` return?
+3. Why can't you do `done[i] = true` directly?
+4. What does `useEffect` do?
+5. React vs localStorage — who owns the data?
 
 **Pocket answers**:
-- localStorage = browser's notebook, survives reload
-- Memory = fast but gone on reload; localStorage = slower but saved
-- Because localStorage only holds strings; JSON converts objects to strings
-- State = the current situation of your app
-- On your laptop, per browser, per domain
+- State = component data that changes, triggers re-render
+- `useState` returns `[value, setValue]`
+- Mutating directly doesn't trigger re-render; must use `setState`
+- `useEffect` runs code after render — good for side effects (save to localStorage)
+- React owns state in memory; localStorage is backup (survives reload)
 
 ---
 
@@ -139,27 +171,29 @@ Write:
 
 | Failure | Fix |
 |---|---|
-| State doesn't persist | localStorage call missing or wrong key name |
-| `JSON.parse` throws error | Raw is null first time; add `\|\| default` |
-| State persists but wrong data | Save after state update, not before |
-| Student panics at raw JSON in DevTools | "That's normal — strings for storage" |
+| Checkbox doesn't update visually | Mutating `done` instead of calling `setDone` with new array |
+| Infinite re-renders | `useEffect` missing dependency array |
+| State lost on reload | `useState` initial not reading from localStorage |
+| JSX arrow function confusion | `onChange={() => toggle(i)}` not `onChange={toggle(i)}` |
 
 ---
 
 ## NOT
 
-- sessionStorage, IndexedDB, cookies (Course 1+)
-- Security limits, XSS considerations (Course 1+)
-- Sync across devices (Course 2+)
+- useReducer (Course 1)
+- Context API (Course 1+)
+- Custom hooks (Course 1+)
+- State management libraries (Course 2+)
 
 ---
 
-## End of Day 7 — Habit Tracker is DONE
+## End of Day 7 — Habit Tracker DONE
 
-Students should have:
-- Styled Habit Tracker
-- Interactive checkboxes
-- Persistent state
-- Counter + streak
+Students have:
+- React-based Habit Tracker
+- Multiple components
+- useState for interactivity
+- localStorage persistence
+- Live URL
 
-**Habit Tracker practice project COMPLETE.** From Day 8 we start Fetch, then Days 9-12 Capstone 2 (News App).
+**Practice project COMPLETE.** From Day 8 we start fetch (quote API), then Days 9-12 News App capstone.

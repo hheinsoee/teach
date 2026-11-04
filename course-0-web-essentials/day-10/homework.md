@@ -2,7 +2,7 @@
 
 ---
 
-# Day 10 Homework — Polish News App + 2nd Feature
+# Day 10 Homework — Polish + 2nd Feature
 
 **Total**: ~3 hours
 
@@ -10,18 +10,19 @@
 
 ## Part 1 — Research (1 hour)
 
-### A. `.filter()` method deep
-- How does it work with any array?
-- Difference between `.filter()`, `.map()`, `.find()`?
+### A. Array methods
+- `.filter()`, `.map()`, `.find()` — differences
 
-### B. Modals / overlays
-- What is "fixed" positioning in CSS?
-- Why does modal need to block background clicks?
+### B. React conditional rendering
+- Ternary `? :` in JSX
+- `&&` short-circuit
+- When to use each
 
-### C. localStorage with features
-- Can you store user preferences (dark mode, filter choice)?
+### C. localStorage with React state
+- `useEffect([state])` pattern
+- Initial state from localStorage
 
-Write 4-5 sentences per topic.
+4-5 sentences per topic.
 
 ---
 
@@ -29,29 +30,25 @@ Write 4-5 sentences per topic.
 
 ### A. Add ANOTHER feature
 
-If you did search + modal in class, now add:
+From class, if you did search + modal, now add:
 - Category filter OR dark mode OR bookmarks
 
 ### B. Combine features cleanly
 
-Make sure features don't fight each other:
+Make sure:
 - Search + category filter work together
 - Dark mode persists across modal open/close
 
 ### C. Mobile check
 
-Open your News App on your phone. Fix any mobile issues:
+Open on phone. Fix:
 - Cards too wide?
-- Modal fits screen?
+- Modal fits?
 - Buttons tappable?
-
-Prompt AI for fixes.
 
 ### D. Break and fix
 
-In your search filter, change `.includes()` to `.indexOf()` without updating logic.
-
-Push. Test. What breaks?
+Change `.filter()` to `.find()` in search. Push. What breaks?
 
 Fix. Push.
 
@@ -60,11 +57,11 @@ Fix. Push.
 ## Part 3 — Reflect (0.5 hour)
 
 5 sentences:
-1. Which feature is most important to users?
+1. Most important feature for users?
 2. What would you add if you had another week?
-3. Did any AI code confuse you?
-4. How does your News App compare to real news sites?
-5. What are you most proud of?
+3. Any AI code confusing?
+4. News App vs real news sites — how different?
+5. Most proud of?
 
 ---
 
@@ -80,7 +77,7 @@ Fix. Push.
 ## Done when
 
 - [ ] 3 topics researched
-- [ ] 2+ features working (including from Day 10 class)
+- [ ] 2+ features working
 - [ ] Mobile works
 - [ ] Broke + fixed something
 - [ ] Reflection submitted
@@ -89,4 +86,4 @@ Fix. Push.
 
 ## Day 11 preview
 
-Day 11 = polish + real user feedback. Prepare your News App to be shared with friends and family.
+Day 11 = polish + real user feedback. Prepare to share with friends and family.

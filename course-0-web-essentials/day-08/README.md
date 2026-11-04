@@ -1,7 +1,7 @@
-# Day 8 — Fetch: Data From the Internet
+# Day 8 — React + Fetch (useEffect)
 
-**Phase**: Learning (Day 8 of 8) — Last learning day before Capstone 2
-**Project**: Habit Tracker — add a motivational quote via fetch
+**Phase**: Learning (Day 8 of 8) — Last learning day
+**Project**: Habit Tracker — add motivational quote via fetch
 **Modules touched**: G (HTTP), A, H, F
 **Duration**: 90 min + 3 hr HW
 
@@ -9,10 +9,10 @@
 
 ## Learning outcomes
 
-- **Read**: a `fetch()` call and know what it does
-- **Understand**: data can come from the internet, not just localStorage
-- **Direct**: AI to add fetch to Habit Tracker
-- **Verify**: a different quote appears on each reload
+- **Read**: a `fetch()` call inside `useEffect`
+- **Understand**: fetch gets data from internet; useEffect runs it on mount
+- **Direct**: AI to add quote fetch to React Habit Tracker
+- **Verify**: new quote appears on each reload
 
 ---
 
@@ -21,21 +21,22 @@
 | Block | Min | Activity |
 |---|---|---|
 | HW review | 10 | Habit Tracker final showcase |
-| Concept: "Where does data come from?" | 15 | Server + API + JSON |
-| Instructor demo | 15 | Add quote API fetch to Habit Tracker |
-| Student build | 35 | Each student adds fetch |
-| Label + commit | 15 | fetch, HTTP, API, JSON, async |
+| Concept: fetch + API + async | 15 | Browser asks server for data |
+| Instructor demo | 15 | Add quote fetch via useEffect |
+| Student build | 40 | Each student adds fetch to React app |
+| Label + commit | 10 | fetch, useEffect, async, API |
 
 ---
 
 ## Concept (15 min)
 
-### Where does data come from?
+### Where data comes from
 
 So far:
-- HTML — written by you (via AI)
+- HTML — static content
 - JS variables — in memory
-- localStorage — in browser
+- useState — React state
+- localStorage — persistent in browser
 
 Now:
 - **From a server, over the internet** — via `fetch`
@@ -43,37 +44,49 @@ Now:
 ### Analogy
 
 ```
-Your browser (customer)              Internet server (kitchen)
+Your browser (customer)              Server (kitchen)
    fetch('url') →               →   receives request
                      ← responds with JSON ←
    displays
 ```
 
-Browser က **ဖောက်သည်**, server က **ဆိုင်**, JSON က **ဈေးစာရင်း/menu**။
+Browser က **ဖောက်သည်**, server က **ဆိုင်**, JSON က **menu**。
 
-### `fetch` basics
+### fetch in React (with useEffect)
 
-```javascript
-fetch('https://api.quotable.io/random')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.content)   // the quote
-    })
+```jsx
+function QuoteBox() {
+    const [quote, setQuote] = useState(null);
+
+    useEffect(() => {
+        fetch('https://api.quotable.io/random')
+            .then(r => r.json())
+            .then(data => setQuote(data));
+    }, []);  // [] = run once on mount
+
+    if (!quote) return <p>Loading...</p>;
+
+    return (
+        <div>
+            <p>"{quote.content}"</p>
+            <p>— {quote.author}</p>
+        </div>
+    );
+}
 ```
 
 Parts:
+- `useEffect(() => {...}, [])` — run once when component mounts
 - `fetch(url)` — ask server
-- `.then(response => response.json())` — turn response into JS object
-- `.then(data => ...)` — now we have the data, use it
+- `.then()` chain — process response
+- `setQuote(data)` — update state, triggers re-render
+- `if (!quote) return <Loading />` — loading state
 
-**`async`**: data takes time to arrive. `.then` means "when it arrives, do this."
+### Why `[]` empty array?
 
-### Why `fetch` matters
-
-- News apps fetch articles
-- Weather apps fetch weather
-- Social apps fetch posts
-- **Every real app** uses fetch (or similar)
+- `[]` = "run once, on mount"
+- `[done]` = "run whenever done changes" (Day 7 pattern)
+- No array = "run after every render" (usually bad)
 
 ---
 
@@ -82,45 +95,47 @@ Parts:
 Prompt AI:
 
 ```
-In my Habit Tracker, add:
-- When the page loads, fetch a random motivational quote from:
-  https://api.quotable.io/random
-- Display the quote at the top of the page in a styled box
-- Also show the author's name
+In my React Habit Tracker, add a motivational quote at the top:
 
-If fetch fails, show "Welcome back!" instead.
+- Create a <QuoteBox> component
+- On mount, fetch from https://api.quotable.io/random
+- Show quote text and author
+- Show "Loading..." while fetching
+- If fetch fails, show "Welcome back!" as fallback
 
-Give me updated HTML + CSS + JS. Explain the fetch section line by line.
+Use useState + useEffect patterns. Explain the fetch section.
 ```
 
-Read AI's output:
-- `fetch()` call
+Read AI's code:
+- `useState(null)` initial
+- `useEffect(() => fetch(...), [])` runs on mount
 - `.then()` chain
-- Where data is used
-- Error handling (`.catch`)
+- Conditional rendering: loading / content / error
 
-Save. Push. Reload URL. **Quote appears.**
-
-Reload again. **Different quote.** (Same quote only ~5% of time by random chance.)
+Save, push. Test:
+- Reload → "Loading..." briefly → quote appears
+- Reload again → different quote
 
 ---
 
-## Student build (35 min)
+## Student build (40 min)
 
 Each student:
 1. Prompt AI (adapted)
-2. Add fetch to Habit Tracker
-3. Push
-4. Test: quote changes on reload
+2. Add `QuoteBox` component to `app.jsx`
+3. Mount it at top of `App`
+4. Push
+5. Test — quote changes on reload
 
 Then try:
-- `fetch('https://api.quotable.io/quotes?tags=motivational&limit=5')` — fetch 5 quotes
-- Loop over them, show random one
+- Fetch 5 quotes, show random one
+- Add "Next quote" button that fetches new one
 
 **Instructor circulates**:
-- CORS error → quotable.io is CORS-safe; probably typo
-- `.then` syntax confusion → OK to show `async/await` alternative
-- Data appears blank → check `data.content` vs AI's suggested path
+- CORS error → quotable.io is safe; check URL typo
+- `.then` chain confusion → OK to show async/await alternative
+- `useEffect` infinite loop → missing `[]` dependency
+- `setState` after unmount warning → ignore for Course 0
 
 ---
 
@@ -128,17 +143,17 @@ Then try:
 
 Write:
 1. What is **fetch**?
-2. What is **HTTP**?
-3. What is an **API**?
-4. What is **JSON**?
-5. What does **async** mean?
+2. What is an **API**?
+3. What is **JSON**?
+4. What does **useEffect** do?
+5. Why `[]` empty dependency array?
 
 **Pocket answers**:
 - `fetch` = JS way to ask a server for data
-- HTTP = the language browsers and servers use
-- API = a URL + rules for talking to a server
+- API = URL + rules for talking to a server
 - JSON = text format for structured data
-- Async = "takes time, continue when done"
+- `useEffect` = run code after render (for side effects like fetch)
+- `[]` = "only on mount", prevents infinite re-fetch
 
 ---
 
@@ -146,29 +161,31 @@ Write:
 
 | Failure | Fix |
 |---|---|
-| CORS error | Rare for quotable.io; check URL typo |
+| CORS error | Rare for quotable.io; check URL |
 | Quote doesn't appear | Check Console for errors |
-| `data.content` undefined | AI's path may differ; check actual response in Network tab |
-| Fetch runs twice | OK, happens on reload |
+| Infinite re-fetch | Missing `[]` or wrong dependency |
+| `data.content` undefined | Check API response shape in Network tab |
 
 ---
 
 ## NOT
 
-- POST / PUT / DELETE (Course 1 — just read)
+- POST/PUT/DELETE (Course 1 — just GET)
 - Authentication (Course 1+)
-- WebSockets (Course 2+)
-- GraphQL (Course 2+)
+- Custom hooks for fetch (Course 1+)
+- React Query / SWR (Course 2+)
 
-Keep tight: fetch URL → get JSON → display.
+Keep tight: fetch URL → setState → React renders.
 
 ---
 
 ## Transition to Capstone 2
 
-End of Day 8 marks:
-- ✅ Learning phase complete (HTML, CSS, JS, DOM, localStorage, fetch)
-- ✅ Habit Tracker done
-- 🎯 Capstone 2 begins Day 9 — News App from scratch using all these skills
+End of Day 8 = Habit Tracker DONE with:
+- React components
+- useState (interactive)
+- useEffect + fetch (external data)
+- localStorage (persistence)
+- Live URL
 
-Students should feel: "I know enough tools to build something real now."
+Day 9-12 = **News App capstone** using all these React skills, with Hein's API.

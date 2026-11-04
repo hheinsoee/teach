@@ -2,7 +2,7 @@
 
 ---
 
-# Day 9 Homework — Explore API + Polish News App
+# Day 9 Homework — Polish News App + Explore API
 
 **Total**: ~3 hours
 
@@ -10,66 +10,65 @@
 
 ## Part 1 — Research (1 hour)
 
-### A. HTTP in depth
-- What's a GET request?
-- What's a status code? (200, 404, 500 — what each means)
+### A. HTTP
+- GET request
+- Status codes (200, 404, 500)
 
-### B. JSON structure
-- Why are keys always strings?
-- What are arrays `[]` vs objects `{}`?
+### B. JSON
+- Keys as strings
+- Arrays vs objects
 
-### C. Explore Hein's API
-Open the URL. Answer:
+### C. Hein's API exploration
+Open URL. Answer:
 - How many articles?
-- What categories exist?
+- Categories?
 - Date range?
-- Any articles with missing fields?
+- Any missing fields?
 
-Write "API summary" (5 sentences).
+5-sentence summary.
 
 ---
 
 ## Part 2 — Build (1-1.5 hours)
 
-### A. Design improvements
+### A. Design improvements (3 ideas)
 
-Prompt AI for 3 UX improvements:
+Prompt AI:
 - Card hover effect
 - Better typography
 - Category badge next to date
 
 ### B. Date formatting
 
-Dates in API are `2026-11-04`. Format them like `Nov 4, 2026`.
+Dates in API are `2026-11-04`. Format as `Nov 4, 2026`.
 
-Ask AI how to do this with JS Date object.
+Ask AI about JS Date object.
 
 ### C. Break and fix
 
-Change fetch URL to broken (`newzzz.json`). Push.
+Change fetch URL to `newzzz.json`. Push. See error state.
 
-Live URL should show error state. Read error in Console.
-
-Restore. Push.
+Read error. Restore.
 
 ---
 
 ## Part 3 — Reflect (0.5 hour)
 
 5 sentences:
-1. Capstone 2 feels harder/easier than Habit Tracker?
-2. What's your favorite article you've seen?
-3. What design choice are you proud of?
-4. What's confusing about fetch?
-5. What's next for your News App?
+1. Capstone 2 feels harder/easier than Habit?
+2. Favorite article you've seen?
+3. Design choice you're proud of?
+4. Confusing about React fetch?
+5. What's next for News App?
 
 ---
 
 ## Submit
 
 1. News App URL
-2. API summary + research notes
-3. Reflection
+2. API summary
+3. Research notes
+4. Reflection
 
 ---
 
@@ -77,7 +76,7 @@ Restore. Push.
 
 - [ ] 3 topics researched
 - [ ] API summary written
-- [ ] 3 design improvements made
+- [ ] 3 design improvements
 - [ ] Date formatting works
 - [ ] Error state tested
 - [ ] Reflection submitted

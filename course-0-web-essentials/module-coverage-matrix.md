@@ -1,6 +1,8 @@
-# Course 0 — Module × Day Coverage Matrix
+# Course 0 — Module × Day Coverage Matrix (v4)
 
 Which theBuilderPros module (A to K, with full names) gets how much attention on which day.
+
+**v4 change**: React introduced from Day 6. Previous versions used vanilla DOM throughout.
 
 See [`course-0-web-essentials.md`](course-0-web-essentials.md) for full syllabus and [`../context/theBuilderPros-roadmap.md`](../context/theBuilderPros-roadmap.md) for module source.
 
@@ -8,20 +10,20 @@ See [`course-0-web-essentials.md`](course-0-web-essentials.md) for full syllabus
 
 ## Coverage matrix (full module names)
 
-| Day | Topic | A — Programming Fundamentals | B — Dart & Flutter Basics | C — Development Tooling | D — Command Line & Terminal | E — Software Engineering Principles | F — AI / LLM & Agentic Coding | G — Web Fundamentals | H — HTML, CSS & JavaScript (Design) | I — Git & GitHub | J — DevOps & CI/CD Fundamentals | K — Agentic Coding (Advanced) |
+| Day | Topic | A — Programming Fundamentals | B — Dart & Flutter Basics | C — Development Tooling | D — Command Line & Terminal | E — Software Engineering Principles | F — AI / LLM & Agentic Coding | G — Web Fundamentals | H — HTML, CSS & JavaScript (+React) | I — Git & GitHub | J — DevOps & CI/CD Fundamentals | K — Agentic Coding (Advanced) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **1** | HTML + GitHub starter | | ✗ | ⭐ | ⭐ | ✗ | ⭐⭐⭐ | ⭐ | ⭐⭐⭐ | ☆ | ☆ | |
 | **2** | CSS | | ✗ | | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
 | **3** | JS variables & types | ⭐⭐⭐ | ✗ | ⭐ | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
 | **4** | Functions & conditions | ⭐⭐⭐ | ✗ | | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
-| **5** | Loops | ⭐⭐⭐ | ✗ | | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
-| **6** | DOM & events | ⭐⭐⭐ | ✗ | ⭐ | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
-| **7** | localStorage | ⭐⭐⭐ | ✗ | ⭐ | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
-| **8** | Fetch + quote API | ⭐⭐⭐ | ✗ | | | ✗ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ☆ | ☆ | |
-| **9** | Capstone 2 — News App begins | ⭐⭐ | ✗ | ⭐ | | ✗ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ☆ | ☆ | |
+| **5** | Loops + `.map()` | ⭐⭐⭐ | ✗ | | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
+| **6** | **Vanilla DOM + React intro** ⭐ | ⭐⭐ | ✗ | ⭐ | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
+| **7** | React state (`useState`) | ⭐⭐ | ✗ | ⭐ | | ✗ | ⭐⭐⭐ | | ⭐⭐⭐ | ☆ | ☆ | |
+| **8** | React fetch (`useEffect`) | ⭐⭐ | ✗ | | | ✗ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ☆ | ☆ | |
+| **9** | Capstone 2 — News App begins | ⭐⭐ | ✗ | ⭐ | | ✗ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ☆ | ☆ | |
 | **10** | News App features | ⭐⭐ | ✗ | | | ✗ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ | ☆ | ☆ | |
 | **11** | Polish + real users | | ✗ | | | ✗ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ | ☆ | ☆ | |
-| **12** | 🎓 Showcase + what's next | | ✗ | | ⭐⭐ | ✗ | ⭐⭐ | | | ☆☆ | ☆☆ | ⭐⭐ |
+| **12** | 🎓 Showcase + what's next | | ✗ | ⭐ | ⭐⭐ | ✗ | ⭐⭐ | | | ☆☆ | ☆☆ | ⭐⭐ |
 
 ---
 
@@ -41,32 +43,45 @@ See [`course-0-web-essentials.md`](course-0-web-essentials.md) for full syllabus
 
 ## Module summary with full names
 
-| Module | ⭐⭐⭐ Core days | ⭐⭐ Secondary | ⭐ Light | ☆ Knowledge share | Overall |
+| Module | ⭐⭐⭐ Core | ⭐⭐ Secondary | ⭐ Light | ☆ Knowledge share | Overall |
 |---|---|---|---|---|---|
-| **A — Programming Fundamentals** | 3-8 | 9, 10 | — | — | ⭐⭐⭐ Deep |
+| **A — Programming Fundamentals** | 3-5 | 6-10 | — | — | ⭐⭐⭐ Deep |
 | **B — Dart & Flutter Basics** | — | — | — | — | ✗ Excluded (Course 1+) |
-| **C — Development Tooling** | — | — | 1, 3, 6, 7, 9 | — | ⭐ Light |
+| **C — Development Tooling** | — | — | 1, 3, 6, 7, 9, 12 | — | ⭐ Light |
 | **D — Command Line & Terminal Skills** | — | 12 | 1 | — | ⭐ Light |
 | **E — Software Engineering Principles** | — | — | — | — | ✗ Excluded (Course 1+) |
 | **F — AI / LLM & Agentic Coding** | 1-11 | 12 | — | — | ⭐⭐⭐ Core, continuous |
 | **G — Web Fundamentals** | 8, 9 | 10, 11 | 1 | — | ⭐⭐ Secondary |
-| **H — HTML, CSS & JavaScript (Design)** | 1-8 | 9, 10, 11 | — | — | ⭐⭐⭐ Deep |
+| **H — HTML, CSS & JavaScript (+React)** | 1-9 | 10, 11 | — | — | ⭐⭐⭐ Deep |
 | **I — Git & GitHub** | — | — | — | 1-11 (☆), 12 (☆☆) | ☆ Knowledge sharing |
 | **J — DevOps & CI/CD Fundamentals** | — | — | — | 1-11 (☆), 12 (☆☆) | ☆ Knowledge sharing |
 | **K — Agentic Coding (Advanced)** | — | 12 | — | — | ⭐⭐ Taste only |
 
 ---
 
+## What changed in v4 (vs v3)
+
+- **Day 6**: vanilla DOM → **vanilla DOM concept + React intro**
+- **Days 7-12**: all React (useState, useEffect, components)
+- **Module H**: now covers HTML + CSS + JS + **React/JSX**
+- **Day 12** "Taste": adds Vite, TypeScript, Next.js, backend (previews what's next)
+
+Previous versions taught vanilla DOM depth. v4 teaches vanilla as **concept** (so students see "why React exists") then switches to React.
+
+**Rationale** (Hein, 2026-11-04): *"Vanilla က ခက်တယ်။ Day 6 ကနေ React မိတ်ဆက်"*
+
+---
+
 ## Why B and E are excluded
 
 ### B — Dart & Flutter Basics
-- Mobile development stack (iOS/Android)
+- Mobile stack (iOS/Android)
 - Course 0 is web-only
 - Reserved for Course 1+ or separate mobile track
 
 ### E — Software Engineering Principles
 - Formal code review, testing, team collaboration
-- Course 1 territory — Course 0 students not ready to evaluate others' code critically
+- Course 1 territory
 
 ---
 
@@ -79,16 +94,16 @@ See [`course-0-web-essentials.md`](course-0-web-essentials.md) for full syllabus
 | 3 | 3 | 0 | 1 | 2 | 6 |
 | 4 | 3 | 0 | 0 | 2 | 5 |
 | 5 | 3 | 0 | 0 | 2 | 5 |
-| 6 | 3 | 0 | 1 | 2 | 6 |
-| 7 | 3 | 0 | 1 | 2 | 6 |
-| 8 | 4 | 0 | 0 | 2 | 6 |
-| 9 | 2 | 2 | 1 | 2 | 7 |
+| 6 | 2 | 1 | 1 | 2 | 6 |
+| 7 | 2 | 1 | 1 | 2 | 6 |
+| 8 | 4 | 1 | 0 | 2 | 7 |
+| 9 | 3 | 1 | 1 | 2 | 7 |
 | 10 | 1 | 3 | 0 | 2 | 6 |
 | 11 | 1 | 2 | 0 | 2 | 5 |
-| 12 | 0 | 3 | 0 | 2 | 5 |
+| 12 | 0 | 2 | 2 | 2 | 6 |
 
-**Heaviest day**: Day 8 (4 core modules — Programming + AI + Web + HTML/CSS/JS align for fetch intro)
-**Lightest day**: Day 2 (CSS focused, less integration)
+**Heaviest day**: Day 8 (4 core modules align for React fetch)
+**Lightest day**: Day 2 (CSS focused)
 
 ---
 
@@ -104,42 +119,28 @@ Not a session. Not practiced. Just awareness.
 - Diagram on whiteboard
 - What Git was tracking all along
 - What GitHub stored
-- What Actions ran on each push
+- What Actions ran
 - What Pages published
 - Why this matters in real jobs
 
 ---
 
-## Why Git & CI/CD are NOT formally taught
+## React-specific notes
 
-Hein's integrated-not-taught principle:
+**React is introduced on Day 6, not Day 1.**
 
-- **Day 1** clones starter via **GitHub Desktop** (no CLI)
-- Daily `git push` is one button click
-- Students never write workflow YAML
-- No branches, no merges, no diff reading
-- **Intentional** — Course 0 goal: `push → live URL updates` without fear
+**Why not Day 1?**
+- Students need JS basics first (vars, functions, loops → Days 3-5)
+- Without vars/functions/loops, React components make no sense
+- Day 6 is pivotal: see vanilla pain → meet React
 
-**Course 1 depth** (where Git/CI-CD become ⭐⭐⭐):
-- Git diff reading
-- Branch strategies
-- Merge conflict resolution
-- Commit history as narrative
-- Writing/customizing GitHub Actions workflows
-- Deploy pipeline troubleshooting
-
----
-
-## Why K (Agentic Coding Advanced) is taste-only
-
-Course 0 principle: "AI generates code, student reads and verifies."
-
-**Agentic coding** = AI makes independent decisions, builds entire apps, chains tools. Course 0 students aren't ready to evaluate agentic output — they're still building reading muscle.
-
-Day 12 taste shows:
-- Cursor / v0 / Lovable producing complete apps
-- "This is possible — Course 1-2 territory"
-- Students see where the path leads
+**Why React via CDN, not Vite?**
+- No npm install
+- No `node_modules`
+- No terminal
+- Same GitHub Pages deploy
+- Simpler for beginners
+- Course 1+ teaches Vite properly
 
 ---
 

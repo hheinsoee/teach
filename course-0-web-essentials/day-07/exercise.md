@@ -1,123 +1,121 @@
-# Day 7 — In-Class Exercise
+# Day 7 — React State + localStorage
 
-**Goal**: Make your Habit Tracker remember your checks across reloads.
-
----
-
-## Step 1 — See the problem
-
-Open your live URL. Check boxes. Reload page.
-
-**Checks disappear.** That's the problem.
+**Goal**: Make your Habit Tracker interactive and persistent — using React's `useState` and `useEffect`.
 
 ---
 
-## Step 2 — Try localStorage in Console
+## Step 1 — See state in Console
 
-```javascript
-localStorage.setItem("test", "Hello from me!")
-```
+Open live URL. F12 → Console. Can't test React hooks there easily, but understand the concept:
 
-Reload page. Open Console again:
-
-```javascript
-localStorage.getItem("test")
-```
-
-**"Hello from me!"** survives reload. That's localStorage.
-
-To clear: `localStorage.removeItem("test")`
+> Components have **memory** (state). When state changes, React re-renders.
 
 ---
 
-## Step 3 — Prompt AI
+## Step 2 — Prompt AI
 
 Paste:
 
 ```
-In my Habit Tracker:
-- When a checkbox changes, save the done state to localStorage
-- When the page loads, read localStorage and restore all checkboxes
-- Also save/restore a "streak" counter (increases by 1 when all habits done)
-- If localStorage is empty on first load, default to all unchecked
+In my React Habit Tracker:
 
-Give me updated JavaScript. Keep existing features working.
+- Add state for which habits are done (useState with an array of booleans)
+- Clicking a checkbox toggles that habit's done state
+- When done, strike through the habit text
+- Save done state to localStorage on change (useEffect)
+- Restore done state from localStorage on first load
+
+Use React 18 CDN patterns (no npm). Keep my component structure.
+
+Explain useState and useEffect in simple English.
 ```
 
 ---
 
-## Step 4 — Save, push, test persistence
+## Step 3 — Replace app.jsx
 
-Replace your `script.js` with AI's updated version. Push.
-
-Wait 30 sec. Reload live URL. Check all boxes. **Reload again.** Still checked.
-
-Close the tab. Reopen URL. Still checked.
+Save AI's new `app.jsx`. Push.
 
 ---
 
-## Step 5 — View your data in DevTools
+## Step 4 — Test persistence
 
-F12 → **Application** tab → **Local Storage** → your URL.
+Reload live URL. Check 2 habits. Reload. Still checked.
 
-You see your saved data as text (JSON).
-
----
-
-## Step 6 — Clear and retry
-
-Click Clear All (trash icon in Application tab).
-
-Reload URL. All unchecked again. **That's "no data in localStorage"** — defaults kick in.
+Close tab. Reopen. Still checked.
 
 ---
 
-## Step 7 — Streak test
+## Step 5 — View localStorage
 
-Check all habits. Streak = 1.
+F12 → **Application** → Local Storage → your URL.
 
-Clear localStorage. Reload. Streak back to 0.
+See your saved `done` array as JSON.
 
 ---
 
-## Step 8 — Label (no AI!)
+## Step 6 — Clear and test
+
+In Application tab, clear localStorage. Reload. All unchecked (default).
+
+---
+
+## Step 7 — Read your code
+
+Find in `app.jsx`:
+- `const [done, setDone] = useState(...)` — state declaration
+- `setDone(...)` — how state updates
+- `useEffect(() => { ... }, [done])` — save side effect
+- `onChange={...}` — event handler
+
+Ask AI to explain any confusing line.
+
+---
+
+## Step 8 — Modify
+
+Try: when all habits done, show a message "🎉 All done today!"
+
+Ask AI to add. Push. Test.
+
+---
+
+## Step 9 — Label (no AI!)
 
 Write:
-1. What is **localStorage**?
-2. Memory vs localStorage — difference?
-3. Why `JSON.stringify`?
-4. What is **state**?
-5. Where does localStorage physically live?
+1. What is **state**?
+2. What does `useState` return?
+3. Why can't we modify `done` directly?
+4. What does `useEffect` do?
+5. Who "owns" the data — React or localStorage?
 
 ---
 
 ## Done when
 
-- [ ] Checks persist across reload
-- [ ] Checks persist across closing tab
-- [ ] Streak counter works
-- [ ] You viewed localStorage in DevTools
+- [ ] Checkboxes toggle via state
+- [ ] State persists across reload
+- [ ] You viewed localStorage
+- [ ] "All done" message works
 - [ ] Label answers written
 
 ---
 
 ## Rules
 
-1. **Reload after each change** to test
-2. **DevTools → Application → Local Storage** is where to inspect
-3. **If weird**, check localStorage first before re-prompting
+1. **Never mutate state directly.** Always use the setter.
+2. **useEffect needs dependency array** — otherwise infinite loop.
+3. **React owns memory; localStorage is backup.**
 
 ---
 
 ## If you finish early
 
-Add "Clear my data" button:
+Add streak counter:
 
-```javascript
-clearBtn.addEventListener("click", () => {
-    localStorage.clear()
-    location.reload()
-})
+```
+If user checks all habits today, increase a streak number by 1.
+Save streak to localStorage too.
 ```
 
-Ask AI for complete integration.
+Ask AI to integrate.

@@ -57,11 +57,13 @@ Students read HTML/CSS/JS AI generates. **No syntax drills.** No "type 20 loops.
 
 ### IN
 
-- JS fundamentals (reading-level depth): variables, data types, functions, conditions, loops, DOM, events, localStorage, fetch
+- JS fundamentals (reading-level, Days 3-5): variables, data types, functions, conditions, loops
+- Vanilla DOM concept (Day 6, concept only — not written)
+- **React via CDN** (Days 6-12): JSX, components, `useState`, `useEffect`, fetch
 - HTML/CSS reading
 - AI-generated code with prompting + verification
 - Git/GitHub Pages (via GitHub Desktop)
-- One capstone (News App) with real users
+- One capstone (React News App) with real users
 
 ### OUT
 
@@ -69,13 +71,15 @@ Students read HTML/CSS/JS AI generates. **No syntax drills.** No "type 20 loops.
 |---|---|
 | **Module B (Dart & Flutter)** | Mobile stack; Course 1+ |
 | **Backend** | localStorage + Hein's API sufficient |
-| **Hand-written code from scratch** | AI generates; principle 0 |
-| **React / frameworks depth** | Day 12 taste only; Course 1 |
+| **TypeScript** | Requires build step; Course 1+ |
+| **Vite / npm / build tools** | Course 1+ (React via CDN only) |
+| **React depth** (Router, Context, custom hooks) | Course 1+ |
 | **Database design** | Course 1+ |
 | **Authentication** | Course 1+ |
 | **Mobile / Electron / app stores** | Web only |
 | **Oral exam / vibe-coder failing** | Inspiration course |
 | **Git CLI deep use** | GitHub Desktop; CLI is Course 1+ |
+| **Module E (Software Engineering)** | Code review, testing, team workflow → Course 1+ |
 
 ---
 

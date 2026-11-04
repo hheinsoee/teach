@@ -1,10 +1,10 @@
-# Day 8 — In-Class Exercise
+# Day 8 — React + Fetch
 
-**Goal**: Add data from the internet to your Habit Tracker. Learn `fetch`.
+**Goal**: Add a motivational quote from the internet to your React Habit Tracker.
 
 ---
 
-## Step 1 — See a fetch work
+## Step 1 — See fetch in Console
 
 Open live URL. F12 → Console. Type:
 
@@ -14,103 +14,77 @@ fetch('https://api.quotable.io/random')
     .then(data => console.log(data))
 ```
 
-Wait 1 sec. See a quote object in Console.
-
-Try again. Different quote.
+Wait 1 sec. See a quote object.
 
 ---
 
-## Step 2 — Understand the response
-
-In Console, type again:
-
-```javascript
-fetch('https://api.quotable.io/random')
-    .then(r => r.json())
-    .then(data => {
-        console.log("Quote:", data.content)
-        console.log("Author:", data.author)
-    })
-```
-
-**That's how you use fetched data.**
-
----
-
-## Step 3 — Prompt AI
+## Step 2 — Prompt AI
 
 Paste:
 
 ```
-In my Habit Tracker, add a motivational quote at the top:
+In my React Habit Tracker, add a QuoteBox component:
 
-- On page load, fetch a random quote from https://api.quotable.io/random
-- Display it in a nice box above the habits
+- On mount (useEffect with []), fetch https://api.quotable.io/random
+- Store quote in useState
 - Show quote text and author
+- Show "Loading..." while fetching
+- Fallback "Welcome back!" if fetch fails
 
-If fetch fails, show "Welcome back!" as fallback.
+Place <QuoteBox /> at top of my App component.
 
-Give me HTML, CSS, and JS updates. Explain the fetch part line by line.
+Give me updated app.jsx. Explain the fetch section and why [] matters.
 ```
 
 ---
 
-## Step 4 — Apply changes
+## Step 3 — Save, push, test
 
-Follow AI's HTML changes (add quote container). Follow CSS (styled box). Follow JS (fetch on load).
+Replace `app.jsx`. Push.
 
-Save. Push.
+Reload URL. Quote appears after short loading.
 
----
-
-## Step 5 — Test
-
-Reload URL. **Quote should appear within a second.**
-
-Reload again. **Different quote.**
+Reload again. Different quote.
 
 ---
 
-## Step 6 — Read your fetch code
+## Step 4 — Understand the pattern
 
-Open `script.js`. Find the fetch section.
+Open `app.jsx`. Find:
+- `const [quote, setQuote] = useState(null)` — state for quote
+- `useEffect(() => { fetch(...) }, [])` — fetch once on mount
+- `if (!quote) return <p>Loading...</p>` — loading state
+- `return <div>...</div>` — content
 
-Try to answer:
-- Which line asks the server?
-- Which line waits for response?
-- Which line uses the data?
-
-Ask AI to explain any line unclear.
+Ask AI to explain `useEffect`'s `[]` dependency.
 
 ---
 
-## Step 7 — Test error handling
+## Step 5 — Break and test error
 
-Change URL to broken: `https://api.quotable.io/randooooom`
+Change URL to `https://api.quotable.io/randooooom`. Push.
 
-Push. Reload.
-
-**Fallback should show** "Welcome back!".
+Reload. **Fallback should show** "Welcome back!".
 
 Restore URL. Push.
 
 ---
 
-## Step 8 — Label (no AI!)
+## Step 6 — Label (no AI!)
 
 Write:
 1. What is **fetch**?
-2. What is **HTTP**?
-3. What is an **API**?
-4. What is **JSON**?
-5. What does **async** mean?
+2. What is an **API**?
+3. What is **JSON**?
+4. What does **useEffect** do?
+5. Why empty `[]` dependency array?
 
 ---
 
 ## Done when
 
-- [ ] Ran `fetch` in Console successfully
-- [ ] Quote appears on Habit Tracker reload
+- [ ] Fetched quote in Console
+- [ ] QuoteBox appears on reload
 - [ ] Different quote each reload
 - [ ] Error fallback works
 - [ ] Label answers written
@@ -120,23 +94,18 @@ Write:
 ## Rules
 
 1. **fetch is async** — results don't come instantly
-2. **`.then` chain** — process response → use data
-3. **Check Console** for errors
+2. **useEffect with `[]`** = only on mount
+3. **Check Console** if anything fails
 
 ---
 
 ## If you finish early
 
-Try fetching 5 quotes and showing a different one each day:
+Add a "Next Quote" button:
 
-```javascript
-fetch('https://api.quotable.io/quotes?tags=motivational&limit=5')
-    .then(r => r.json())
-    .then(data => {
-        let today = new Date().getDay()  // 0-6
-        let quote = data.results[today % data.results.length]
-        // display quote.content and quote.author
-    })
+```
+Add a button below the quote. When clicked, fetch a new quote.
+Hint: put fetch in a function, call it in useEffect AND in onClick.
 ```
 
-Ask AI to integrate this with your Habit Tracker.
+Ask AI to integrate.

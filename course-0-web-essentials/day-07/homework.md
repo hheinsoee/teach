@@ -2,31 +2,27 @@
 
 ---
 
-# Day 7 Homework — Finish Habit Tracker + Research Browser APIs
+# Day 7 Homework — State Deep + Habit Tracker Final
 
 **Total**: ~3 hours
-
-**Important**: End of this homework = Habit Tracker is DONE. From Day 8 we move to News App.
 
 ---
 
 ## Part 1 — Research (1 hour)
 
-### A. localStorage limits
-- How much data can localStorage hold?
-- Is it private? What can hack it?
-- When would you NOT use localStorage?
+### A. useState
+- What problem does it solve?
+- Why `[value, setter]` destructure?
 
-3 sentences.
+### B. useEffect
+- When does it run?
+- Why dependency array?
 
-### B. Browser APIs
-Research 2 of these:
-- Notifications API
-- Date / Time API
-- Clipboard API
-- Geolocation API
+### C. Immutability
+- What is "immutable"?
+- Why React cares?
 
-For each: what it does, example use.
+4-5 sentences per topic.
 
 ---
 
@@ -35,50 +31,58 @@ For each: what it does, example use.
 ### A. Add ONE polish feature
 
 Pick ONE:
-- Edit habit name (click habit → change text)
-- Delete habit (small X button)
-- Add new habit via form (text input + Add button)
-- Weekly stats (how many perfect days this week)
+- Edit habit name (click → input → save)
+- Delete habit (X button)
+- Add new habit via form
+- Streak counter (all done = +1 streak)
+- Weekly stats (how many days hit all)
 
-### B. Break and fix
-
-Change `localStorage.setItem` to `localstorage.setItem` (lowercase s). Push.
-
-What happens? Read error. Restore.
-
-### C. Final cleanup
+### B. Final cleanup
 
 Make sure:
 - Push all changes
 - Live URL works perfectly
-- Streak persists
-- All features documented in README.md of your repo
+- Mobile looks fine
+- State persists correctly
+
+### C. Break and fix
+
+In `useState`, change initial value from array to string. Push. See what breaks.
+
+Fix. Push.
 
 ---
 
 ## Part 3 — Reflect (0.5 hour)
 
 5 sentences:
-1. Which day of Course 0 was hardest?
-2. Which day was most fun?
-3. What did Habit Tracker teach you?
-4. Are you ready for News App (Day 8)?
-5. One question still open?
+1. Hardest day so far?
+2. Does React feel natural now?
+3. Something you still don't understand about state?
+4. Habit Tracker final grade (yourself)?
+5. Ready for News App (Day 8+)?
 
 ---
 
 ## Submit
 
 1. Final Habit Tracker URL
-2. Research notes
-3. Reflection
+2. 1 polish feature screenshot
+3. Research notes
+4. Reflection
 
 ---
 
 ## Done when
 
-- [ ] 2 topics researched
+- [ ] 3 topics researched
 - [ ] 1 polish feature added
-- [ ] Broke + fixed localStorage
-- [ ] Habit Tracker is polished + pushed
+- [ ] Broke + fixed state
+- [ ] Habit Tracker polished + pushed
 - [ ] Reflection submitted
+
+---
+
+## Looking ahead
+
+Tomorrow: **fetch + useEffect** — bringing data from the internet INTO React.

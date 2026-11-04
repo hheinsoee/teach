@@ -1,6 +1,6 @@
 # Day 9 — Capstone 2 Begins
 
-**Goal**: Build a News App that fetches from the internet. By end of class, articles display live.
+**Goal**: Build a React News App that fetches from the internet. By end of class, articles render live.
 
 ---
 
@@ -8,44 +8,34 @@
 
 By Day 12, this News App must:
 - Be live on the internet
+- Built with React (components, useState, useEffect)
 - Fetch from Hein's API
-- Have 3+ real users
-- You can explain every piece of the code
-
-Today = Day 1 of 4. Just get the basic version working.
+- 3+ real users
+- You can explain every piece
 
 ---
 
 ## Step 1 — Create news-app repo
 
 On GitHub:
-1. Teacher will share template URL
-2. **Use template** → **Create repo**
-3. Name: `news-app`
-4. Public
-5. Click Create
-
-Clone to laptop via GitHub Desktop.
+1. Teacher shares `news-app-starter` URL
+2. **Use template** → **Create repo** `news-app`
+3. Public
+4. Clone to laptop via GitHub Desktop
 
 Enable Pages (Settings → Pages → main / root).
 
+The starter includes React CDN + Babel + `<div id="root">`.
+
 ---
 
-## Step 2 — Explore the API
+## Step 2 — Explore API
 
-Open the API URL in Chrome:
+Open Chrome:
 
 **`https://api.heinsoe.com/news.json`**
 
-You see JSON — an array of articles. Each has:
-- `id`
-- `title`
-- `image`
-- `body`
-- `date`
-- `category`
-
-That's your data source.
+JSON array. Each article: `id`, `title`, `image`, `body`, `date`, `category`.
 
 ---
 
@@ -54,40 +44,43 @@ That's your data source.
 Paste:
 
 ```
-I'm building a News App. The API returns a JSON array at:
-https://api.heinsoe.com/news.json
+I'm building a React News App via CDN (React 18 + Babel, no npm).
 
-Each article has: id, title, image, body, date, category.
+API: https://api.heinsoe.com/news.json
+Returns JSON array of articles with id, title, image, body, date, category.
 
-Build me a complete News App:
-- Fetch articles on page load
-- Show each in a card with image, title, date
-- Clean modern design (cards)
-- Mobile-friendly
-- "Loading..." before fetch completes
+Build:
+- App component
+- ArticleCard component (receives article as prop)
+- Fetch articles on mount (useEffect with [])
+- Store in useState
+- "Loading..." while fetching
 - Error message if fetch fails
+- Each article as a card: image, title, date
+- Clean modern style
 
-Give me complete HTML + CSS + JS. Explain the fetch section line by line.
+Give me:
+- Updated index.html (with React CDN + Babel + <div id="root">)
+- Complete app.jsx
+
+Explain the fetch section line by line.
 ```
 
 ---
 
 ## Step 4 — Save files
 
-Replace:
-- `index.html`
-- `styles.css`
-- `script.js`
-
-Save all three.
+- `index.html` — with CDN scripts + root div
+- `app.jsx` — React code
+- Keep `styles.css` — or ask AI for updated styles
 
 ---
 
-## Step 5 — Push
+## Step 5 — Push + test
 
-GitHub Desktop → commit `Capstone 2 day 1 — basic news app` → push.
+GitHub Desktop → commit `Capstone 2 Day 1 — News App skeleton` → push.
 
-Wait 30 sec. Open your live URL (`USERNAME.github.io/news-app/`).
+Wait 30 sec. Open live URL.
 
 **Articles should appear.**
 
@@ -97,25 +90,22 @@ Wait 30 sec. Open your live URL (`USERNAME.github.io/news-app/`).
 
 If no articles:
 - F12 → Console — any errors?
-- F12 → Network tab → see the fetch request. Status 200 = good.
-- If 404 → URL typo
-- If CORS error → API issue (ask teacher)
+- F12 → Network — see fetch succeeded?
+- Babel syntax error → check Console
 
 Fix. Push. Reload.
 
 ---
 
-## Step 7 — Read the fetch code
+## Step 7 — Read your code
 
-Open `script.js`. Find the fetch section.
+Open `app.jsx`. Find:
+- Which line fetches?
+- Which line parses JSON?
+- Which line creates component instances in loop?
+- Where is state declared?
 
-Try to point out:
-- Which line asks the API?
-- Which line parses the JSON?
-- Which line loops over articles?
-- Which line builds HTML for each card?
-
-Ask AI to explain lines you don't get.
+Ask AI to explain anything unclear.
 
 ---
 
@@ -124,35 +114,36 @@ Ask AI to explain lines you don't get.
 Write:
 1. What is a **capstone**?
 2. Why fetch from server vs localStorage?
-3. What is a "card" layout?
-4. What is **loading state**? Why have it?
-5. Hardest part today?
+3. What is a **prop**?
+4. What does `articles.map(a => <ArticleCard />)` do?
+5. Where does loading state live?
 
 ---
 
 ## Done when
 
-- [ ] `news-app` repo exists on GitHub
-- [ ] Live URL loads articles
-- [ ] Each article has image, title, date
+- [ ] `news-app` repo on GitHub
+- [ ] Live URL shows articles
+- [ ] Built with React components
 - [ ] Loading state briefly appears
-- [ ] You can point at fetch section and explain it
+- [ ] You explained fetch section
 - [ ] Label answers written
 
 ---
 
 ## Rules
 
-1. **Separate from Habit Tracker.** This is a new project. Keep Habit Tracker alive too.
-2. **Push every change.** Live URL updates after push only.
-3. **If API breaks mid-class**, teacher will give fallback `news.json` file.
+1. **Separate from Habit Tracker.** New project.
+2. **Push every change.**
+3. **React only.** No `document.getElementById`.
+4. **If API is down**, teacher gives fallback `news.json`.
 
 ---
 
 ## If you finish early
 
-- Make the cards look nicer (bigger images, better spacing)
-- Show category badge on each article
-- Format dates as "November 4, 2026" instead of "2026-11-04"
+- Format date nicely ("Nov 4, 2026" instead of "2026-11-04")
+- Add category badge next to date
+- Bigger images, better typography
 
-Prompt AI for each. Push after each.
+Prompt AI for each. Push.

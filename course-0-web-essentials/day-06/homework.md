@@ -2,7 +2,7 @@
 
 ---
 
-# Day 6 Homework — DOM Deep Dive
+# Day 6 Homework — React Deep Dive
 
 **Total**: ~3 hours
 
@@ -10,62 +10,72 @@
 
 ## Part 1 — Research (1 hour)
 
-- "DOM JavaScript" — 1 video
-- "addEventListener" — 1 video
-- "querySelector vs getElementById" — 1 video
+### A. What is React?
+- Who made React? Why?
+- What is a "library" vs "framework"?
 
-4-5 sentences in own words.
+### B. Component thinking
+- What makes a good component?
+- "Component composition" — what does it mean?
+
+### C. Vanilla DOM vs React
+- When is vanilla fine?
+- When is React better?
+
+4-5 sentences per topic.
 
 ---
 
 ## Part 2 — Build (1-1.5 hours)
 
-### A. "Clear all" button
+### A. Break your habits into components
 
-Prompt AI:
+Ask AI:
+
 ```
-Add a "Clear all" button under the habits list. When clicked, uncheck
-all checkboxes and remove strikethroughs. Also reset the counter.
+Refactor my React Habit Tracker so each habit is its own component called <Habit>.
+Pass each habit's name and emoji as props.
 ```
 
-Test.
+### B. Add a Header component
 
-### B. "Mark all done" button
+Ask AI:
 
-Prompt AI: add a 2nd button that marks all checked.
-
-### C. Hover effect on habit
-
-Prompt AI:
 ```
-When mouse hovers over a habit, slightly change its background color.
-Use mouseenter and mouseleave events.
+Add a <Header> component that shows "My Daily Habits" and today's date.
+Place it above the HabitList.
+```
+
+### C. Add a Footer component
+
+```
+Add a <Footer> component that shows "Built by [your name] with React".
 ```
 
 ### D. Break and fix
 
-Delete `addEventListener` line for one checkbox. Push. Click it.
+Change `className` to `class` in one JSX line. Push. Reload.
 
-What happens? (Checkbox state changes but strikethrough doesn't appear.)
-
-Fix. Push.
+What happens? (React warns in console.) Fix.
 
 ---
 
 ## Part 3 — Reflect (0.5 hour)
 
-3-5 sentences:
-1. What's one event you'd like to try next?
-2. What's confusing about DOM?
-3. Did your buttons work first try, or iterate?
+5 sentences:
+1. Easier than vanilla DOM?
+2. What's weirdest about JSX?
+3. Your favorite component you built?
+4. What would you add if you had more time?
+5. One question about React?
 
 ---
 
 ## Submit
 
-1. Live URL
-2. Research notes
-3. Screenshot of buttons working
+1. Live URL (should render via React)
+2. Screenshot of your 3 components (Header, HabitList/Habit, Footer)
+3. Research notes
 4. Reflection
 
 ---
@@ -73,7 +83,13 @@ Fix. Push.
 ## Done when
 
 - [ ] 3 topics researched
-- [ ] Clear all + Mark all done buttons work
-- [ ] Hover effect works
-- [ ] Broke + fixed the listener
+- [ ] Habit is its own component
+- [ ] Header + Footer added
+- [ ] Broke `className` and fixed
 - [ ] Reflection submitted
+
+---
+
+## Looking ahead
+
+Tomorrow (Day 7): **useState** — React's way of making components remember things. No more localStorage manual save/load. React handles it.

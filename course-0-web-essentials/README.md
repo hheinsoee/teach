@@ -4,7 +4,7 @@
 
 > A **day** = one 90-min class meeting. 12 days, 2 per week, 6 weeks.
 >
-> Students learn to **read code**, **understand** how browsers run it, **direct AI** to generate it, and **verify** the output. JS fundamentals (variables, functions, loops, DOM, fetch) at reading-level depth.
+> Students learn to **read code**, **understand** how browsers run it, **direct AI** to generate it, and **verify** the output. JS fundamentals (Days 3-5), then **React** from Day 6 (components, state, effects).
 
 Taught at **theBuilderPros** workshops as the entry point before Course 1.
 
@@ -68,17 +68,17 @@ The real capstone. Built from scratch using all learned skills. Fetches from Hei
 | [3](day-03/) | JS Basics: Variables & Data Types | Console logs you understand |
 | [4](day-04/) | Functions & Conditions | Named functions in code |
 
-### Week 3 — Loops & Interaction
+### Week 3 — Loops & React Intro
 | Day | Title | Ships |
 |---|---|---|
-| [5](day-05/) | Loops | Dynamic rendered list |
-| [6](day-06/) | DOM & Events | Interactive checkboxes |
+| [5](day-05/) | Loops + `.map()` | Dynamic rendered list |
+| [6](day-06/) | **Vanilla DOM concept + React intro** ⭐ | Habit Tracker switched to React |
 
-### Week 4 — State & External Data
+### Week 4 — React State & External Data
 | Day | Title | Ships |
 |---|---|---|
-| [7](day-07/) | localStorage: Data That Persists | Persistent Habit Tracker 🚀 |
-| [8](day-08/) | Fetch: Data From the Internet | Habit Tracker + motivational quote |
+| [7](day-07/) | React State (`useState`) + localStorage | Persistent React Habit Tracker 🚀 |
+| [8](day-08/) | React Fetch (`useEffect`) | Habit Tracker + motivational quote |
 
 ### Week 5 — Capstone 2 (News App)
 | Day | Title | Ships |
@@ -105,7 +105,7 @@ The real capstone. Built from scratch using all learned skills. Fetches from Hei
 | E — Software Engineering | ❌ Excluded (Course 1+) |
 | F — AI/LLM Coding | ⭐⭐ Core (every day) |
 | G — Web Fundamentals | Light (Day 1, 8-9) |
-| H — HTML/CSS/JS | ⭐⭐ Deep (reading) |
+| H — HTML/CSS/JS/JSX | ⭐⭐⭐ Deep (reading) — vanilla JS + React |
 | I — Git & GitHub | Light, integrated (Day 1 + daily commits + Day 12 retro) |
 | J — DevOps/CI/CD | Light, integrated |
 | K — Agentic Coding | Taste only (Day 12) |

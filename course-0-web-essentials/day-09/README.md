@@ -1,20 +1,18 @@
-# Day 9 — Capstone 2 Begins: News App Setup
+# Day 9 — Capstone 2 Begins: News App (React)
 
 **Phase**: ⭐ **CAPSTONE 2** (Day 1 of 4)
-**Project**: News App (new, from scratch)
-**Modules touched**: G (HTTP), H, F (AI), A (reading data flow)
+**Project**: News App (React, new repo from scratch)
+**Modules touched**: G, H, F, A
 **Duration**: 90 min + 3 hr HW
-
-> **This day marks the shift**: students apply ALL learned skills to a NEW project. Habit Tracker is done. News App is the capstone.
 
 ---
 
 ## Learning outcomes
 
-- **Read**: a complete fetch + display flow
-- **Understand**: what the capstone requires end-to-end
-- **Direct**: AI to generate a working News App
-- **Verify**: articles appear on page
+- **Read**: a complete React fetch + render flow
+- **Understand**: capstone expectations
+- **Direct**: AI to build React News App skeleton
+- **Verify**: articles appear from API
 
 ---
 
@@ -22,12 +20,12 @@
 
 | Block | Min | Activity |
 |---|---|---|
-| HW review | 10 | Habit Tracker final showcase, quote feature |
-| Concept: What's a capstone? | 10 | Why News App, what's expected by Day 12 |
-| Setup: new repo | 10 | Create `news-app` repo from starter |
-| Instructor demo | 20 | Build News App from scratch via AI |
+| HW review | 10 | Habit Tracker + quote feature showcase |
+| Concept: What's a capstone? | 10 | Why News App |
+| Setup: news-app repo | 10 | Clone News App starter (React-ready) |
+| Instructor demo | 20 | Build News App via AI |
 | Student build | 30 | Each student builds skeleton |
-| Label + commit | 10 | Capstone, JSON parsing |
+| Label + commit | 10 | Capstone, components, JSX for data |
 
 ---
 
@@ -35,20 +33,22 @@
 
 ### What is Capstone 2?
 
-> *"Habit Tracker က ကိုယ့်လေ့ကျင့်ခန်း။ News App က **ကိုယ့်လက်ရာ**။ Course ပြီးရင် employer, friend, family ပြသနိုင်မယ့် proof."*
+> *"Habit Tracker က လေ့ကျင့်ခန်း။ News App က ကိုယ့်လက်ရာ — employer, friend, family ကို ပြသနိုင်မယ့် proof."*
 
 **Capstone 2 requirements by Day 12**:
-1. News App is live on URL
-2. Fetches real articles from API
-3. Shows at least title, image, date
-4. Has 3+ real users
+1. News App is live
+2. Fetches from Hein's API
+3. Built with React (components, useState, useEffect)
+4. 3+ real users
 5. Student can explain the code
 
 ### API they'll use
 
 Hein's API: `https://api.heinsoe.com/news.json` (or wherever Hein hosts it).
 
-Returns array of news articles. See [`instructor/api-setup.md`](../instructor/api-setup.md).
+JSON array of 10-20 articles. Each has: `id`, `title`, `image`, `body`, `date`, `category`.
+
+See [`instructor/api-setup.md`](../instructor/api-setup.md).
 
 ---
 
@@ -58,69 +58,65 @@ Each student:
 1. On GitHub, **Use template** → create new repo `news-app`
 2. Clone via GitHub Desktop
 3. Enable Pages (Settings → Pages → main / root)
-4. Open starter: `index.html`, `styles.css`, `script.js`
+4. Open starter: `index.html` (React CDN pre-included), `styles.css`, `app.jsx`
 
-**Pre-make a starter repo** for News App — similar to Day 1's Habit Tracker starter. See [`instructor/starter-repo-setup.md`](../instructor/starter-repo-setup.md).
+**Pre-make `news-app-starter` repo** with React CDN. See [`instructor/starter-repo-setup.md`](../instructor/starter-repo-setup.md).
 
 ---
 
 ## Instructor demo (20 min)
 
-Open the API URL in browser. Show the JSON:
+Open the API URL in browser. Show JSON.
 
-```json
-[
-  { "id": 1, "title": "...", "image": "...", "body": "...", "date": "...", "category": "..." },
-  ...
-]
-```
+> *"ဒါ server က ပြန်ပေးတဲ့ data။ Course 0 မှာ React နဲ့ ဒီ data ကို ပြမယ်။"*
 
-> *"ဒါ server က ပြန်ပေးတဲ့ data။ Browser မှာ ဖတ်ရခက်ပေမဲ့ structured ဖြစ်။"*
-
-Prompt AI (in front of class):
+Prompt AI:
 
 ```
-I'm building a News App. The API is:
-https://api.heinsoe.com/news.json
+I'm building a React News App.
 
-It returns a JSON array of articles. Each has:
+The API is: https://api.heinsoe.com/news.json
+
+It returns JSON array of articles:
 - id, title, image, body, date, category
 
-Build me a complete News App:
-- Fetch articles on page load
-- Display each in a card with: image, title, date
-- Clean modern design
-- Mobile-friendly
+Build a React app (via CDN, no npm):
+- App component
+- ArticleCard component (receives article as prop)
+- Fetch articles on mount with useEffect
+- Store in useState
 - Loading state while fetching
 - Error state if fetch fails
+- Each article displayed as a card: image, title, date
 
-Give me HTML, CSS, and JavaScript. Explain the fetch section.
+Give me complete index.html + app.jsx. Explain each piece.
 ```
 
-Read AI's complete solution line by line:
-- HTML: container for articles
-- CSS: card layout
-- JS: fetch → loop → innerHTML
+Read AI's output:
+- `useState(null)` for articles
+- `useEffect(() => fetch(...), [])`
+- `.map(a => <ArticleCard article={a} />)`
+- Conditional rendering (loading / error / content)
 
-Save all 3 files. Push.
+Save, push. Wait 30 sec. Live URL.
 
-Wait 30 sec. Live URL. **Articles appear.**
+**Articles appear.**
 
 ---
 
 ## Student build (30 min)
 
 Each student:
-1. Prompt AI (same demo prompt)
-2. Save HTML, CSS, JS to their `news-app/`
+1. Prompt AI (demo prompt)
+2. Save HTML + JSX to `news-app/`
 3. Push
 4. Open URL — see articles
 
-Common issues (instructor circulates):
+Common issues:
 - CORS error → check API URL
 - Fetch returns empty → is API up?
-- Articles don't display → check JS loop vs HTML container
-- Images don't load → use image URL from API, not placeholder
+- Components don't render → React mount `<div id="root">` missing
+- Babel error → JSX typo in Console
 
 ---
 
@@ -128,10 +124,10 @@ Common issues (instructor circulates):
 
 Write:
 1. What is a **capstone**?
-2. Why fetch from a server vs localStorage?
-3. What makes a "card" layout?
-4. What is loading state? Why have it?
-5. What's the hardest part of your capstone so far?
+2. Why fetch from server vs localStorage?
+3. What is a **component prop**?
+4. What does `articles.map(...)` do in JSX?
+5. Where does loading state live?
 
 ---
 
@@ -140,15 +136,16 @@ Write:
 | Failure | Fix |
 |---|---|
 | API down | Fall back to local `news.json` file |
-| CORS error | API host must set `Access-Control-Allow-Origin: *` |
-| Articles appear once but stuck | `fetch()` only runs once per load; add refresh button if needed |
+| Articles don't appear | Check Console + Network tab |
+| Images don't load | Use actual URLs from API |
+| Infinite re-fetch | `useEffect` missing `[]` |
 
 ---
 
 ## NOT
 
-- Pagination (just show all articles today)
+- Pagination (just show all today)
 - Search (Day 10)
-- Backend concerns
+- React Router (Course 1+)
 
-Keep tight: fetch → display cards. Loading state. Error state. That's today.
+Keep tight: fetch → map → render cards.

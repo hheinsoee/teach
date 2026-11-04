@@ -12,7 +12,7 @@
 - **Present** News App in 3 min
 - **Reflect** on 6-week journey
 - **Preview** what Course 1+ holds
-- **Understand** what Git/CI-CD was doing all along
+- **Understand** what Git/CI-CD did all along
 
 ---
 
@@ -20,10 +20,10 @@
 
 | Block | Min | Activity |
 |---|---|---|
-| HW review | 5 | Final check — everyone's URL works |
-| Student showcase | 30 | Each student presents News App |
+| HW review | 5 | Final URL check |
+| Student showcase | 30 | Each presents News App (3 min) |
 | "What was Git doing?" retrospective | 10 | The behind-the-scenes tour |
-| "Taste of what's next" | 25 | React, Cursor, backend demos |
+| "Taste of what's next" | 25 | Vite, TypeScript, Next.js, backend demos |
 | Course 1 preview | 10 | What's next if interested |
 | Close + certificate | 10 | Group photo, URLs sheet |
 
@@ -32,11 +32,11 @@
 ## Student showcase (30 min)
 
 Each student (3 min):
-1. Open their News App URL on big screen
+1. Open News App URL on screen
 2. Scroll articles, use search, show features
 3. Say:
    - What it does
-   - Favorite feature
+   - Favorite React component
    - User feedback highlight
    - What they'd add next
 
@@ -48,100 +48,120 @@ Instructor keeps time strictly.
 
 - 5 students → 15 min, easy
 - 10 students → 30 min, fills slot
-- 15+ students → 45+ min, cut other sections or split
+- 15+ students → 45 min, cut other sections
 
 ---
 
 ## "What was Git doing?" retrospective (10 min)
 
-> *"သင်တို့ ပြီးခဲ့တဲ့ ၆ ပတ်မှာ **commit ၂၀-၃၀ ကြိမ်** လုပ်ခဲ့ပြီ။ 'git push' လုပ်တိုင်း URL update ဖြစ်။ ဒါ ဘယ်လိုဖြစ်တာလဲ?"*
+> *"ပြီးခဲ့တဲ့ ၆ ပတ်မှာ **commit ၂၀-၃၀ ကြိမ်** လုပ်ခဲ့ပြီ။ `push` လုပ်တိုင်း URL update ဖြစ်။ ဒါ ဘယ်လိုဖြစ်တာလဲ?"*
 
-Walk through:
+Whiteboard:
 
 ```
 Your laptop
      ↓ git push
-GitHub (cloud copy)
+GitHub (cloud)
      ↓ GitHub Actions
-Live URL (publicly viewable)
+Live URL
 ```
 
-Explain:
-- **Git** = tracks every change you made
+Explain briefly:
+- **Git** = tracks changes
 - **GitHub** = online copy
-- **GitHub Pages** = turns repo into website
-- **CI/CD** (Continuous Integration / Continuous Deployment) = automation that deploys on push
+- **GitHub Pages** = turns repo into site
+- **CI/CD** = automation on push
 
-> *"ဒါတွေက **behind the scenes** work လုပ်နေခဲ့တယ်။ ကိုယ်တို့က 'push' ပဲလုပ်ရတယ်။ ဒါပေမဲ့ real engineers က ဒီ pipeline တွေကို ကိုယ့်ဖာသာ configure လုပ်ကြတယ်။ ဒါ Course 1+ မှ သေချာ သင်မယ်။"*
+> *"ဒါ behind the scenes ပဲ ဖြစ်နေခဲ့တယ်။ Real engineers က ဒီ pipelines ကို ကိုယ့်ဖာသာ configure လုပ်။ Course 1 မှ သေချာ သင်မယ်။"*
 
 ---
 
 ## "Taste of what's next" (25 min)
 
-### 1. React (10 min)
+### 1. Vite (replaces CDN) — 8 min
 
-Open codesandbox / React playground:
+Show on screen:
 
-```jsx
-function NewsCard({ article }) {
-  return (
-    <div className="card">
-      <img src={article.image} />
-      <h2>{article.title}</h2>
-      <p>{article.date}</p>
-    </div>
-  )
+```bash
+npm create vite@latest news-app -- --template react
+cd news-app
+npm install
+npm run dev
+```
+
+Demo:
+- `npm run dev` → `localhost:5173`
+- JSX compiled instantly (not by Babel in browser)
+- Hot reload — save file → page updates
+
+> *"ဒီ course မှာ React CDN သုံး — **simple, no install**။ Industry က **Vite** သုံး — fast, production-ready။ Course 1 မှ သုံးမယ်။"*
+
+### 2. TypeScript — 5 min
+
+Show:
+
+```tsx
+type Article = {
+    id: number;
+    title: string;
+    image: string;
+    date: string;
+};
+
+function ArticleCard({ article }: { article: Article }) {
+    return (
+        <div>
+            <h2>{article.title}</h2>
+        </div>
+    );
 }
-
-function App({ articles }) {
-  return articles.map(a => <NewsCard article={a} />)
-}
 ```
 
-> *"ဒါ React — **component** ဆိုတဲ့ reusable piece တွေ ဆောက်။ Big apps က framework မပါဘဲ မြင်းနိုင်။ ဒါ Course 1 မှ ပြီးပြည့်စုံ သင်မယ်။"*
+> *"**TypeScript** = JavaScript + **types**。 'Article က id, title ရှိရမယ်' လို enforce လုပ်။ Bug များ ကာကွယ်။ Course 1+ မှ သင်မယ်။"*
 
-### 2. Cursor / Agentic AI (10 min)
+### 3. Next.js (full framework) — 5 min
 
-Open Cursor (or demo video). Prompt:
-```
-Build me a complete news aggregator with 3 sources, dark mode, filters
-```
+Show briefly:
+- `pages/` folder = routes
+- Server-side rendering
+- API routes in same project
 
-Watch AI generate entire app.
+> *"**Next.js** = React ပေါ်မှာ ထည့်တဲ့ framework — pages, routing, backend တွေ ပါ။ Real-world production app တွေ Next.js နဲ့ ဆောက်။ Course 1-2 territory။"*
 
-> *"ဒါ agentic AI — AI က developer အစား code ရေး, decide, deploy။ ဒါပေမဲ့ ဒီ app break ဖြစ်ရင် ဘယ်သူ fix လုပ်မလဲ? **ကိုယ်**။ Course 1 skills ကို သိမှ handle လုပ်နိုင်မယ်။"*
+### 4. Backend — 7 min
 
-### 3. Backend (5 min)
+Show simple Express:
 
-Show simple Express.js:
 ```javascript
 app.get('/news', (req, res) => {
-    res.json({ articles: [...] })
-})
+    res.json({ articles: [...] });
+});
 ```
 
-> *"ဒါ **backend** — Hein's API က ဒီအတိုင်း ဆောက်ထား။ Course 1 မှ ကိုယ့်ဖာသာ ဆောက်တတ်မယ်။"*
+> *"ဒါ **backend** — Hein's News API ကို ဒီအတိုင်း ဆောက်။ Course 1 မှ ကိုယ့်ဖာသာ ဆောက်တတ်မယ်။"*
 
 ---
 
 ## Course 1 Preview (10 min)
 
-Hand out syllabus (or show screen):
-
-**Course 1 — AI-Assisted Full-Stack**
-- 12 days × 90-120 min
-- Reading code AND writing code with AI
-- Build a full-stack app (Node.js + Express + SQLite)
-- Authentication
-- Testing
-- 4 completion markers
+**Course 1 — AI-Assisted Full-Stack**:
+- 12 days × 120 min
+- **Real-world professional practice**:
+  - Vite + TypeScript
+  - Reading other people's code
+  - Formal code review
+  - Writing tests
+  - Full-stack (backend + database + auth)
+  - Production deployment
+- Hard rubric, oral exam (not optional)
+- 5-6 of 10 pass honestly
 
 **Keep building between courses**:
 - Pick a new problem each week
 - Ship 1 mini-app weekly
-- Learn one thing deeper (CSS, JS, Git — pick one)
+- Learn deeper (React, Git, CSS — pick one)
 
-Burmese resources list (if any available).
+Burmese resources list (if available).
 
 ---
 
@@ -149,20 +169,18 @@ Burmese resources list (if any available).
 
 ### Group photo
 
-Everyone + screen with URLs list.
-
 ### Shared URLs sheet
 
-Google Doc with:
+Google Doc:
 - Each student's name
-- Each student's News App URL
-- Each student's Habit Tracker URL (bonus)
+- News App URL
+- Habit Tracker URL (bonus)
 
 ### Certificate language (honest)
 
-> *"[Student Name] has completed Course 0 — Web Essentials, demonstrating the ability to read HTML/CSS/JavaScript, direct AI to generate code, and deploy two web applications to the internet."*
+> *"[Student Name] has completed Course 0 — Web Essentials, demonstrating the ability to read HTML/CSS/JavaScript/React code, direct AI to generate code, and deploy two web applications to the internet."*
 
-Don't inflate. Not "a web developer." A **web essentials graduate**.
+Don't inflate.
 
 ---
 
@@ -176,23 +194,12 @@ See [`homework.md`](homework.md).
 
 | Failure | Fix |
 |---|---|
-| Student News App broken mid-showcase | 15-min buffer early; help them push a fix |
-| Student too nervous to present | 2-min minimum; teacher helps with Q&A |
-| Running out of time | Cut "Taste of what's next" to 10 min |
-
----
-
-## What this day is NOT
-
-- Not a React tutorial
-- Not a framework comparison lecture
-- Not backend deep-dive
-- Not final exam
-
-Keep tight: celebrate → preview → close.
+| News App broken mid-showcase | 15-min buffer early |
+| Student too nervous | 2-min minimum, help with questions |
+| Running out of time | Cut "what's next" to 10 min |
 
 ---
 
 ## The teacher's job today
 
-**Celebrate.** You just helped non-programmers build and deploy real web apps in 6 weeks. That's remarkable. Make sure every student feels proud.
+**Celebrate.** Students built 2 React apps in 6 weeks. That's remarkable.
